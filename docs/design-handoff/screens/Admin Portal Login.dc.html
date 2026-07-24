@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #444; }
+  a:hover { color: #000; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief v1.8</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Admin Portal Login</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 720px; line-height: 1.5;">Internal, separately-authenticated. Deliberately unbranded — no hero imagery, no brand color, plain enough that a screenshot wouldn't identify the product. Credential entry → TOTP → an equally plain locked-out state that never reveals which factor failed.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <!-- CARD 1: Credential entry -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Credential entry</div>
+      </div>
+      <x-import component-from-global-scope="ChromeWindow" from="./browser-window.jsx" url="admin.nearbyvibes.internal/login" hint-size="1000,660">
+        <div style="width: 100%; height: 100%; background: #F2F2F2; display: flex; align-items: center; justify-content: center; font-family: 'Inter', -apple-system, system-ui, sans-serif;">
+          <div style="width: 340px; display: flex; flex-direction: column; gap: 22px;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <div style="font-size: 15px; font-weight: 700; color: #1A1A1A; letter-spacing: -0.01em;">Nearby Vibes — Admin</div>
+              <div style="font-size: 12.5px; color: #6B6B6B;">Sign in with your staff credentials.</div>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label style="font-size: 11.5px; font-weight: 600; color: #4A4A4A;">Business email</label>
+                <input type="text" placeholder="you@nearbyvibes.com" style="border: 1px solid #D4D4D4; border-radius: 6px; padding: 10px 11px; font-size: 13.5px; font-family: inherit; box-sizing: border-box; background: #fff; color: #1A1A1A;"></input>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label style="font-size: 11.5px; font-weight: 600; color: #4A4A4A;">Password</label>
+                <input type="password" placeholder="••••••••••" style="border: 1px solid #D4D4D4; border-radius: 6px; padding: 10px 11px; font-size: 13.5px; font-family: inherit; box-sizing: border-box; background: #fff; color: #1A1A1A;"></input>
+              </div>
+            </div>
+            <div style="background: #1A1A1A; color: #fff; font-size: 13px; font-weight: 600; text-align: center; padding: 11px; border-radius: 6px;">Continue</div>
+            <div style="font-size: 11.5px; color: #8A8A8A; text-align: center;">Internal use only. Unauthorized access is prohibited and logged.</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 2: TOTP entry -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">TOTP entry</div>
+      </div>
+      <x-import component-from-global-scope="ChromeWindow" from="./browser-window.jsx" url="admin.nearbyvibes.internal/login/totp" hint-size="1000,660">
+        <div style="width: 100%; height: 100%; background: #F2F2F2; display: flex; align-items: center; justify-content: center; font-family: 'Inter', -apple-system, system-ui, sans-serif;">
+          <div style="width: 340px; display: flex; flex-direction: column; gap: 22px;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <div style="font-size: 15px; font-weight: 700; color: #1A1A1A; letter-spacing: -0.01em;">Two-factor verification</div>
+              <div style="font-size: 12.5px; color: #6B6B6B;">Enter the 6-digit code from your authenticator app.</div>
+            </div>
+            <div style="display: flex; gap: 8px; justify-content: space-between;">
+              <div style="width: 42px; height: 50px; border: 1px solid #D4D4D4; border-radius: 6px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #1A1A1A; font-family: 'SF Mono', 'Courier New', monospace;">4</div>
+              <div style="width: 42px; height: 50px; border: 1px solid #D4D4D4; border-radius: 6px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #1A1A1A; font-family: 'SF Mono', 'Courier New', monospace;">1</div>
+              <div style="width: 42px; height: 50px; border: 1px solid #D4D4D4; border-radius: 6px; background: #fff; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; color: #1A1A1A; font-family: 'SF Mono', 'Courier New', monospace;">7</div>
+              <div style="width: 42px; height: 50px; border: 1.5px solid #1A1A1A; border-radius: 6px; background: #fff;"></div>
+              <div style="width: 42px; height: 50px; border: 1px solid #D4D4D4; border-radius: 6px; background: #fff;"></div>
+              <div style="width: 42px; height: 50px; border: 1px solid #D4D4D4; border-radius: 6px; background: #fff;"></div>
+            </div>
+            <div style="background: #1A1A1A; color: #fff; font-size: 13px; font-weight: 600; text-align: center; padding: 11px; border-radius: 6px;">Verify</div>
+            <div style="font-size: 12px; color: #6B6B6B; text-align: center;">Didn't get a code? <span style="color: #1A1A1A; font-weight: 600;">Resend</span></div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 3: Locked out -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Locked out</div>
+      </div>
+      <x-import component-from-global-scope="ChromeWindow" from="./browser-window.jsx" url="admin.nearbyvibes.internal/login" hint-size="1000,660">
+        <div style="width: 100%; height: 100%; background: #F2F2F2; display: flex; align-items: center; justify-content: center; font-family: 'Inter', -apple-system, system-ui, sans-serif;">
+          <div style="width: 340px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: #EAEAEA; display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="7" rx="1.3" stroke="#4A4A4A" stroke-width="1.4"/><path d="M5 7V5A3 3 0 0111 5V7" stroke="#4A4A4A" stroke-width="1.4"/></svg>
+            </div>
+            <div style="font-size: 15px; font-weight: 700; color: #1A1A1A;">Account temporarily locked</div>
+            <div style="font-size: 12.5px; color: #6B6B6B; line-height: 1.6;">Too many failed sign-in attempts. Try again in <strong style="color: #1A1A1A;">14:52</strong>.</div>
+            <div style="width: 100%; height: 1px; background: #DDD; margin: 4px 0;"></div>
+            <div style="font-size: 11.5px; color: #8A8A8A; line-height: 1.5;">If this wasn't you, contact IT Security.</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #444; }
+  a:hover { color: #000; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief v1.8</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Admin Onboarding Queue</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 720px; line-height: 1.5;">Newly completed NYC venues, listed chronologically. Click a Sticker Pack status to mark it sent (or back to pending) as you fulfill them.</div>
+  </div>
+
+  <x-import component-from-global-scope="ChromeWindow" from="./browser-window.jsx" url="admin.nearbyvibes.internal/onboarding-queue" hint-size="1400,820">
+    <div style="width: 100%; height: 100%; background: #FAFAFA; display: flex; font-family: 'Inter', -apple-system, system-ui, sans-serif; overflow: hidden;">
+
+      <div style="width: 190px; flex: none; background: #1A1A1A; display: flex; flex-direction: column; padding: 18px 0;">
+        <div style="padding: 0 18px 16px; font-size: 12.5px; font-weight: 700; color: #fff; letter-spacing: 0.02em;">Nearby Vibes Admin</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Users</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Venues</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Posts</div>
+        <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 10px 18px;"></div>
+        <a href="./Nearby Vibes - Admin Report Queue.dc.html" style="text-decoration: none; padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65); display: flex; align-items: center; justify-content: space-between;">
+          <span>Report Queue</span>
+          <span style="background: #C0392B; color: #fff; font-size: 10.5px; font-weight: 700; padding: 1px 7px; border-radius: 999px;">2</span>
+        </a>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Fraud Queue</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 700; background: rgba(255,255,255,0.1); color: #fff; border-radius: 6px;">Onboarding Queue</div>
+        <a href="./Nearby Vibes - Network Dashboard.dc.html" style="text-decoration: none; padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Network Dashboard</a>
+      </div>
+
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column;">
+
+        <div style="padding: 16px 22px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #E4E4E4;">
+          <div style="font-size: 15px; font-weight: 700; color: #1A1A1A; flex: none;">Onboarding Queue</div>
+          <div style="display: flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; color: #C0392B; background: rgba(192,57,43,0.08); padding: 3px 9px; border-radius: 999px;">
+            <svg width="10" height="10" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.5 1.5 4 3.3 4 5.7V8.3L2.5 11H13.5L12 8.3V5.7C12 3.3 10.5 1.5 8 1.5Z" stroke="#C0392B" stroke-width="1.4" stroke-linejoin="round"/><path d="M6.3 13.2C6.6 13.9 7.2 14.3 8 14.3C8.8 14.3 9.4 13.9 9.7 13.2" stroke="#C0392B" stroke-width="1.4" stroke-linecap="round"/></svg>
+            {{ pendingCount }} pending sticker packs
+          </div>
+          <div style="flex: 1;"></div>
+          <div style="display: flex; align-items: center; gap: 6px; border: 1px solid #D8D8D8; border-radius: 6px; padding: 7px 10px; background: #fff; max-width: 260px;">
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#999" stroke-width="1.5"/><path d="M11.5 11.5L15 15" stroke="#999" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span style="font-size: 12px; color: #999;">Search venues…</span>
+          </div>
+        </div>
+
+        <div style="flex: 1; overflow: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 12.5px;">
+            <thead>
+              <tr style="background: #F0F0F0; text-align: left;">
+                <th style="padding: 9px 22px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em;">VENUE ID</th>
+                <th style="padding: 9px 12px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em;">NAME</th>
+                <th style="padding: 9px 12px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em;">BOROUGH</th>
+                <th style="padding: 9px 12px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em;">OWNER</th>
+                <th style="padding: 9px 12px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em;">PLAN</th>
+                <th style="padding: 9px 12px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em;">COMPLETED</th>
+                <th style="padding: 9px 12px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em;">STICKER PACK</th>
+                <th style="padding: 9px 22px; font-weight: 700; color: #6B6B6B; font-size: 11px; letter-spacing: 0.03em; text-align: right;">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid #EEE;">
+                <td style="padding: 10px 22px; font-family: 'JetBrains Mono', monospace; color: #6B6B6B;">vnu_c2f10a</td>
+                <td style="padding: 10px 12px; color: #1A1A1A; font-weight: 600;">Rivet &amp; Rail</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Manhattan</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">t.osei@gmail.com</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Trial</td>
+                <td style="padding: 10px 12px; color: #6B6B6B;">Jul 23, 2026 · 8:12 AM</td>
+                <td style="padding: 10px 12px;"><span onClick="{{ packs.rivet.toggle }}" title="Click to mark as sent/pending." style="{{ packs.rivet.style }}">{{ packs.rivet.label }}</span></td>
+                <td style="padding: 10px 22px; text-align: right;"><span title="Opens this venue's full account record." style="color: #4A4A4A; font-weight: 600; cursor: pointer;">View Record</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #EEE;">
+                <td style="padding: 10px 22px; font-family: 'JetBrains Mono', monospace; color: #6B6B6B;">vnu_9e70b3</td>
+                <td style="padding: 10px 12px; color: #1A1A1A; font-weight: 600;">Lower East Tavern</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Manhattan</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">k.brandt@icloud.com</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Trial</td>
+                <td style="padding: 10px 12px; color: #6B6B6B;">Jul 22, 2026 · 6:47 PM</td>
+                <td style="padding: 10px 12px;"><span onClick="{{ packs.lowerEast.toggle }}" title="Click to mark as sent/pending." style="{{ packs.lowerEast.style }}">{{ packs.lowerEast.label }}</span></td>
+                <td style="padding: 10px 22px; text-align: right;"><span title="Opens this venue's full account record." style="color: #4A4A4A; font-weight: 600; cursor: pointer;">View Record</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #EEE;">
+                <td style="padding: 10px 22px; font-family: 'JetBrains Mono', monospace; color: #6B6B6B;">vnu_3af881</td>
+                <td style="padding: 10px 12px; color: #1A1A1A; font-weight: 600;">Bowery &amp; Nine</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Manhattan</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">renee.p@yahoo.com</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Free</td>
+                <td style="padding: 10px 12px; color: #6B6B6B;">Jul 22, 2026 · 11:03 AM</td>
+                <td style="padding: 10px 12px;"><span onClick="{{ packs.bowery.toggle }}" title="Click to mark as sent/pending." style="{{ packs.bowery.style }}">{{ packs.bowery.label }}</span></td>
+                <td style="padding: 10px 22px; text-align: right;"><span title="Opens this venue's full account record." style="color: #4A4A4A; font-weight: 600; cursor: pointer;">View Record</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #EEE;">
+                <td style="padding: 10px 22px; font-family: 'JetBrains Mono', monospace; color: #6B6B6B;">vnu_71dc4e</td>
+                <td style="padding: 10px 12px; color: #1A1A1A; font-weight: 600;">Mott St. Kitchen</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Manhattan</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">wong.family.eats@gmail.com</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Trial</td>
+                <td style="padding: 10px 12px; color: #6B6B6B;">Jul 21, 2026 · 9:30 AM</td>
+                <td style="padding: 10px 12px;"><span onClick="{{ packs.mott.toggle }}" title="Click to mark as sent/pending." style="{{ packs.mott.style }}">{{ packs.mott.label }}</span></td>
+                <td style="padding: 10px 22px; text-align: right;"><span title="Opens this venue's full account record." style="color: #4A4A4A; font-weight: 600; cursor: pointer;">View Record</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #EEE;">
+                <td style="padding: 10px 22px; font-family: 'JetBrains Mono', monospace; color: #6B6B6B;">vnu_5b02cc</td>
+                <td style="padding: 10px 12px; color: #1A1A1A; font-weight: 600;">Vault 27</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Manhattan</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">m.delacroix@outlook.com</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Founding — Trial</td>
+                <td style="padding: 10px 12px; color: #6B6B6B;">Jul 19, 2026 · 4:55 PM</td>
+                <td style="padding: 10px 12px;"><span onClick="{{ packs.vault.toggle }}" title="Click to mark as sent/pending." style="{{ packs.vault.style }}">{{ packs.vault.label }}</span></td>
+                <td style="padding: 10px 22px; text-align: right;"><span title="Opens this venue's full account record." style="color: #4A4A4A; font-weight: 600; cursor: pointer;">View Record</span></td>
+              </tr>
+              <tr style="border-bottom: 1px solid #EEE;">
+                <td style="padding: 10px 22px; font-family: 'JetBrains Mono', monospace; color: #6B6B6B;">vnu_e819f0</td>
+                <td style="padding: 10px 12px; color: #1A1A1A; font-weight: 600;">Canal Street Social</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Manhattan</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">canalsocial.nyc@gmail.com</td>
+                <td style="padding: 10px 12px; color: #4A4A4A;">Founding — Trial</td>
+                <td style="padding: 10px 12px; color: #6B6B6B;">Jul 17, 2026 · 2:18 PM</td>
+                <td style="padding: 10px 12px;"><span onClick="{{ packs.canal.toggle }}" title="Click to mark as sent/pending." style="{{ packs.canal.style }}">{{ packs.canal.label }}</span></td>
+                <td style="padding: 10px 22px; text-align: right;"><span title="Opens this venue's full account record." style="color: #4A4A4A; font-weight: 600; cursor: pointer;">View Record</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    rivet: false, lowerEast: false, bowery: false,
+    mott: true, vault: true, canal: true
+  };
+  renderVals() {
+    const sentStyle = { background: 'rgba(10,155,113,0.1)', color: '#0A9B71', fontSize: '10.5px', fontWeight: 700, padding: '3px 8px', borderRadius: '4px', cursor: 'pointer' };
+    const pendingStyle = { background: 'rgba(192,57,43,0.1)', color: '#C0392B', fontSize: '10.5px', fontWeight: 700, padding: '3px 8px', borderRadius: '4px', cursor: 'pointer' };
+    const make = (key) => ({
+      label: this.state[key] ? 'Sent' : 'Pending',
+      style: this.state[key] ? sentStyle : pendingStyle,
+      toggle: () => this.setState(s => ({ [key]: !s[key] }))
+    });
+    const keys = ['rivet', 'lowerEast', 'bowery', 'mott', 'vault', 'canal'];
+    const pendingCount = keys.filter(k => !this.state[k]).length;
+    return {
+      packs: {
+        rivet: make('rivet'), lowerEast: make('lowerEast'), bowery: make('bowery'),
+        mott: make('mott'), vault: make('vault'), canal: make('canal')
+      },
+      pendingCount
+    };
+  }
+}
+</script>
+</body>
+</html>

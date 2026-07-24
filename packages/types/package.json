@@ -1,0 +1,15 @@
+{
+  "name": "@nearby-vibes/types",
+  "version": "0.1.0",
+  "description": "Shared TypeScript types for Nearby Vibes",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "workspace:*"
+  }
+}

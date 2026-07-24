@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Venue Profile</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 640px; line-height: 1.5;">What a customer sees after tapping a venue from Tile or Map view — hours, address, and every special currently live or coming up.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Open — live special</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="position: relative; height: 480px; flex: none;">
+            <image-slot id="venue-hero" shape="rect" placeholder="Venue photo — storefront or interior" style="position: absolute; inset: 0;"></image-slot>
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.55) 100%); pointer-events: none;"></div>
+
+            <div style="position: absolute; top: 62px; left: 20px; right: 20px; display: flex; align-items: center; justify-content: space-between;">
+              <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;">
+                <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="14" cy="4" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><circle cx="4" cy="9" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><circle cx="14" cy="14" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><path d="M6.1 7.8L11.9 5.2M6.1 10.2L11.9 12.8" stroke="#0A0A0A" stroke-width="1.5"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="position: absolute; bottom: 16px; left: 20px; right: 20px; display: flex; align-items: flex-end; justify-content: space-between; gap: 10px;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px; background: rgba(10,10,10,0.55); align-self: flex-start; padding: 5px 10px; border-radius: 999px;">
+                  <div style="width: 7px; height: 7px; border-radius: 50%; background: #25EFB8;"></div>
+                  <span style="font-size: 11.5px; font-weight: 700; color: #fff;">OPEN NOW · CLOSES 2:00 AM</span>
+                </div>
+                <div style="font-size: 24px; font-weight: 800; color: #fff; line-height: 1.15;">Aye Aye Bar</div>
+                <div style="font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 2px;">Bar · 0.3 mi away</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 4px; display: flex; gap: 10px;">
+            <div style="flex: 1; background: #0A0A0A; color: #fff; font-size: 13.5px; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Follow</div>
+            <div style="flex: 1; background: #25EFB8; color: #0A0A0A; font-size: 13.5px; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#0A0A0A" stroke-width="1.5"/><path d="M12 6L7.8 7.8L6 12L10.2 10.2L12 6Z" fill="#0A0A0A"/></svg>Navigate</div>
+          </div>
+
+          <div style="padding: 16px 20px 0;">
+            <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 10px;">CURRENT SPECIAL</div>
+            <div style="position: relative; width: 100%; height: 168px; border-radius: 16px; overflow: hidden;">
+              <image-slot id="venue-current-special" shape="rect" placeholder="Post photo — 2 for 1 Margaritas" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.68) 100%); pointer-events: none;"></div>
+              <div style="position: absolute; top: 8px; right: 8px; background: #95048B; color: #fff; font-size: 9.5px; font-weight: 800; padding: 3px 7px; border-radius: 999px;">DRINK</div>
+              <div style="position: absolute; bottom: 32px; left: 12px; right: 12px;">
+                <div style="font-size: 15px; font-weight: 700; color: #fff;">2 for 1 Margaritas</div>
+                <div style="font-size: 11.5px; color: rgba(255,255,255,0.8); margin-top: 2px; line-height: 1.4;">Kitchen's open till close — no reservation needed, just show this in-app.</div>
+              </div>
+              <div style="position: absolute; bottom: 8px; left: 12px; right: 12px; display: flex; align-items: center; gap: 5px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #25EFB8;"></div>
+                <span style="font-size: 10.5px; font-weight: 700; color: #fff;">LIVE</span>
+                <span style="font-size: 10.5px; font-weight: 600; color: rgba(255,255,255,0.85); margin-left: auto;">2:30</span>
+              </div>
+              <div style="position: absolute; bottom: 3px; left: 12px; right: 12px; height: 3px; border-radius: 999px; background: rgba(255,255,255,0.3); overflow: hidden;">
+                <div style="width: 68%; height: 100%; background: #F814E8; border-radius: 999px;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 20px 20px 32px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; gap: 10px;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex: none; margin-top: 2px;"><circle cx="8" cy="8" r="6.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4"/><path d="M8 4.5V8L10.3 9.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <div style="flex: 1;">
+                <div style="font-size: 13px; font-weight: 600; color: #0A0A0A;">Open until 2:00 AM</div>
+                <div style="font-size: 12px; color: rgba(10,10,10,0.5); margin-top: 2px;">Mon–Sun · 4:00 PM – 2:00 AM</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex: none; margin-top: 2px;"><path d="M8 14S2 9 2 5.3A6 6 0 018 -0.5 6 6 0 0114 5.3C14 9 8 14 8 14Z" stroke="rgba(10,10,10,0.4)" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              <div style="flex: 1;">
+                <div style="font-size: 13px; font-weight: 600; color: #0A0A0A;">118 5th Ave, New York, NY</div>
+                <div style="font-size: 12px; color: rgba(10,10,10,0.5); margin-top: 2px;">0.3 mi away</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 8px;">VENUE AREAS</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <div style="padding: 6px 12px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 12px; font-weight: 700;">Sports Bar</div>
+                <div style="padding: 6px 12px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 12px; font-weight: 700;">Beer Garden</div>
+                <div style="padding: 6px 12px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 12px; font-weight: 700;">Rooftop</div>
+              </div>
+            </div>
+            <div style="position: relative; width: 100%; height: 130px; border-radius: 14px; overflow: hidden; flex: none;">
+              <image-slot id="venue-map-1" shape="rect" placeholder="Map tiles — venue location" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; top: 50%; left: 50%; width: 16px; height: 16px; border-radius: 50%; background: #7F53F3; border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.25); transform: translate(-50%,-50%);"></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(10,10,10,0.08); margin-top: 4px;">
+              <a href="./Nearby Vibes - Report Content.dc.html" style="display: flex; align-items: center; gap: 6px; cursor: pointer; text-decoration: none;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 1V13" stroke="rgba(10,10,10,0.4)" stroke-width="1.6" stroke-linecap="round"/><path d="M2 2H11L9 4.5L11 7H2Z" fill="rgba(10,10,10,0.3)"/></svg>
+                <span style="font-size: 12.5px; font-weight: 600; color: rgba(10,10,10,0.45);">Report</span>
+              </a>
+              <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(10,10,10,0.4);">VENUE IDENTITY</div>
+              <div style="font-size: 13px; font-weight: 800; color: #7F53F3; margin-top: -6px;">NV-48213-A</div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Closed — no live special</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="position: relative; height: 480px; flex: none;">
+            <image-slot id="venue-hero-2" shape="rect" placeholder="Venue photo — storefront or interior" style="position: absolute; inset: 0; filter: grayscale(0.5);"></image-slot>
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.05) 65%, rgba(0,0,0,0.55) 100%); pointer-events: none;"></div>
+
+            <div style="position: absolute; top: 62px; left: 20px; right: 20px; display: flex; align-items: center; justify-content: space-between;">
+              <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;">
+                <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div style="display: flex; gap: 8px;">
+                <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;">
+                  <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="14" cy="4" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><circle cx="4" cy="9" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><circle cx="14" cy="14" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><path d="M6.1 7.8L11.9 5.2M6.1 10.2L11.9 12.8" stroke="#0A0A0A" stroke-width="1.5"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="position: absolute; bottom: 16px; left: 20px; right: 20px;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px; background: rgba(10,10,10,0.55); align-self: flex-start; padding: 5px 10px; border-radius: 999px;">
+                <div style="width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.6);"></div>
+                <span style="font-size: 11.5px; font-weight: 700; color: #fff;">CLOSED · OPENS 4:00 PM</span>
+              </div>
+              <div style="font-size: 24px; font-weight: 800; color: #fff; line-height: 1.15;">241 Bar</div>
+              <div style="font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 2px;">Restaurant · 0.6 mi away</div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 4px; display: flex; gap: 10px;">
+            <div style="flex: 1; background: #0A0A0A; color: #fff; font-size: 13.5px; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>Follow</div>
+            <div style="flex: 1; background: #25EFB8; color: #0A0A0A; font-size: 13.5px; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="14" height="14" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#0A0A0A" stroke-width="1.5"/><path d="M12 6L7.8 7.8L6 12L10.2 10.2L12 6Z" fill="#0A0A0A"/></svg>Navigate</div>
+          </div>
+
+          <div style="margin: 16px 20px 0; background: rgba(127,83,243,0.08); border: 1px solid rgba(127,83,243,0.18); border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center;">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(127,83,243,0.15); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M8 1C6.3 1 5 2.4 5 4.1V6.5C5 8 4.4 9.4 3.4 10.5L2 12H14L12.6 10.5C11.6 9.4 11 8 11 6.5V4.1C11 2.4 9.7 1 8 1Z" stroke="#7F53F3" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 14.5a2 2 0 004 0" stroke="#7F53F3" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div style="font-size: 12.5px; color: rgba(10,10,10,0.65); line-height: 1.5;"><strong style="color: #7F53F3; font-weight: 700;">No live special right now.</strong> Follow this venue to get notified the moment one goes up.</div>
+          </div>
+
+          <div style="padding: 20px 20px 32px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; gap: 10px;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex: none; margin-top: 2px;"><circle cx="8" cy="8" r="6.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4"/><path d="M8 4.5V8L10.3 9.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <div style="flex: 1;">
+                <div style="font-size: 13px; font-weight: 600; color: #0A0A0A;">Opens 4:00 PM</div>
+                <div style="font-size: 12px; color: rgba(10,10,10,0.5); margin-top: 2px;">Mon–Sun · 4:00 PM – 12:00 AM</div>
+              </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex: none; margin-top: 2px;"><path d="M8 14S2 9 2 5.3A6 6 0 018 -0.5 6 6 0 0114 5.3C14 9 8 14 8 14Z" stroke="rgba(10,10,10,0.4)" stroke-width="1.4" stroke-linejoin="round"/></svg>
+              <div style="flex: 1;">
+                <div style="font-size: 13px; font-weight: 600; color: #0A0A0A;">241 Main St, New York, NY</div>
+                <div style="font-size: 12px; color: rgba(10,10,10,0.5); margin-top: 2px;">0.6 mi away</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 8px;">VENUE AREAS</div>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <div style="padding: 6px 12px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 12px; font-weight: 700;">Restaurant</div>
+                <div style="padding: 6px 12px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 12px; font-weight: 700;">Patio</div>
+              </div>
+            </div>
+            <div style="position: relative; width: 100%; height: 130px; border-radius: 14px; overflow: hidden; flex: none;">
+              <image-slot id="venue-map-2" shape="rect" placeholder="Map tiles — venue location" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; top: 50%; left: 50%; width: 16px; height: 16px; border-radius: 50%; background: #7F53F3; border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.25); transform: translate(-50%,-50%);"></div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 16px; border-top: 1px solid rgba(10,10,10,0.08); margin-top: 4px;">
+              <div style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 1V13" stroke="rgba(10,10,10,0.4)" stroke-width="1.6" stroke-linecap="round"/><path d="M2 2H11L9 4.5L11 7H2Z" fill="rgba(10,10,10,0.3)"/></svg>
+                <span style="font-size: 12.5px; font-weight: 600; color: rgba(10,10,10,0.45);">Report</span>
+              </div>
+              <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(10,10,10,0.4);">VENUE IDENTITY</div>
+              <div style="font-size: 13px; font-weight: 800; color: #7F53F3; margin-top: -6px;">NV-30947-B</div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>
