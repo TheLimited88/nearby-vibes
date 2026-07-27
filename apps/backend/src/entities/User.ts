@@ -22,23 +22,23 @@ export class User {
   email: string;
 
   @Column({ nullable: true })
-  display_name: string;
+  display_name?: string;
 
   @Column({ nullable: true })
-  avatar_url: string;
+  avatar_url?: string;
 
   @Column({ nullable: true })
-  phone: string;
+  phone?: string;
 
   @Column({ default: false })
   onboarding_completed: boolean;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at?: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at?: Date;
 
   @Column({ nullable: true })
-  deleted_at: Date;
+  deleted_at?: Date;
 }

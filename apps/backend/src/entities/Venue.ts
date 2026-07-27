@@ -27,63 +27,59 @@ export class Venue {
   venue_name: string;
 
   @Column({ nullable: true, type: 'text' })
-  description: string;
+  description?: string;
 
   @Column({ nullable: true })
-  phone: string;
+  phone?: string;
 
   @Column({ nullable: true })
-  website: string;
-
-  // Location
-  @Column({ nullable: true })
-  address: string;
+  website?: string;
 
   @Column({ nullable: true })
-  city: string;
+  address?: string;
 
   @Column({ nullable: true })
-  state: string;
+  city?: string;
 
   @Column({ nullable: true })
-  zip_code: string;
+  state?: string;
+
+  @Column({ nullable: true })
+  zip_code?: string;
 
   @Column({ default: 'US' })
   country: string;
 
   @Column({ nullable: true, type: 'decimal', precision: 10, scale: 8 })
-  latitude: number;
+  latitude?: number;
 
   @Column({ nullable: true, type: 'decimal', precision: 11, scale: 8 })
-  longitude: number;
-
-  // Google Places
-  @Column({ nullable: true })
-  google_place_id: string;
+  longitude?: number;
 
   @Column({ nullable: true })
-  google_place_name: string;
+  google_place_id?: string;
 
-  // Status
+  @Column({ nullable: true })
+  google_place_name?: string;
+
   @Column({ default: 'pending_setup' })
-  status: string; // pending_setup, active, suspended
+  status: string;
 
   @Column({ default: false })
   profile_completed: boolean;
 
   @Column({ nullable: true })
-  profile_completed_at: Date;
+  profile_completed_at?: Date;
 
-  // Branding
   @Column({ nullable: true })
-  logo_url: string;
+  logo_url?: string;
 
   @CreateDateColumn()
-  created_at: Date;
+  created_at?: Date;
 
   @UpdateDateColumn()
-  updated_at: Date;
+  updated_at?: Date;
 
   @Column({ nullable: true })
-  deleted_at: Date;
+  deleted_at?: Date;
 }

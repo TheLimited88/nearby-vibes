@@ -11,7 +11,8 @@ export class AuthController {
     try {
       return await this.authService.userSignup(signupDto);
     } catch (error) {
-      throw new BadRequestException(error.message);
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      throw new BadRequestException(message);
     }
   }
 
@@ -20,7 +21,8 @@ export class AuthController {
     try {
       return await this.authService.venueSignup(venueSignupDto);
     } catch (error) {
-      throw new BadRequestException(error.message);
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      throw new BadRequestException(message);
     }
   }
 
@@ -29,7 +31,8 @@ export class AuthController {
     try {
       return await this.authService.login(body.firebaseUid, 'user');
     } catch (error) {
-      throw new BadRequestException(error.message);
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      throw new BadRequestException(message);
     }
   }
 
@@ -38,7 +41,8 @@ export class AuthController {
     try {
       return await this.authService.login(body.firebaseUid, 'venue');
     } catch (error) {
-      throw new BadRequestException(error.message);
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      throw new BadRequestException(message);
     }
   }
 }

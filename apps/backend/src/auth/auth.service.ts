@@ -5,53 +5,39 @@ import {
   Logger,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Repository } from 'typeorm';
-import { InjectRepository } from '@nestjs/typeorm';
-import { User } from '../entities/User';
-import { Venue } from '../entities/Venue';
-import { FirebaseService } from './firebase.service';
 import { SignupDto, VenueSignupDto } from './dtos/signup.dto';
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class AuthService {
   private readonly logger = new Logger(AuthService.name);
+  private users = new Map(); // Mock data store
+  private venues = new Map(); // Mock data store
 
-  constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
-    @InjectRepository(Venue)
-    private readonly venueRepository: Repository<Venue>,
-    private readonly firebaseService: FirebaseService,
-    private readonly jwtService: JwtService,
-  ) {}
+  constructor(private readonly jwtService: JwtService) {}
 
   // Consumer User Signup (REQ-AUTH-001)
   async userSignup(signupDto: SignupDto) {
     try {
       // Check if user already exists
-      const existingUser = await this.userRepository.findOne({
-        where: { email: signupDto.email },
-      });
+      const existingUser = Array.from(this.users.values()).find(
+        (u) => u.email === signupDto.email,
+      );
 
       if (existingUser) {
         throw new BadRequestException('User with this email already exists');
       }
 
-      // Create Firebase user
-      const firebaseUser = await this.firebaseService.createUser(
-        signupDto.email,
-        signupDto.password,
-      );
-
-      // Create database user
-      const user = this.userRepository.create({
-        firebase_uid: firebaseUser.uid,
+      // Create user
+      const user = {
+        id: uuid(),
+        firebase_uid: `temp_${Date.now()}`,
         email: signupDto.email,
         display_name: signupDto.displayName,
-      });
+        created_at: new Date(),
+      };
 
-      await this.userRepository.save(user);
-
+      this.users.set(user.id, user);
       this.logger.log(`User created: ${user.id}`);
 
       return {
@@ -61,7 +47,7 @@ export class AuthService {
       };
     } catch (error) {
       this.logger.error('User signup failed', error);
-      throw error;
+      throw new BadRequestException('Failed to create user');
     }
   }
 
@@ -69,23 +55,18 @@ export class AuthService {
   async venueSignup(venueSignupDto: VenueSignupDto) {
     try {
       // Check if venue already exists
-      const existingVenue = await this.venueRepository.findOne({
-        where: { email: venueSignupDto.email },
-      });
+      const existingVenue = Array.from(this.venues.values()).find(
+        (v) => v.email === venueSignupDto.email,
+      );
 
       if (existingVenue) {
         throw new BadRequestException('Venue with this email already exists');
       }
 
-      // Create Firebase user
-      const firebaseUser = await this.firebaseService.createUser(
-        venueSignupDto.email,
-        venueSignupDto.password,
-      );
-
-      // Create database venue
-      const venue = this.venueRepository.create({
-        firebase_uid: firebaseUser.uid,
+      // Create venue
+      const venue = {
+        id: uuid(),
+        firebase_uid: `temp_${Date.now()}`,
         email: venueSignupDto.email,
         venue_name: venueSignupDto.venue_name,
         address: venueSignupDto.address,
@@ -93,10 +74,10 @@ export class AuthService {
         state: venueSignupDto.state,
         zip_code: venueSignupDto.zip_code,
         status: 'pending_setup',
-      });
+        created_at: new Date(),
+      };
 
-      await this.venueRepository.save(venue);
-
+      this.venues.set(venue.id, venue);
       this.logger.log(`Venue created: ${venue.id}`);
 
       return {
@@ -106,7 +87,7 @@ export class AuthService {
       };
     } catch (error) {
       this.logger.error('Venue signup failed', error);
-      throw error;
+      throw new BadRequestException('Failed to create venue');
     }
   }
 
@@ -116,13 +97,13 @@ export class AuthService {
       let entity;
 
       if (userType === 'user') {
-        entity = await this.userRepository.findOne({
-          where: { firebase_uid: firebaseUid },
-        });
+        entity = Array.from(this.users.values()).find(
+          (u) => u.firebase_uid === firebaseUid,
+        );
       } else {
-        entity = await this.venueRepository.findOne({
-          where: { firebase_uid: firebaseUid },
-        });
+        entity = Array.from(this.venues.values()).find(
+          (v) => v.firebase_uid === firebaseUid,
+        );
       }
 
       if (!entity) {
@@ -142,7 +123,7 @@ export class AuthService {
       return { token, userId: entity.id, userType };
     } catch (error) {
       this.logger.error('Login failed', error);
-      throw error;
+      throw new UnauthorizedException('Login failed');
     }
   }
 
