@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { getDatabaseConfig } from './database/database.config';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -9,6 +12,8 @@ import { AppService } from './app.service';
       envFilePath: ['.env.local', '.env'],
       isGlobal: true,
     }),
+    TypeOrmModule.forRoot(getDatabaseConfig()),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
