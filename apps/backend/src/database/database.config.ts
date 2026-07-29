@@ -4,6 +4,9 @@ import { Venue } from '../entities/Venue';
 import { Post } from '../entities/Post';
 import { Follow } from '../entities/Follow';
 import { Redemption } from '../entities/Redemption';
+import { Subscription } from '../entities/Subscription';
+import { PromoCode } from '../entities/PromoCode';
+import { SubscriptionEvent } from '../entities/SubscriptionEvent';
 
 export const getDatabaseConfig = (): TypeOrmModuleOptions => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -15,7 +18,7 @@ export const getDatabaseConfig = (): TypeOrmModuleOptions => {
   return {
     type: 'postgres',
     url: databaseUrl,
-    entities: [User, Venue, Post, Follow, Redemption],
+    entities: [User, Venue, Post, Follow, Redemption, Subscription, PromoCode, SubscriptionEvent],
     synchronize: false,
     logging: !isProduction,
     ssl: { rejectUnauthorized: false },

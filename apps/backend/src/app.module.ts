@@ -10,6 +10,7 @@ import { VerificationModule } from './verification/verification.module';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { SocialModule } from './social/social.module';
 import { NotificationsModule } from './notifications/notifications.module';
+import { SubscriptionsModule } from './subscriptions/subscriptions.module';
 import { getDatabaseConfig } from './database/database.config';
 
 @Module({
@@ -27,6 +28,7 @@ import { getDatabaseConfig } from './database/database.config';
     AnalyticsModule,
     SocialModule,
     NotificationsModule,
+    SubscriptionsModule,
   ],
   controllers: [AppController],
 })
