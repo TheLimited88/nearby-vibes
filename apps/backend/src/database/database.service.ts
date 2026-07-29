@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { User } from '../entities/User';
 import { Venue } from '../entities/Venue';
 import { Post } from '../entities/Post';
+import { Follow } from '../entities/Follow';
 
 @Injectable()
 export class DatabaseService {
@@ -13,6 +14,7 @@ export class DatabaseService {
     @InjectRepository(User) private usersRepository: Repository<User>,
     @InjectRepository(Venue) private venuesRepository: Repository<Venue>,
     @InjectRepository(Post) private postsRepository: Repository<Post>,
+    @InjectRepository(Follow) private followsRepository: Repository<Follow>,
   ) {}
 
   // User operations
@@ -108,6 +110,91 @@ export class DatabaseService {
       where: { status },
       relations: ['venue'],
       order: { created_at: 'DESC' },
+    });
+  }
+
+  // Follow operations
+  async createFollow(userId: string, venueId: string): Promise<Follow> {
+    return this.followsRepository.save({ user_id: userId, venue_id: venueId });
+  }
+
+  async removeFollow(userId: string, venueId: string): Promise<void> {
+    await this.followsRepository.delete({ user_id: userId, venue_id: venueId });
+  }
+
+  async isFollowing(userId: string, venueId: string): Promise<boolean> {
+    const follow = await this.followsRepository.findOne({
+      where: { user_id: userId, venue_id: venueId },
+    });
+    return !!follow;
+  }
+
+  async getUserFollows(userId: string): Promise<Venue[]> {
+    const follows = await this.followsRepository.find({
+      where: { user_id: userId },
+      relations: ['venue'],
+      order: { created_at: 'DESC' },
+    });
+    return follows.map(f => f.venue);
+  }
+
+  async getVenueFollowers(venueId: string): Promise<number> {
+    return this.followsRepository.count({ where: { venue_id: venueId } });
+  }
+
+  async getFollowedVenuesPosts(userId: string, limit: number = 50): Promise<Post[]> {
+    const follows = await this.followsRepository.find({
+      where: { user_id: userId },
+      select: ['venue_id'],
+    });
+
+    if (follows.length === 0) {
+      return [];
+    }
+
+    const venueIds = follows.map(f => f.venue_id);
+
+    return this.postsRepository.find({
+      where: [
+        { venue_id: venueIds[0] },
+        ...venueIds.slice(1).map(id => ({ venue_id: id })),
+      ],
+      relations: ['venue'],
+      order: { published_at: 'DESC' },
+      take: limit,
+    });
+  }
+
+  // Venue discovery/search
+  async searchVenues(query: string, limit: number = 20): Promise<Venue[]> {
+    return this.venuesRepository
+      .createQueryBuilder('venue')
+      .where('venue.venue_name ILIKE :query', { query: `%${query}%` })
+      .orWhere('venue.city ILIKE :query', { query: `%${query}%` })
+      .orderBy('venue.created_at', 'DESC')
+      .take(limit)
+      .getMany();
+  }
+
+  async findNearbyVenues(latitude: number, longitude: number, radiusKm: number = 5, limit: number = 20): Promise<Venue[]> {
+    // Using PostGIS distance calculation
+    return this.venuesRepository
+      .createQueryBuilder('venue')
+      .where('venue.latitude IS NOT NULL AND venue.longitude IS NOT NULL')
+      .orderBy(
+        `(3959 * acos(cos(radians(:lat)) * cos(radians(venue.latitude)) * cos(radians(venue.longitude) - radians(:lon)) + sin(radians(:lat)) * sin(radians(venue.latitude))))`,
+        'ASC'
+      )
+      .setParameters({ lat: latitude, lon: longitude })
+      .take(limit)
+      .getMany();
+  }
+
+  async getActiveVenues(limit: number = 20): Promise<Venue[]> {
+    return this.venuesRepository.find({
+      where: { profile_completed: true },
+      order: { created_at: 'DESC' },
+      take: limit,
     });
   }
 }

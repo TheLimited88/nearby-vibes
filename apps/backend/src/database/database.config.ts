@@ -2,6 +2,7 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { User } from '../entities/User';
 import { Venue } from '../entities/Venue';
 import { Post } from '../entities/Post';
+import { Follow } from '../entities/Follow';
 
 export const getDatabaseConfig = (): TypeOrmModuleOptions => {
   const isProduction = process.env.NODE_ENV === 'production';
@@ -13,7 +14,7 @@ export const getDatabaseConfig = (): TypeOrmModuleOptions => {
   return {
     type: 'postgres',
     url: databaseUrl,
-    entities: [User, Venue, Post],
+    entities: [User, Venue, Post, Follow],
     synchronize: false,
     logging: !isProduction,
     ssl: { rejectUnauthorized: false },
