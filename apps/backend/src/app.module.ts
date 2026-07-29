@@ -11,6 +11,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
 import { SocialModule } from './social/social.module';
 import { NotificationsModule } from './notifications/notifications.module';
 import { SubscriptionsModule } from './subscriptions/subscriptions.module';
+import { AbusePreventionModule } from './abuse-prevention/abuse-prevention.module';
 import { getDatabaseConfig } from './database/database.config';
 
 @Module({
@@ -29,6 +30,7 @@ import { getDatabaseConfig } from './database/database.config';
     SocialModule,
     NotificationsModule,
     SubscriptionsModule,
+    AbusePreventionModule,
   ],
   controllers: [AppController],
 })
