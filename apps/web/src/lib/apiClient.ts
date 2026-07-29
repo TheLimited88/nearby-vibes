@@ -114,3 +114,17 @@ export const notificationsAPI = {
   unregisterToken: (tokenId: string) =>
     getApiClient().delete(`/notifications/tokens/${tokenId}`),
 };
+
+export const subscriptionsAPI = {
+  getCurrentSubscription: () =>
+    getApiClient().get('/subscriptions/current'),
+
+  createCheckout: (data: { plan: 'premium' | 'pro'; promoCode?: string }) =>
+    getApiClient().post('/subscriptions/checkout', data),
+
+  checkPremiumAccess: () =>
+    getApiClient().get('/subscriptions/premium-access'),
+
+  getEvents: (subscriptionId: string) =>
+    getApiClient().get(`/subscriptions/events/${subscriptionId}`),
+};

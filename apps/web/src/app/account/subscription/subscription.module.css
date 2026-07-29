@@ -1,0 +1,315 @@
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: var(--bg-canvas);
+  min-height: 100vh;
+}
+
+.header {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+}
+
+.header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.loading,
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  text-align: center;
+  gap: 16px;
+  color: var(--text-secondary);
+}
+
+.error {
+  padding: 16px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 8px;
+  color: #dc2626;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.statusCard {
+  margin-bottom: 24px;
+  padding: 28px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.statusContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.statusInfo {
+  flex: 1;
+}
+
+.statusInfo h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  margin: 0 0 8px 0;
+}
+
+.planName {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.foundingBadge {
+  font-size: 11px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #95048b, #7f53f3);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.status {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.statusActive {
+  background: rgba(10, 155, 113, 0.1);
+  color: #0a9b71;
+}
+
+.statusTrial {
+  background: rgba(37, 239, 184, 0.1);
+  color: #25efb8;
+}
+
+.statusPastDue {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.statusCancelled {
+  background: rgba(107, 114, 128, 0.1);
+  color: #4b5563;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.trialCard {
+  margin-bottom: 24px;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(37, 239, 184, 0.05), rgba(127, 83, 243, 0.05));
+  border: 1px solid rgba(37, 239, 184, 0.2);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.trialIcon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.trialCard h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  color: var(--text-primary);
+}
+
+.trialCard p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.trialDates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.trialDate {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.billingCard {
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+.billingCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+}
+
+.billingInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.billingItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  background: var(--bg-canvas);
+  border-radius: 8px;
+}
+
+.section {
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+.section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+}
+
+.section p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin: 0 0 20px 0;
+}
+
+.featuresList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.featureItem:has(.disabled) .icon {
+  background: rgba(107, 114, 128, 0.1);
+  color: #9ca3af;
+}
+
+.featureItem:not(:has(.disabled)) .icon {
+  background: rgba(10, 155, 113, 0.1);
+  color: #0a9b71;
+}
+
+.disabled {
+  color: var(--text-tertiary);
+}
+
+.helpLinks {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.helpLinks button {
+  flex: 0 1 auto;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .statusContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .planName {
+    font-size: 22px;
+  }
+
+  .trialDates {
+    grid-template-columns: 1fr;
+  }
+
+  .billingInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .helpLinks {
+    flex-direction: column;
+  }
+
+  .helpLinks button {
+    width: 100%;
+  }
+}
