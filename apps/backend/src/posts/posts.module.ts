@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
-import { AuthService } from './auth.service';
-import { AuthController } from './auth.controller';
+import { PostsService } from './posts.service';
+import { PostsController } from './posts.controller';
 import { DatabaseModule } from '../database/database.module';
+import { JwtAuthGuard } from '../auth/guards/jwt.guard';
 
 @Module({
   imports: [
@@ -12,8 +13,7 @@ import { DatabaseModule } from '../database/database.module';
       signOptions: { expiresIn: '7d' },
     }),
   ],
-  providers: [AuthService],
-  controllers: [AuthController],
-  exports: [AuthService],
+  providers: [PostsService, JwtAuthGuard],
+  controllers: [PostsController],
 })
-export class AuthModule {}
+export class PostsModule {}

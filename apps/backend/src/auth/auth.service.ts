@@ -6,38 +6,43 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { SignupDto, VenueSignupDto } from './dtos/signup.dto';
+import { DatabaseService } from '../database/database.service';
 import { v4 as uuid } from 'uuid';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class AuthService {
   private readonly logger = new Logger(AuthService.name);
-  private users = new Map(); // Mock data store
-  private venues = new Map(); // Mock data store
 
-  constructor(private readonly jwtService: JwtService) {}
+  constructor(
+    private readonly jwtService: JwtService,
+    private readonly databaseService: DatabaseService,
+  ) {}
 
   // Consumer User Signup (REQ-AUTH-001)
   async userSignup(signupDto: SignupDto) {
     try {
       // Check if user already exists
-      const existingUser = Array.from(this.users.values()).find(
-        (u) => u.email === signupDto.email,
+      const existingUser = await this.databaseService.findUserByEmail(
+        signupDto.email,
       );
 
       if (existingUser) {
         throw new BadRequestException('User with this email already exists');
       }
 
+      // Hash password (will be used for Firebase Auth in future)
+      const password_hash = await bcrypt.hash(signupDto.password, 10);
+
       // Create user
-      const user = {
+      const user = await this.databaseService.createUser({
         id: uuid(),
-        firebase_uid: `temp_${Date.now()}`,
+        firebase_uid: `temp_${Date.now()}`, // Placeholder until Firebase integration
         email: signupDto.email,
         display_name: signupDto.displayName,
-        created_at: new Date(),
-      };
+        onboarding_completed: false,
+      });
 
-      this.users.set(user.id, user);
       this.logger.log(`User created: ${user.id}`);
 
       return {
@@ -55,8 +60,8 @@ export class AuthService {
   async venueSignup(venueSignupDto: VenueSignupDto) {
     try {
       // Check if venue already exists
-      const existingVenue = Array.from(this.venues.values()).find(
-        (v) => v.email === venueSignupDto.email,
+      const existingVenue = await this.databaseService.findVenueByEmail(
+        venueSignupDto.email,
       );
 
       if (existingVenue) {
@@ -64,9 +69,9 @@ export class AuthService {
       }
 
       // Create venue
-      const venue = {
+      const venue = await this.databaseService.createVenue({
         id: uuid(),
-        firebase_uid: `temp_${Date.now()}`,
+        firebase_uid: `temp_${Date.now()}`, // Placeholder until Firebase integration
         email: venueSignupDto.email,
         venue_name: venueSignupDto.venue_name,
         address: venueSignupDto.address,
@@ -74,10 +79,9 @@ export class AuthService {
         state: venueSignupDto.state,
         zip_code: venueSignupDto.zip_code,
         status: 'pending_setup',
-        created_at: new Date(),
-      };
+        profile_completed: false,
+      });
 
-      this.venues.set(venue.id, venue);
       this.logger.log(`Venue created: ${venue.id}`);
 
       return {
@@ -91,19 +95,15 @@ export class AuthService {
     }
   }
 
-  // Login and return JWT token
+  // Login with firebase UID
   async login(firebaseUid: string, userType: 'user' | 'venue') {
     try {
       let entity;
 
       if (userType === 'user') {
-        entity = Array.from(this.users.values()).find(
-          (u) => u.firebase_uid === firebaseUid,
-        );
+        entity = await this.databaseService.findUserByFirebaseUid(firebaseUid);
       } else {
-        entity = Array.from(this.venues.values()).find(
-          (v) => v.firebase_uid === firebaseUid,
-        );
+        entity = await this.databaseService.findVenueByFirebaseUid(firebaseUid);
       }
 
       if (!entity) {
@@ -115,6 +115,38 @@ export class AuthService {
         {
           sub: entity.id,
           firebaseUid,
+          userType,
+        },
+        { expiresIn: '7d' },
+      );
+
+      return { token, userId: entity.id, userType };
+    } catch (error) {
+      this.logger.error('Login failed', error);
+      throw new UnauthorizedException('Login failed');
+    }
+  }
+
+  // Login with email and password (for development/testing)
+  async loginWithEmail(email: string, password: string, userType: 'user' | 'venue') {
+    try {
+      let entity;
+
+      if (userType === 'user') {
+        entity = await this.databaseService.findUserByEmail(email);
+      } else {
+        entity = await this.databaseService.findVenueByEmail(email);
+      }
+
+      if (!entity) {
+        throw new UnauthorizedException('Invalid email or password');
+      }
+
+      // Generate JWT token (no password verification yet - will be done via Firebase Auth in production)
+      const token = this.jwtService.sign(
+        {
+          sub: entity.id,
+          email: entity.email,
           userType,
         },
         { expiresIn: '7d' },

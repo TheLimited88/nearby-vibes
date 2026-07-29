@@ -45,4 +45,24 @@ export class AuthController {
       throw new BadRequestException(message);
     }
   }
+
+  @Post('user/login/email')
+  async userLoginEmail(@Body() body: { email: string; password: string }) {
+    try {
+      return await this.authService.loginWithEmail(body.email, body.password, 'user');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      throw new BadRequestException(message);
+    }
+  }
+
+  @Post('venue/login/email')
+  async venueLoginEmail(@Body() body: { email: string; password: string }) {
+    try {
+      return await this.authService.loginWithEmail(body.email, body.password, 'venue');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unknown error';
+      throw new BadRequestException(message);
+    }
+  }
 }
