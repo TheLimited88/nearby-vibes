@@ -4,10 +4,11 @@ import { User } from '../entities/User';
 import { Venue } from '../entities/Venue';
 import { Post } from '../entities/Post';
 import { Follow } from '../entities/Follow';
+import { Redemption } from '../entities/Redemption';
 import { DatabaseService } from './database.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([User, Venue, Post, Follow])],
+  imports: [TypeOrmModule.forFeature([User, Venue, Post, Follow, Redemption])],
   providers: [DatabaseService],
   exports: [DatabaseService],
 })

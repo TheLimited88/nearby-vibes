@@ -5,6 +5,7 @@ import { User } from '../entities/User';
 import { Venue } from '../entities/Venue';
 import { Post } from '../entities/Post';
 import { Follow } from '../entities/Follow';
+import { Redemption } from '../entities/Redemption';
 
 @Injectable()
 export class DatabaseService {
@@ -15,6 +16,7 @@ export class DatabaseService {
     @InjectRepository(Venue) private venuesRepository: Repository<Venue>,
     @InjectRepository(Post) private postsRepository: Repository<Post>,
     @InjectRepository(Follow) private followsRepository: Repository<Follow>,
+    @InjectRepository(Redemption) private redemptionsRepository: Repository<Redemption>,
   ) {}
 
   // User operations
@@ -195,6 +197,63 @@ export class DatabaseService {
       where: { profile_completed: true },
       order: { created_at: 'DESC' },
       take: limit,
+    });
+  }
+
+  // Redemption operations
+  async createRedemption(redemption: Partial<Redemption>): Promise<Redemption> {
+    return this.redemptionsRepository.save(redemption);
+  }
+
+  async findRedemptionById(id: string): Promise<Redemption | null> {
+    return this.redemptionsRepository.findOne({
+      where: { id },
+      relations: ['user', 'post', 'venue'],
+    });
+  }
+
+  async findRedemptionByQrCode(qrCode: string): Promise<Redemption | null> {
+    return this.redemptionsRepository.findOne({
+      where: { qr_code: qrCode },
+      relations: ['user', 'post', 'venue'],
+    });
+  }
+
+  async updateRedemption(id: string, data: Partial<Redemption>): Promise<Redemption | null> {
+    await this.redemptionsRepository.update(id, data);
+    return this.findRedemptionById(id);
+  }
+
+  async getUserRedemptions(userId: string): Promise<Redemption[]> {
+    return this.redemptionsRepository.find({
+      where: { user_id: userId },
+      relations: ['post', 'venue'],
+      order: { created_at: 'DESC' },
+    });
+  }
+
+  async getPostRedemptions(postId: string): Promise<Redemption[]> {
+    return this.redemptionsRepository.find({
+      where: { post_id: postId },
+      relations: ['user'],
+      order: { created_at: 'DESC' },
+    });
+  }
+
+  async getVenueRedemptions(venueId: string): Promise<Redemption[]> {
+    return this.redemptionsRepository.find({
+      where: { venue_id: venueId },
+      relations: ['user', 'post'],
+      order: { created_at: 'DESC' },
+    });
+  }
+
+  async countRedemptionsByStatus(
+    postId: string,
+    status: 'initiated' | 'qr_scanned' | 'geofence_verified' | 'completed' | 'expired',
+  ): Promise<number> {
+    return this.redemptionsRepository.count({
+      where: { post_id: postId, status },
     });
   }
 }

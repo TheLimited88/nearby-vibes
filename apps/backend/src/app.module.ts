@@ -6,6 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { PostsModule } from './posts/posts.module';
 import { DiscoveryModule } from './discovery/discovery.module';
+import { VerificationModule } from './verification/verification.module';
 import { getDatabaseConfig } from './database/database.config';
 
 @Module({
@@ -19,6 +20,7 @@ import { getDatabaseConfig } from './database/database.config';
     AdminModule,
     PostsModule,
     DiscoveryModule,
+    VerificationModule,
   ],
   controllers: [AppController],
 })
