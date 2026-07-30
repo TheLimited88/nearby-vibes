@@ -5,20 +5,22 @@ FROM node:18-alpine AS builder
 
 WORKDIR /build
 
-# Copy package files
-COPY package.json pnpm-lock.yaml ./
-COPY apps/backend/package.json apps/backend/
-COPY packages/types/package.json packages/types/
+# Copy root package files and lock
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Install dependencies
+# Copy all workspace package.json files (preserving directory structure)
+COPY apps/backend/package.json ./apps/backend/
+COPY packages/types/package.json ./packages/types/
+
+# Install pnpm and all dependencies
 RUN npm install -g pnpm && pnpm install --frozen-lockfile
 
-# Copy source
+# Copy source code for all workspaces
 COPY apps/backend ./apps/backend
 COPY packages/types ./packages/types
 COPY tsconfig.json ./
 
-# Build
+# Build backend
 WORKDIR /build/apps/backend
 RUN pnpm build
 
