@@ -11,16 +11,8 @@ export default function Home() {
   const { user } = useAuthStore();
 
   useEffect(() => {
-    if (user) {
-      if (user.role === 'admin') {
-        router.push('/admin');
-      } else if (user.role === 'venue') {
-        router.push('/venue/dashboard');
-      } else {
-        router.push('/home');
-      }
-    }
-  }, [user, router]);
+    router.push('/home');
+  }, [router]);
 
   return (
     <div className={styles.container}>
