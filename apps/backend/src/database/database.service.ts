@@ -178,7 +178,7 @@ export class DatabaseService {
       .getMany();
   }
 
-  async findNearbyVenues(latitude: number, longitude: number, radiusKm: number = 5, limit: number = 20): Promise<Venue[]> {
+  async findNearbyVenues(latitude: number, longitude: number, _radiusKm: number = 5, limit: number = 20): Promise<Venue[]> {
     // Using PostGIS distance calculation
     return this.venuesRepository
       .createQueryBuilder('venue')

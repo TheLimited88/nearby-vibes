@@ -9,15 +9,15 @@ export class FirebaseService {
     this.logger.log('FirebaseService initialized (Phase 2 integration pending)');
   }
 
-  async verifyIdToken(token: string) {
+  async verifyIdToken(_token: string) {
     throw new Error('Firebase integration not yet implemented');
   }
 
-  async createUser(email: string, password: string) {
+  async createUser(_email: string, _password: string) {
     throw new Error('Firebase integration not yet implemented');
   }
 
-  async deleteUser(firebaseUid: string) {
+  async deleteUser(_firebaseUid: string) {
     throw new Error('Firebase integration not yet implemented');
   }
 }

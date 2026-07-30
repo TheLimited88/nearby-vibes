@@ -46,7 +46,7 @@ export class AdminAuthService {
   async login(loginDto: AdminLoginDto, ipAddress: string) {
     try {
       // Check if admin account exists
-      let admin = Array.from(this.adminUsers.values()).find(
+      const admin = Array.from(this.adminUsers.values()).find(
         (a) => a.email === loginDto.email,
       );
 

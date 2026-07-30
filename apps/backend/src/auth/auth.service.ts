@@ -31,9 +31,6 @@ export class AuthService {
         throw new BadRequestException('User with this email already exists');
       }
 
-      // Hash password (will be used for Firebase Auth in future)
-      const password_hash = await bcrypt.hash(signupDto.password, 10);
-
       // Create user
       const user = await this.databaseService.createUser({
         id: uuid(),
