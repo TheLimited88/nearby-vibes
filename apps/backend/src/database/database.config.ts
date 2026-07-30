@@ -13,13 +13,13 @@ import { FraudEvent } from '../entities/FraudEvent';
 export const getDatabaseConfig = (): TypeOrmModuleOptions => {
   const isProduction = process.env.NODE_ENV === 'production';
 
-  // Parse DATABASE_URL to remove sslmode parameter for custom SSL config
-  let databaseUrl = process.env.DATABASE_URL || '';
-  databaseUrl = databaseUrl.replace(/([?&])sslmode=\w+&/, '$1').replace(/([?&])sslmode=\w+$/, '');
-
   return {
     type: 'postgres',
-    url: databaseUrl,
+    host: process.env.DB_HOST,
+    port: parseInt(process.env.DB_PORT || '5432'),
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     entities: [User, Venue, Post, Follow, Redemption, Subscription, PromoCode, SubscriptionEvent, PlaceClaimLedger, FraudEvent],
     synchronize: false,
     logging: !isProduction,
