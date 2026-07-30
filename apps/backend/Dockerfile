@@ -32,14 +32,8 @@ WORKDIR /app
 # Install dumb-init for proper signal handling
 RUN apk add --no-cache dumb-init
 
-# Copy entire built node_modules from builder (already installed all deps)
+# Copy entire built node_modules from builder
 COPY --from=builder /build/node_modules ./node_modules
-
-# Copy package.json for npm prune to work correctly
-COPY package.json ./
-
-# Remove dev dependencies with npm prune
-RUN npm prune --production
 
 # Copy built application from builder
 COPY --from=builder /build/apps/backend/dist ./dist
