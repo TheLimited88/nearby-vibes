@@ -1,14 +1,15 @@
-# Multi-stage build for Nearby Vibes API
+# Single-stage build for Nearby Vibes API
+FROM node:18-alpine
 
-# Build stage
-FROM node:18-alpine AS builder
+WORKDIR /app
 
-WORKDIR /build
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
 
-# Copy root package files and lock
+# Copy root package files and workspace config
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
-# Copy all workspace package.json files (preserving directory structure)
+# Copy all workspace package.json files
 COPY apps/backend/package.json ./apps/backend/
 COPY packages/types/package.json ./packages/types/
 
@@ -21,22 +22,11 @@ COPY packages/types ./packages/types
 COPY tsconfig.json ./
 
 # Build backend
-WORKDIR /build/apps/backend
+WORKDIR /app/apps/backend
 RUN pnpm build
 
-# Runtime stage
-FROM node:18-alpine
-
+# Return to app root for runtime
 WORKDIR /app
-
-# Install dumb-init for proper signal handling
-RUN apk add --no-cache dumb-init
-
-# Copy entire built node_modules from builder
-COPY --from=builder /build/node_modules ./node_modules
-
-# Copy built application from builder
-COPY --from=builder /build/apps/backend/dist ./dist
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
@@ -53,4 +43,4 @@ EXPOSE 3001
 ENTRYPOINT ["dumb-init", "--"]
 
 # Start application
-CMD ["node", "dist/main.js"]
+CMD ["node", "apps/backend/dist/main.js"]
