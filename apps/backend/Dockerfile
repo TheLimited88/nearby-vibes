@@ -32,16 +32,14 @@ WORKDIR /app
 # Install dumb-init for proper signal handling
 RUN apk add --no-cache dumb-init
 
-# Copy pnpm config
-COPY .npmrc ./
+# Copy entire built node_modules from builder (already installed all deps)
+COPY --from=builder /build/node_modules ./node_modules
 
-# Copy root package files and workspace config
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-COPY apps/backend/package.json ./apps/backend/
-COPY packages/types/package.json ./packages/types/
+# Copy package.json for npm prune to work correctly
+COPY package.json ./
 
-# Install pnpm and production dependencies
-RUN npm install -g pnpm@8 && pnpm install --frozen-lockfile --prod
+# Remove dev dependencies with npm prune
+RUN npm prune --production
 
 # Copy built application from builder
 COPY --from=builder /build/apps/backend/dist ./dist
