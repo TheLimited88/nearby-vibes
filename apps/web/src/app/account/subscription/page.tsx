@@ -86,6 +86,16 @@ export default function SubscriptionPage() {
 
   return (
     <div className={styles.container}>
+      <header className={styles.topHeader}>
+        <div className={styles.logoSection}>
+          <div className={styles.logoIcon}>NV</div>
+          <span className={styles.logoText}>Nearby Vibes</span>
+        </div>
+        <button onClick={() => router.back()} className={styles.backBtn}>
+          ← Back
+        </button>
+      </header>
+
       <div className={styles.header}>
         <h1>Subscription & Billing</h1>
         <p>Manage your venue subscription and billing information</p>
