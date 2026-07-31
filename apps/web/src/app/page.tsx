@@ -1,79 +1,178 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuthStore } from '@/stores/authStore';
 import { Button } from '@/components/Button';
-import styles from './page.module.css';
+import styles from './home.module.css';
 
 export default function Home() {
   const router = useRouter();
-  const { user } = useAuthStore();
-
-  useEffect(() => {
-    if (user) {
-      if (user.role === 'admin') {
-        router.push('/admin');
-      } else if (user.role === 'venue') {
-        router.push('/venue/dashboard');
-      } else {
-        router.push('/home');
-      }
-    }
-  }, [user, router]);
+  const [showVenueModal, setShowVenueModal] = useState(true);
 
   return (
     <div className={styles.container}>
-      <div className={styles.hero}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>Nearby Vibes</h1>
-          <p className={styles.subtitle}>
-            Discover time-limited specials from nearby venues in real-time
-          </p>
+      {/* Venue Modal */}
+      {showVenueModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.venueModal}>
+            <button
+              className={styles.closeBtn}
+              onClick={() => setShowVenueModal(false)}
+            >
+              ✕
+            </button>
+            <div className={styles.modalIcon}>🛡️</div>
+            <h2 className={styles.modalTitle}>Own a Venue?</h2>
+            <p className={styles.modalText}>
+              Get your venue live in minutes and reach more locals today.
+            </p>
+            <Button
+              onClick={() => router.push('/auth/signup?role=venue')}
+              className={styles.modalButton}
+            >
+              Get Started →
+            </Button>
+            <div className={styles.modalFeatures}>
+              <span>✓ 100% Free</span>
+              <span>✓ Post in seconds</span>
+              <span>✓ No commitment</span>
+            </div>
+          </div>
+        </div>
+      )}
 
-          <div className={styles.ctas}>
-            <Button
-              size="lg"
-              fullWidth
-              onClick={() => router.push('/auth/signin')}
-            >
-              Sign In
-            </Button>
-            <Button
-              variant="secondary"
-              size="lg"
-              fullWidth
-              onClick={() => router.push('/auth/signup')}
-            >
-              Create Account
-            </Button>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroHeader}>
+          <div className={styles.logo}>NV Nearby Vibes</div>
+          <button className={styles.menuBtn}>☰</button>
+        </div>
+        <div className={styles.heroImage}>
+          <div className={styles.imagePlaceholder}>
+            🖼️ Hero — venue crowd / nightlife
+          </div>
+        </div>
+        <div className={styles.heroOverlay}>
+          <h1 className={styles.heroTitle}>Live Specials</h1>
+          <p className={styles.heroSubtitle}>Near You</p>
+        </div>
+      </section>
+
+      {/* Navigation Tabs */}
+      <section className={styles.navTabs}>
+        <div className={styles.tab}>
+          <div className={styles.tabIcon}>⚡</div>
+          <span>Live specials</span>
+        </div>
+        <div className={styles.tab}>
+          <div className={styles.tabIcon}>📍</div>
+          <span>Nearby venues</span>
+        </div>
+        <div className={styles.tab}>
+          <div className={styles.tabIcon}>🔔</div>
+          <span>Smart notify</span>
+        </div>
+      </section>
+
+      {/* Active Offers Section */}
+      <section className={styles.offersSection}>
+        <div className={styles.offersHeader}>
+          <div>
+            <h2 className={styles.offersTitle}>ACTIVE OFFERS NEAR YOU</h2>
+            <span className={styles.distanceLabel}>&lt;0.75mi</span>
+          </div>
+          <span className={styles.liveCount}>6 live</span>
+        </div>
+
+        <div className={styles.grid}>
+          {/* Sample Card 1 */}
+          <div className={styles.card}>
+            <div className={styles.cardImage}>
+              <div className={styles.imagePlaceholder}>Venue photo</div>
+              <div className={styles.timer}>
+                <span>● LIVE</span>
+                <span>2:30</span>
+              </div>
+              <div className={styles.discountBadge}>DRINK</div>
+            </div>
+            <div className={styles.cardContent}>
+              <p className={styles.distance}>0.3 mi</p>
+              <h3>Aye Aye</h3>
+              <p className={styles.address}>2 for 1 Margaritas</p>
+              <p className={styles.venue}>118 5th Ave</p>
+              <div className={styles.cardActions}>
+                <button className={styles.actionBtn}>⊞</button>
+                <button className={styles.actionBtn}>📍</button>
+              </div>
+            </div>
           </div>
 
-          <Button
-            variant="ghost"
-            size="lg"
-            fullWidth
-            onClick={() => router.push('/become-venue')}
-          >
-            Are you a venue owner?
-          </Button>
-        </div>
-      </div>
+          {/* Sample Card 2 */}
+          <div className={styles.card}>
+            <div className={styles.cardImage}>
+              <div className={styles.imagePlaceholder}>Venue photo</div>
+              <div className={styles.timer}>
+                <span>● LIVE</span>
+                <span>1:45</span>
+              </div>
+              <div className={`${styles.discountBadge} ${styles.food}`}>
+                FOOD
+              </div>
+            </div>
+            <div className={styles.cardContent}>
+              <p className={styles.distance}>0.6 mi</p>
+              <h3>241 Bar</h3>
+              <p className={styles.address}>Wings Special</p>
+              <p className={styles.venue}>77 Harbor</p>
+              <div className={styles.cardActions}>
+                <button className={styles.actionBtn}>⊞</button>
+                <button className={styles.actionBtn}>📍</button>
+              </div>
+            </div>
+          </div>
 
-      <div className={styles.features}>
-        <div className={styles.feature}>
-          <h3>🎯 Discover</h3>
-          <p>Find specials from venues around you</p>
+          {/* Sample Card 3 */}
+          <div className={styles.card}>
+            <div className={styles.cardImage}>
+              <div className={styles.imagePlaceholder}>Venue photo</div>
+              <div className={styles.timer}>
+                <span>● LIVE</span>
+                <span>0:15</span>
+              </div>
+            </div>
+            <div className={styles.cardContent}>
+              <p className={styles.distance}>Nearby</p>
+              <h3>The Hub</h3>
+              <p className={styles.address}>Happy Hour</p>
+              <p className={styles.venue}>Downtown</p>
+              <div className={styles.cardActions}>
+                <button className={styles.actionBtn}>⊞</button>
+                <button className={styles.actionBtn}>📍</button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={styles.feature}>
-          <h3>⚡ Real-Time</h3>
-          <p>Time-limited offers that change throughout the day</p>
-        </div>
-        <div className={styles.feature}>
-          <h3>✅ Verified</h3>
-          <p>Confirm your visit with a QR code and location</p>
-        </div>
-      </div>
+      </section>
+
+      {/* Sign In CTA */}
+      <section className={styles.signInSection}>
+        <h2>Sign in to see all specials near you</h2>
+        <Button
+          onClick={() => router.push('/auth/signin')}
+          fullWidth
+          className={styles.signInBtn}
+        >
+          Sign In
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => router.push('/auth/signup')}
+          fullWidth
+          className={styles.signUpBtn}
+        >
+          Create Account
+        </Button>
+      </section>
     </div>
   );
 }
