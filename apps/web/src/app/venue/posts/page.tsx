@@ -98,6 +98,16 @@ export default function PostsList() {
 
   return (
     <div className={styles.container}>
+      <header className={styles.topHeader}>
+        <div className={styles.logoSection}>
+          <div className={styles.logoIcon}>NV</div>
+          <span className={styles.logoText}>Nearby Vibes</span>
+        </div>
+        <button onClick={() => router.back()} className={styles.backBtn}>
+          ← Back
+        </button>
+      </header>
+
       <div className={styles.header}>
         <h1>Your Specials</h1>
         <Button onClick={() => router.push('/venue/posts/create')}>

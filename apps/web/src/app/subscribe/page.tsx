@@ -108,6 +108,16 @@ export default function Subscribe() {
 
   return (
     <div className={styles.container}>
+      <header className={styles.topHeader}>
+        <div className={styles.logoSection}>
+          <div className={styles.logoIcon}>NV</div>
+          <span className={styles.logoText}>Nearby Vibes</span>
+        </div>
+        <button onClick={() => router.back()} className={styles.backBtn}>
+          ← Back
+        </button>
+      </header>
+
       <div className={styles.header}>
         <h1>Choose Your Plan</h1>
         <p>Upgrade to unlock advanced features and grow your venue</p>

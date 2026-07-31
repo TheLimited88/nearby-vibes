@@ -100,6 +100,16 @@ export default function CreatePost() {
 
   return (
     <div className={styles.container}>
+      <header className={styles.topHeader}>
+        <div className={styles.logoSection}>
+          <div className={styles.logoIcon}>NV</div>
+          <span className={styles.logoText}>Nearby Vibes</span>
+        </div>
+        <button onClick={() => router.back()} className={styles.backBtn}>
+          ← Back
+        </button>
+      </header>
+
       <div className={styles.header}>
         <h1>Create Special</h1>
         <p>Post a time-limited special to attract customers</p>
