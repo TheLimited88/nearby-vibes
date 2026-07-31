@@ -7,55 +7,66 @@ import styles from './page.module.css';
 export default function Home() {
   const router = useRouter();
   const [showVenueCta, setShowVenueCta] = useState(true);
-  const [filter, setFilter] = useState('all');
 
   return (
     <div className={styles.container}>
-      {/* Hero Section - Full Width with Logo Overlay */}
+      {/* Hero Section */}
       <div className={styles.heroSection}>
         <div className={styles.heroImage}>
           <div className={styles.imagePlaceholder}>🖼️ Hero — venue crowd / nightlife</div>
         </div>
 
-        {/* Logo + Menu Overlay */}
-        <div className={styles.heroHeader}>
-          <div className={styles.logoGroup}>
-            <div className={styles.logoIcon}>NV</div>
-            <div className={styles.logoText}>Nearby Vibes</div>
+        {/* Header: Logo + Menu (positioned over hero) */}
+        <header className={styles.header}>
+          <div className={styles.logoContainer}>
+            <div className={styles.logoBadge}>NV</div>
+            <span className={styles.logoLabel}>Nearby Vibes</span>
           </div>
-          <button className={styles.menuBtn}>☰</button>
-        </div>
+          <button className={styles.menuIcon}>☰</button>
+        </header>
 
-        {/* Hero Text Overlay */}
-        <div className={styles.heroText}>
-          <h1>Live Specials</h1>
-          <p>Near You</p>
+        {/* Hero Text Overlay (bottom of hero) */}
+        <div className={styles.heroTextOverlay}>
+          <h1 className={styles.heroHeading}>Live Specials</h1>
+          <p className={styles.heroSubheading}>Near You</p>
         </div>
       </div>
 
-      {/* Venue CTA Card */}
+      {/* Navigation Tabs */}
+      <nav className={styles.navTabs}>
+        <div className={styles.navTab}>
+          <span className={styles.tabIcon}>⚡</span>
+          <span>Live specials</span>
+        </div>
+        <div className={styles.navTab}>
+          <span className={styles.tabIcon}>📍</span>
+          <span>Nearby venues</span>
+        </div>
+        <div className={styles.navTab}>
+          <span className={styles.tabIcon}>🔔</span>
+          <span>Smart notify</span>
+        </div>
+      </nav>
+
+      {/* Venue CTA */}
       {showVenueCta && (
         <div className={styles.venueCta}>
           <button
-            className={styles.dismissBtn}
+            className={styles.closeBtn}
             onClick={() => setShowVenueCta(false)}
           >
             ✕
           </button>
-          <div className={styles.ctaContent}>
-            <div className={styles.ctaIcon}>🛡️</div>
-            <div className={styles.ctaText}>
-              <h3>Own a Venue?</h3>
-              <p>Get your venue live in minutes and reach more locals today.</p>
-            </div>
-          </div>
+          <div className={styles.ctaIcon}>🛡️</div>
+          <h2 className={styles.ctaTitle}>Own a Venue?</h2>
+          <p className={styles.ctaDesc}>Get your venue live in minutes and reach more locals today.</p>
           <button
-            className={styles.ctaButton}
+            className={styles.ctaBtn}
             onClick={() => router.push('/auth/signup?role=venue')}
           >
             Get Started →
           </button>
-          <div className={styles.ctaFeatures}>
+          <div className={styles.ctaBenefits}>
             <span>✓ 100% Free</span>
             <span>✓ Post in seconds</span>
             <span>✓ No commitment</span>
@@ -64,51 +75,39 @@ export default function Home() {
       )}
 
       {/* Filter Tabs */}
-      <div className={styles.filterTabs}>
-        <button
-          className={`${styles.filterBtn} ${filter === 'all' ? styles.active : ''}`}
-          onClick={() => setFilter('all')}
-        >
-          All
-        </button>
-        <button
-          className={`${styles.filterBtn} ${filter === 'drink' ? styles.active : ''}`}
-          onClick={() => setFilter('drink')}
-        >
-          Drink
-        </button>
-        <button
-          className={`${styles.filterBtn} ${filter === 'food' ? styles.active : ''}`}
-          onClick={() => setFilter('food')}
-        >
-          Food
-        </button>
+      <div className={styles.filterSection}>
+        <button className={`${styles.filterTab} ${styles.active}`}>All</button>
+        <button className={styles.filterTab}>Drink</button>
+        <button className={styles.filterTab}>Food</button>
       </div>
 
-      {/* Active Offers Header */}
+      {/* Offers Header */}
       <div className={styles.offersHeader}>
-        <span className={styles.offersTitle}>ACTIVE OFFERS NEAR YOU</span>
+        <div>
+          <h3 className={styles.offersTitle}>ACTIVE OFFERS NEAR YOU</h3>
+          <span className={styles.distanceLabel}>&lt;0.75mi</span>
+        </div>
         <span className={styles.liveCount}>6 live</span>
       </div>
 
-      {/* Venue Cards Grid */}
-      <div className={styles.offersGrid}>
+      {/* Cards Grid */}
+      <div className={styles.cardsGrid}>
         {/* Card 1 */}
         <div className={styles.card}>
           <div className={styles.cardImage}>
             <div className={styles.imagePlaceholder}>Venue photo</div>
             <div className={styles.timer}>
-              <span>● LIVE</span>
+              <span className={styles.liveLabel}>● LIVE</span>
               <span>2:30</span>
             </div>
             <div className={`${styles.badge} ${styles.drink}`}>DRINK</div>
           </div>
-          <div className={styles.cardBody}>
+          <div className={styles.cardInfo}>
             <div className={styles.distance}>0.3 mi</div>
-            <h3>Aye Aye</h3>
-            <p className={styles.description}>2 for 1 Margaritas</p>
+            <h4 className={styles.venueName}>Aye Aye</h4>
+            <p className={styles.special}>2 for 1 Margaritas</p>
             <p className={styles.address}>118 5th Ave</p>
-            <div className={styles.cardActions}>
+            <div className={styles.actions}>
               <button className={styles.actionBtn}>⊞</button>
               <button className={styles.actionBtn}>📍</button>
             </div>
@@ -120,17 +119,17 @@ export default function Home() {
           <div className={styles.cardImage}>
             <div className={styles.imagePlaceholder}>Venue photo</div>
             <div className={styles.timer}>
-              <span>● LIVE</span>
+              <span className={styles.liveLabel}>● LIVE</span>
               <span>1:45</span>
             </div>
             <div className={`${styles.badge} ${styles.food}`}>FOOD</div>
           </div>
-          <div className={styles.cardBody}>
+          <div className={styles.cardInfo}>
             <div className={styles.distance}>0.6 mi</div>
-            <h3>241 Bar</h3>
-            <p className={styles.description}>Wings Special</p>
+            <h4 className={styles.venueName}>241 Bar</h4>
+            <p className={styles.special}>Wings Special</p>
             <p className={styles.address}>77 Harbor</p>
-            <div className={styles.cardActions}>
+            <div className={styles.actions}>
               <button className={styles.actionBtn}>⊞</button>
               <button className={styles.actionBtn}>📍</button>
             </div>
@@ -142,16 +141,16 @@ export default function Home() {
           <div className={styles.cardImage}>
             <div className={styles.imagePlaceholder}>Venue photo</div>
             <div className={styles.timer}>
-              <span>● LIVE</span>
+              <span className={styles.liveLabel}>● LIVE</span>
               <span>0:15</span>
             </div>
           </div>
-          <div className={styles.cardBody}>
+          <div className={styles.cardInfo}>
             <div className={styles.distance}>Nearby</div>
-            <h3>The Hub</h3>
-            <p className={styles.description}>Happy Hour</p>
+            <h4 className={styles.venueName}>The Hub</h4>
+            <p className={styles.special}>Happy Hour</p>
             <p className={styles.address}>Downtown</p>
-            <div className={styles.cardActions}>
+            <div className={styles.actions}>
               <button className={styles.actionBtn}>⊞</button>
               <button className={styles.actionBtn}>📍</button>
             </div>
@@ -169,7 +168,7 @@ export default function Home() {
           Sign In
         </button>
         <button
-          className={styles.signUpBtn}
+          className={styles.createBtn}
           onClick={() => router.push('/auth/signup')}
         >
           Create Account
