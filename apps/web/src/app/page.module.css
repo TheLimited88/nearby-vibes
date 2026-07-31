@@ -12,10 +12,11 @@
   inset: 0;
   background: rgba(0, 0, 0, 0.75);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 50;
   padding: 20px;
+  pointer-events: auto;
 }
 
 .venueModal {
@@ -31,6 +32,9 @@
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  z-index: 51;
+  pointer-events: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 .modalIcon {
@@ -94,8 +98,9 @@
   padding: 16px 20px;
   background: white;
   border-bottom: 1px solid #e0e0e0;
-  position: relative;
-  z-index: 10;
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 
 .logo {

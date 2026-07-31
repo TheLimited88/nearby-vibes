@@ -10,6 +10,23 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroHeader}>
+          <div className={styles.logo}>NV Nearby Vibes</div>
+          <button className={styles.menuBtn}>☰</button>
+        </div>
+        <div className={styles.heroImage}>
+          <div className={styles.imagePlaceholder}>
+            🖼️ Hero — venue crowd / nightlife
+          </div>
+        </div>
+        <div className={styles.heroOverlay}>
+          <h1 className={styles.heroTitle}>Live Specials</h1>
+          <p className={styles.heroSubtitle}>Near You</p>
+        </div>
+      </section>
+
       {/* Venue Modal */}
       <div className={styles.modalOverlay}>
         <div className={styles.venueModal}>
@@ -31,23 +48,6 @@ export default function Home() {
             </div>
         </div>
       </div>
-
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <div className={styles.heroHeader}>
-          <div className={styles.logo}>NV Nearby Vibes</div>
-          <button className={styles.menuBtn}>☰</button>
-        </div>
-        <div className={styles.heroImage}>
-          <div className={styles.imagePlaceholder}>
-            🖼️ Hero — venue crowd / nightlife
-          </div>
-        </div>
-        <div className={styles.heroOverlay}>
-          <h1 className={styles.heroTitle}>Live Specials</h1>
-          <p className={styles.heroSubtitle}>Near You</p>
-        </div>
-      </section>
 
       {/* Navigation Tabs */}
       <section className={styles.navTabs}>
