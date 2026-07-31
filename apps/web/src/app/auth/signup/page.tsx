@@ -32,9 +32,20 @@ export default function SignUp() {
     hasSymbol: /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password),
   }), [password]);
 
+  const isBusinessEmail = (emailStr: string): boolean => {
+    const freeEmailDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'aol.com', 'mail.com', 'protonmail.com'];
+    const domain = emailStr.split('@')[1]?.toLowerCase();
+    return domain ? !freeEmailDomains.includes(domain) : false;
+  };
+
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
     setLocalError('');
+
+    if (role === 'venue' && !isBusinessEmail(email)) {
+      setLocalError('Venue accounts require a business email address (e.g., yourname@yourcompany.com)');
+      return;
+    }
 
     if (password !== confirmPassword) {
       setLocalError('Passwords do not match');
@@ -89,11 +100,16 @@ export default function SignUp() {
 
           <Input
             type="email"
-            placeholder="Email"
+            placeholder={role === 'venue' ? 'Business Email (e.g., name@company.com)' : 'Email'}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+          {role === 'venue' && email && (
+            <div className={`${styles.emailValidation} ${isBusinessEmail(email) ? styles.valid : styles.invalid}`}>
+              {isBusinessEmail(email) ? '✓ Business email verified' : '✗ Please use a business email address'}
+            </div>
+          )}
 
           <Input
             type="password"
