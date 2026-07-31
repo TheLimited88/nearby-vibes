@@ -14,7 +14,10 @@
         ".next/**",
         "build/**"
       ],
-      "cache": false
+      "cache": false,
+      "env": [
+        "NODE_ENV"
+      ]
     },
     "dev": {
       "cache": false,
