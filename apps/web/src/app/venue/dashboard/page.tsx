@@ -53,7 +53,10 @@ export default function VenueDashboard() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>Venue Dashboard</h1>
+        <div className={styles.logoSection}>
+          <div className={styles.logoIcon}>NV</div>
+          <span className={styles.logoText}>Nearby Vibes</span>
+        </div>
         <div className={styles.actions}>
           <Button onClick={() => router.push('/venue/posts/create')}>
             Create Post
