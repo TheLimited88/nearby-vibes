@@ -325,3 +325,20 @@
 .socialIcon:hover {
   background: rgba(10, 10, 10, 0.02);
 }
+
+.socialButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.socialButtons .socialButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.emailSignupBtn {
+  margin-top: 8px;
+}
