@@ -29,7 +29,7 @@ export default function SignUp() {
   const passwordRequirements: PasswordRequirements = useMemo(() => ({
     minLength: password.length >= 8,
     hasCapital: /[A-Z]/.test(password),
-    hasSymbol: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
+    hasSymbol: /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(password),
   }), [password]);
 
   const handleSignUp = async (e: React.FormEvent) => {
