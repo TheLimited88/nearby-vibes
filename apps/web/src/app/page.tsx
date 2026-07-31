@@ -1,26 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/Button';
 import styles from './page.module.css';
 
 export default function Home() {
   const router = useRouter();
-  const [showVenueModal, setShowVenueModal] = useState(true);
 
   return (
     <div className={styles.container}>
       {/* Venue Modal */}
-      {showVenueModal && (
-        <div className={styles.modalOverlay}>
-          <div className={styles.venueModal}>
-            <button
-              className={styles.closeBtn}
-              onClick={() => setShowVenueModal(false)}
-            >
-              ✕
-            </button>
+      <div className={styles.modalOverlay}>
+        <div className={styles.venueModal}>
             <div className={styles.modalIcon}>🛡️</div>
             <h2 className={styles.modalTitle}>Own a Venue?</h2>
             <p className={styles.modalText}>
@@ -37,9 +29,8 @@ export default function Home() {
               <span>✓ Post in seconds</span>
               <span>✓ No commitment</span>
             </div>
-          </div>
         </div>
-      )}
+      </div>
 
       {/* Hero Section */}
       <section className={styles.hero}>

@@ -33,19 +33,6 @@
   gap: 14px;
 }
 
-.closeBtn {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 28px;
-  height: 28px;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-}
-
 .modalIcon {
   font-size: 44px;
   width: 52px;
