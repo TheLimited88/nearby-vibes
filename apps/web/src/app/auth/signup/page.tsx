@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/Input';
@@ -26,7 +26,7 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [localError, setLocalError] = useState('');
 
-  const passwordRequirements: PasswordRequirements = React.useMemo(() => ({
+  const passwordRequirements: PasswordRequirements = useMemo(() => ({
     minLength: password.length >= 8,
     hasCapital: /[A-Z]/.test(password),
     hasSymbol: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
