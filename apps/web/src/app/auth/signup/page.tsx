@@ -18,7 +18,7 @@ interface PasswordRequirements {
 export default function SignUp() {
   const router = useRouter();
   const params = useSearchParams();
-  const role = (params.get('role') as 'customer' | 'venue') || 'customer';
+  const [role, setRole] = useState<'customer' | 'venue'>((params.get('role') as 'customer' | 'venue') || 'customer');
   const { setUser, setToken, setError, error, isLoading, setLoading } = useAuthStore();
 
   const [email, setEmail] = useState('');
@@ -43,7 +43,7 @@ export default function SignUp() {
     setLocalError('');
 
     if (role === 'venue' && !isBusinessEmail(email)) {
-      setLocalError('Venue accounts require a business email address (e.g., yourname@yourcompany.com)');
+      setLocalError('Venue accounts require a business email address');
       return;
     }
 
@@ -84,11 +84,38 @@ export default function SignUp() {
   return (
     <div className={styles.container}>
       <Card className={styles.card}>
+        {/* Logo */}
+        <div className={styles.logoSection}>
+          <div className={styles.logoIcon}>NV</div>
+          <span className={styles.logoText}>Nearby Vibes</span>
+        </div>
+
+        {/* Role Toggle */}
+        <div className={styles.roleToggle}>
+          <button
+            className={`${styles.roleButton} ${role === 'customer' ? styles.active : ''}`}
+            onClick={() => setRole('customer')}
+          >
+            I want deals
+          </button>
+          <button
+            className={`${styles.roleButton} ${role === 'venue' ? styles.active : ''}`}
+            onClick={() => setRole('venue')}
+          >
+            I run a venue
+          </button>
+        </div>
+
+        {/* Header */}
         <div className={styles.header}>
-          <h1 className={styles.title}>Create Account</h1>
-          <p className={styles.subtitle}>
-            {role === 'venue' ? 'Manage your venue on Nearby Vibes' : 'Join Nearby Vibes'}
-          </p>
+          <h1 className={styles.title}>
+            {role === 'venue' ? 'Get your specials in front of customers' : 'Live specials, right where you are'}
+          </h1>
+          {role === 'venue' && (
+            <div className={styles.venueTagline}>
+              ✓ Start posting in minutes. No credit card. No lock-in.
+            </div>
+          )}
         </div>
 
         <form onSubmit={handleSignUp} className={styles.form}>
@@ -98,65 +125,89 @@ export default function SignUp() {
             </div>
           )}
 
-          <Input
-            type="email"
-            placeholder={role === 'venue' ? 'Business Email (e.g., name@company.com)' : 'Email'}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          {role === 'venue' && email && (
-            <div className={`${styles.emailValidation} ${isBusinessEmail(email) ? styles.valid : styles.invalid}`}>
-              {isBusinessEmail(email) ? '✓ Business email verified' : '✗ Please use a business email address'}
-            </div>
+          {role === 'venue' ? (
+            // Venue signup flow
+            <>
+              <button
+                type="button"
+                className={styles.socialButton}
+                onClick={() => setLocalError('Google sign-in coming soon')}
+              >
+                <svg width="16" height="16" viewBox="0 0 18 18">
+                  <path fill="#4285F4" d="M17.6 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 01-1.8 2.72v2.26h2.92c1.7-1.57 2.68-3.88 2.68-6.62z"/>
+                  <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.92-2.26c-.81.54-1.84.86-3.04.86-2.34 0-4.32-1.58-5.03-3.7H.95v2.33A9 9 0 009 18z"/>
+                  <path fill="#FBBC05" d="M3.97 10.72a5.4 5.4 0 010-3.44V4.95H.95a9 9 0 000 8.1l3.02-2.33z"/>
+                  <path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.59-2.59C13.46.9 11.42 0 9 0A9 9 0 00.95 4.95l3.02 2.33C4.68 5.16 6.66 3.58 9 3.58z"/>
+                </svg>
+                Continue with Google
+              </button>
+              <Button
+                type="submit"
+                fullWidth
+                isLoading={isLoading}
+              >
+                Sign up with business email
+              </Button>
+            </>
+          ) : (
+            // Customer signup flow
+            <>
+              <Input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+              <Input
+                type="password"
+                placeholder="Password (min 8 characters)"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+
+              {password && (
+                <div className={styles.requirements}>
+                  <div className={`${styles.requirement} ${passwordRequirements.minLength ? styles.met : ''}`}>
+                    <span className={styles.checkbox}>
+                      {passwordRequirements.minLength ? '✓' : '○'}
+                    </span>
+                    <span>8+ characters</span>
+                  </div>
+                  <div className={`${styles.requirement} ${passwordRequirements.hasCapital ? styles.met : ''}`}>
+                    <span className={styles.checkbox}>
+                      {passwordRequirements.hasCapital ? '✓' : '○'}
+                    </span>
+                    <span>1 capital letter</span>
+                  </div>
+                  <div className={`${styles.requirement} ${passwordRequirements.hasSymbol ? styles.met : ''}`}>
+                    <span className={styles.checkbox}>
+                      {passwordRequirements.hasSymbol ? '✓' : '○'}
+                    </span>
+                    <span>1 symbol</span>
+                  </div>
+                </div>
+              )}
+
+              <Input
+                type="password"
+                placeholder="Confirm password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+
+              <Button
+                type="submit"
+                fullWidth
+                isLoading={isLoading}
+              >
+                Create Account
+              </Button>
+            </>
           )}
-
-          <Input
-            type="password"
-            placeholder="Password (min 8 characters)"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-
-          {password && (
-            <div className={styles.requirements}>
-              <div className={`${styles.requirement} ${passwordRequirements.minLength ? styles.met : ''}`}>
-                <span className={styles.checkbox}>
-                  {passwordRequirements.minLength ? '✓' : '○'}
-                </span>
-                <span>At least 8 characters</span>
-              </div>
-              <div className={`${styles.requirement} ${passwordRequirements.hasCapital ? styles.met : ''}`}>
-                <span className={styles.checkbox}>
-                  {passwordRequirements.hasCapital ? '✓' : '○'}
-                </span>
-                <span>At least one capital letter</span>
-              </div>
-              <div className={`${styles.requirement} ${passwordRequirements.hasSymbol ? styles.met : ''}`}>
-                <span className={styles.checkbox}>
-                  {passwordRequirements.hasSymbol ? '✓' : '○'}
-                </span>
-                <span>At least one symbol (!@#$%^&*)</span>
-              </div>
-            </div>
-          )}
-
-          <Input
-            type="password"
-            placeholder="Confirm password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-
-          <Button
-            type="submit"
-            fullWidth
-            isLoading={isLoading}
-          >
-            Create Account
-          </Button>
         </form>
 
         <div className={styles.divider}>or</div>
@@ -169,25 +220,9 @@ export default function SignUp() {
           Already have an account?
         </Button>
 
-        {role === 'customer' && (
-          <Button
-            variant="ghost"
-            fullWidth
-            onClick={() => router.push('/auth/signup?role=venue')}
-          >
-            Sign up as venue owner
-          </Button>
-        )}
-
-        {role === 'venue' && (
-          <Button
-            variant="ghost"
-            fullWidth
-            onClick={() => router.push('/auth/signup?role=customer')}
-          >
-            Back to customer sign up
-          </Button>
-        )}
+        <div className={styles.footer}>
+          By continuing you agree to our <a href="#tos">Terms</a> &amp; <a href="#privacy">Privacy Policy</a>
+        </div>
       </Card>
     </div>
   );
