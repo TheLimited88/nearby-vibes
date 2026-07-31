@@ -256,3 +256,72 @@
   color: rgba(10, 10, 10, 0.55);
   font-weight: 600;
 }
+
+.passwordField {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.showPasswordBtn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #7F53F3;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  background: #0A0A0A;
+  border: none;
+  cursor: pointer;
+  accent-color: #0A0A0A;
+}
+
+.checkbox:checked {
+  background: #0A0A0A;
+}
+
+.checkboxGroup label {
+  font-size: 12.5px;
+  color: rgba(10, 10, 10, 0.65);
+  cursor: pointer;
+  margin: 0;
+}
+
+.socialButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.socialIcon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(10, 10, 10, 0.15);
+  border-radius: 12px;
+  padding: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.socialIcon:hover {
+  background: rgba(10, 10, 10, 0.02);
+}
