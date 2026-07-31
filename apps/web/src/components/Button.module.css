@@ -44,12 +44,12 @@
 }
 
 .secondary {
-  background: rgba(10, 155, 113, 0.1);
+  background: rgba(37, 239, 184, 0.1);
   color: var(--accent-primary);
 }
 
 .secondary:hover:not(:disabled) {
-  background: rgba(10, 155, 113, 0.2);
+  background: rgba(37, 239, 184, 0.2);
 }
 
 .success {
@@ -68,7 +68,7 @@
 }
 
 .outline:hover:not(:disabled) {
-  background: rgba(10, 155, 113, 0.05);
+  background: rgba(37, 239, 184, 0.05);
 }
 
 .ghost {
@@ -77,7 +77,7 @@
 }
 
 .ghost:hover:not(:disabled) {
-  background: rgba(10, 155, 113, 0.05);
+  background: rgba(37, 239, 184, 0.05);
 }
 
 .fullWidth {
