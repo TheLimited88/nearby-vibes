@@ -1,169 +1,180 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Button } from '@/components/Button';
 import styles from './page.module.css';
 
 export default function Home() {
   const router = useRouter();
+  const [showVenueCta, setShowVenueCta] = useState(true);
+  const [filter, setFilter] = useState('all');
 
   return (
     <div className={styles.container}>
-      {/* Hero Section */}
-      <section className={styles.hero}>
+      {/* Hero Section - Full Width with Logo Overlay */}
+      <div className={styles.heroSection}>
+        <div className={styles.heroImage}>
+          <div className={styles.imagePlaceholder}>🖼️ Hero — venue crowd / nightlife</div>
+        </div>
+
+        {/* Logo + Menu Overlay */}
         <div className={styles.heroHeader}>
-          <div className={styles.logo}>NV Nearby Vibes</div>
+          <div className={styles.logoGroup}>
+            <div className={styles.logoIcon}>NV</div>
+            <div className={styles.logoText}>Nearby Vibes</div>
+          </div>
           <button className={styles.menuBtn}>☰</button>
         </div>
-        <div className={styles.heroImage}>
-          <div className={styles.imagePlaceholder}>
-            🖼️ Hero — venue crowd / nightlife
-          </div>
-        </div>
-        <div className={styles.heroOverlay}>
-          <h1 className={styles.heroTitle}>Live Specials</h1>
-          <p className={styles.heroSubtitle}>Near You</p>
-        </div>
-      </section>
 
-      {/* Venue Modal */}
-      <div className={styles.modalOverlay}>
-        <div className={styles.venueModal}>
-            <div className={styles.modalIcon}>🛡️</div>
-            <h2 className={styles.modalTitle}>Own a Venue?</h2>
-            <p className={styles.modalText}>
-              Get your venue live in minutes and reach more locals today.
-            </p>
-            <Button
-              onClick={() => router.push('/auth/signup?role=venue')}
-              className={styles.modalButton}
-            >
-              Get Started →
-            </Button>
-            <div className={styles.modalFeatures}>
-              <span>✓ 100% Free</span>
-              <span>✓ Post in seconds</span>
-              <span>✓ No commitment</span>
-            </div>
+        {/* Hero Text Overlay */}
+        <div className={styles.heroText}>
+          <h1>Live Specials</h1>
+          <p>Near You</p>
         </div>
       </div>
 
-      {/* Navigation Tabs */}
-      <section className={styles.navTabs}>
-        <div className={styles.tab}>
-          <div className={styles.tabIcon}>⚡</div>
-          <span>Live specials</span>
-        </div>
-        <div className={styles.tab}>
-          <div className={styles.tabIcon}>📍</div>
-          <span>Nearby venues</span>
-        </div>
-        <div className={styles.tab}>
-          <div className={styles.tabIcon}>🔔</div>
-          <span>Smart notify</span>
-        </div>
-      </section>
-
-      {/* Active Offers Section */}
-      <section className={styles.offersSection}>
-        <div className={styles.offersHeader}>
-          <div>
-            <h2 className={styles.offersTitle}>ACTIVE OFFERS NEAR YOU</h2>
-            <span className={styles.distanceLabel}>&lt;0.75mi</span>
-          </div>
-          <span className={styles.liveCount}>6 live</span>
-        </div>
-
-        <div className={styles.grid}>
-          {/* Sample Card 1 */}
-          <div className={styles.card}>
-            <div className={styles.cardImage}>
-              <div className={styles.imagePlaceholder}>Venue photo</div>
-              <div className={styles.timer}>
-                <span>● LIVE</span>
-                <span>2:30</span>
-              </div>
-              <div className={styles.discountBadge}>DRINK</div>
-            </div>
-            <div className={styles.cardContent}>
-              <p className={styles.distance}>0.3 mi</p>
-              <h3>Aye Aye</h3>
-              <p className={styles.address}>2 for 1 Margaritas</p>
-              <p className={styles.venue}>118 5th Ave</p>
-              <div className={styles.cardActions}>
-                <button className={styles.actionBtn}>⊞</button>
-                <button className={styles.actionBtn}>📍</button>
-              </div>
+      {/* Venue CTA Card */}
+      {showVenueCta && (
+        <div className={styles.venueCta}>
+          <button
+            className={styles.dismissBtn}
+            onClick={() => setShowVenueCta(false)}
+          >
+            ✕
+          </button>
+          <div className={styles.ctaContent}>
+            <div className={styles.ctaIcon}>🛡️</div>
+            <div className={styles.ctaText}>
+              <h3>Own a Venue?</h3>
+              <p>Get your venue live in minutes and reach more locals today.</p>
             </div>
           </div>
-
-          {/* Sample Card 2 */}
-          <div className={styles.card}>
-            <div className={styles.cardImage}>
-              <div className={styles.imagePlaceholder}>Venue photo</div>
-              <div className={styles.timer}>
-                <span>● LIVE</span>
-                <span>1:45</span>
-              </div>
-              <div className={`${styles.discountBadge} ${styles.food}`}>
-                FOOD
-              </div>
-            </div>
-            <div className={styles.cardContent}>
-              <p className={styles.distance}>0.6 mi</p>
-              <h3>241 Bar</h3>
-              <p className={styles.address}>Wings Special</p>
-              <p className={styles.venue}>77 Harbor</p>
-              <div className={styles.cardActions}>
-                <button className={styles.actionBtn}>⊞</button>
-                <button className={styles.actionBtn}>📍</button>
-              </div>
-            </div>
+          <button
+            className={styles.ctaButton}
+            onClick={() => router.push('/auth/signup?role=venue')}
+          >
+            Get Started →
+          </button>
+          <div className={styles.ctaFeatures}>
+            <span>✓ 100% Free</span>
+            <span>✓ Post in seconds</span>
+            <span>✓ No commitment</span>
           </div>
+        </div>
+      )}
 
-          {/* Sample Card 3 */}
-          <div className={styles.card}>
-            <div className={styles.cardImage}>
-              <div className={styles.imagePlaceholder}>Venue photo</div>
-              <div className={styles.timer}>
-                <span>● LIVE</span>
-                <span>0:15</span>
-              </div>
+      {/* Filter Tabs */}
+      <div className={styles.filterTabs}>
+        <button
+          className={`${styles.filterBtn} ${filter === 'all' ? styles.active : ''}`}
+          onClick={() => setFilter('all')}
+        >
+          All
+        </button>
+        <button
+          className={`${styles.filterBtn} ${filter === 'drink' ? styles.active : ''}`}
+          onClick={() => setFilter('drink')}
+        >
+          Drink
+        </button>
+        <button
+          className={`${styles.filterBtn} ${filter === 'food' ? styles.active : ''}`}
+          onClick={() => setFilter('food')}
+        >
+          Food
+        </button>
+      </div>
+
+      {/* Active Offers Header */}
+      <div className={styles.offersHeader}>
+        <span className={styles.offersTitle}>ACTIVE OFFERS NEAR YOU</span>
+        <span className={styles.liveCount}>6 live</span>
+      </div>
+
+      {/* Venue Cards Grid */}
+      <div className={styles.offersGrid}>
+        {/* Card 1 */}
+        <div className={styles.card}>
+          <div className={styles.cardImage}>
+            <div className={styles.imagePlaceholder}>Venue photo</div>
+            <div className={styles.timer}>
+              <span>● LIVE</span>
+              <span>2:30</span>
             </div>
-            <div className={styles.cardContent}>
-              <p className={styles.distance}>Nearby</p>
-              <h3>The Hub</h3>
-              <p className={styles.address}>Happy Hour</p>
-              <p className={styles.venue}>Downtown</p>
-              <div className={styles.cardActions}>
-                <button className={styles.actionBtn}>⊞</button>
-                <button className={styles.actionBtn}>📍</button>
-              </div>
+            <div className={`${styles.badge} ${styles.drink}`}>DRINK</div>
+          </div>
+          <div className={styles.cardBody}>
+            <div className={styles.distance}>0.3 mi</div>
+            <h3>Aye Aye</h3>
+            <p className={styles.description}>2 for 1 Margaritas</p>
+            <p className={styles.address}>118 5th Ave</p>
+            <div className={styles.cardActions}>
+              <button className={styles.actionBtn}>⊞</button>
+              <button className={styles.actionBtn}>📍</button>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Sign In CTA */}
-      <section className={styles.signInSection}>
+        {/* Card 2 */}
+        <div className={styles.card}>
+          <div className={styles.cardImage}>
+            <div className={styles.imagePlaceholder}>Venue photo</div>
+            <div className={styles.timer}>
+              <span>● LIVE</span>
+              <span>1:45</span>
+            </div>
+            <div className={`${styles.badge} ${styles.food}`}>FOOD</div>
+          </div>
+          <div className={styles.cardBody}>
+            <div className={styles.distance}>0.6 mi</div>
+            <h3>241 Bar</h3>
+            <p className={styles.description}>Wings Special</p>
+            <p className={styles.address}>77 Harbor</p>
+            <div className={styles.cardActions}>
+              <button className={styles.actionBtn}>⊞</button>
+              <button className={styles.actionBtn}>📍</button>
+            </div>
+          </div>
+        </div>
+
+        {/* Card 3 */}
+        <div className={styles.card}>
+          <div className={styles.cardImage}>
+            <div className={styles.imagePlaceholder}>Venue photo</div>
+            <div className={styles.timer}>
+              <span>● LIVE</span>
+              <span>0:15</span>
+            </div>
+          </div>
+          <div className={styles.cardBody}>
+            <div className={styles.distance}>Nearby</div>
+            <h3>The Hub</h3>
+            <p className={styles.description}>Happy Hour</p>
+            <p className={styles.address}>Downtown</p>
+            <div className={styles.cardActions}>
+              <button className={styles.actionBtn}>⊞</button>
+              <button className={styles.actionBtn}>📍</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Sign In Section */}
+      <div className={styles.signInSection}>
         <h2>Sign in to see all specials near you</h2>
-        <Button
-          onClick={() => router.push('/auth/signin')}
-          fullWidth
+        <button
           className={styles.signInBtn}
+          onClick={() => router.push('/auth/signin')}
         >
           Sign In
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => router.push('/auth/signup')}
-          fullWidth
+        </button>
+        <button
           className={styles.signUpBtn}
+          onClick={() => router.push('/auth/signup')}
         >
           Create Account
-        </Button>
-      </section>
+        </button>
+      </div>
     </div>
   );
 }
