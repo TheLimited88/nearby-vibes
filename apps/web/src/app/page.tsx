@@ -19,7 +19,7 @@ export default function Home() {
         {/* Header: Logo + Menu (positioned over hero) */}
         <header className={styles.header}>
           <div className={styles.logoContainer}>
-            <div className={styles.logoBadge}>NV</div>
+            <img src="/nv-icon.png" alt="Nearby Vibes" className={styles.logoIcon} />
             <span className={styles.logoLabel}>Nearby Vibes</span>
           </div>
           <button className={styles.menuIcon}>☰</button>

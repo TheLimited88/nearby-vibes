@@ -48,17 +48,11 @@
   gap: 6px;
 }
 
-.logoBadge {
-  width: 28px;
-  height: 28px;
-  background: #9D4EDD;
-  color: white;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 800;
+.logoIcon {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
 }
 
 .logoLabel {
@@ -333,7 +327,7 @@
 }
 
 .badge.drink {
-  background: #E91E63;
+  background: #95048B;
 }
 
 .badge.food {

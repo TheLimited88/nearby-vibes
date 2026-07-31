@@ -86,7 +86,7 @@ export default function SignUp() {
       <Card className={styles.card}>
         {/* Logo */}
         <div className={styles.logoSection}>
-          <div className={styles.logoIcon}>NV</div>
+          <img src="/nv-icon.png" alt="Nearby Vibes" className={styles.logoIcon} />
           <span className={styles.logoText}>Nearby Vibes</span>
         </div>
 
