@@ -89,3 +89,47 @@
   height: 1px;
   background: var(--border);
 }
+
+.requirements {
+  padding: 12px;
+  background: rgba(37, 239, 184, 0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(37, 239, 184, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.requirement {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-tertiary);
+  transition: color 200ms ease;
+}
+
+.requirement.met {
+  color: #0a9b71;
+  font-weight: 600;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(37, 239, 184, 0.1);
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 200ms ease;
+}
+
+.requirement.met .checkbox {
+  background: var(--accent-primary);
+  color: white;
+}

@@ -2,15 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuthStore } from '@/stores/authStore';
 import { discoveryAPI } from '@/lib/apiClient';
-import { Card } from '@/components/Card';
 import { Button } from '@/components/Button';
 import styles from './home.module.css';
 
 interface Post {
   id: string;
   venue_id: string;
+  venue_name?: string;
   title: string;
   description: string;
   image_url?: string;
@@ -25,27 +24,27 @@ interface Post {
 
 export default function Home() {
   const router = useRouter();
-  const { isAuthenticated } = useAuthStore();
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<'tile' | 'map'>('tile');
 
   useEffect(() => {
-    if (!isAuthenticated()) {
-      router.push('/');
-      return;
-    }
+    loadPublicFeed();
+  }, []);
 
-    loadFeed();
-  }, [isAuthenticated, router]);
-
-  const loadFeed = async () => {
+  const loadPublicFeed = async () => {
     try {
       setLoading(true);
-      const response = await discoveryAPI.getPersonalizedFeed();
-      setPosts(response.data.posts || []);
+      try {
+        const response = await discoveryAPI.getPublicPosts();
+        setPosts(response.data.posts || response.data || []);
+      } catch {
+        // Fallback to popular venues if public posts endpoint doesn't exist
+        const response = await discoveryAPI.getPopularVenues();
+        setPosts(response.data.posts || response.data || []);
+      }
     } catch (error) {
       console.error('Failed to load feed:', error);
+      setPosts([]);
     } finally {
       setLoading(false);
     }
@@ -64,81 +63,107 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <h1>Nearby Specials</h1>
-        <div className={styles.headerActions}>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <div className={styles.navBar}>
+            <div className={styles.logo}>🍹 Nearby Vibes</div>
+            <button className={styles.menuBtn} onClick={() => router.push('/auth/signin')}>
+              ☰
+            </button>
+          </div>
+          <div className={styles.heroText}>
+            <h1 className={styles.heroTitle}>Live Specials</h1>
+            <p className={styles.heroSubtitle}>Near You</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Venue CTA Card */}
+      <section className={styles.ctaSection}>
+        <div className={styles.ctaCard}>
+          <div className={styles.ctaIcon}>🏪</div>
+          <h2 className={styles.ctaTitle}>Own a Venue?</h2>
+          <p className={styles.ctaText}>Get your venue live in minutes and reach more locals today.</p>
+          <div className={styles.ctaFeatures}>
+            <span>✓ 100% Free</span>
+            <span>✓ Post in seconds</span>
+            <span>✓ No commitment</span>
+          </div>
           <Button
-            variant={viewMode === 'tile' ? 'primary' : 'secondary'}
-            onClick={() => setViewMode('tile')}
-            size="sm"
+            onClick={() => router.push('/auth/signup?role=venue')}
+            className={styles.ctaButton}
           >
-            Tiles
-          </Button>
-          <Button
-            variant={viewMode === 'map' ? 'primary' : 'secondary'}
-            onClick={() => setViewMode('map')}
-            size="sm"
-          >
-            Map
-          </Button>
-          <Button
-            variant="secondary"
-            onClick={() => router.push('/account')}
-            size="sm"
-          >
-            Account
+            Get Started →
           </Button>
         </div>
-      </header>
+      </section>
 
-      {loading ? (
-        <div className={styles.loading}>Loading specials...</div>
-      ) : posts.length === 0 ? (
-        <div className={styles.empty}>
-          <p>No specials found nearby</p>
-          <Button onClick={loadFeed}>Refresh</Button>
+      {/* Active Offers Section */}
+      <section className={styles.offersSection}>
+        <div className={styles.sectionHeader}>
+          <h2>ACTIVE OFFERS NEAR YOU</h2>
+          <span className={styles.count}>{posts.length} live</span>
         </div>
-      ) : (
-        <div className={viewMode === 'tile' ? styles.grid : styles.listView}>
-          {posts.map((post) => (
-            <Card
-              key={post.id}
-              className={styles.postCard}
-              onClick={() => router.push(`/posts/${post.id}`)}
-            >
-              {post.image_url && (
-                <div className={styles.image}>
-                  <img src={post.image_url} alt={post.title} />
-                  <div className={styles.timer}>
-                    <span className={styles.liveIndicator}>● LIVE</span>
-                    <span>{timeRemaining(post.end_time)} left</span>
-                  </div>
-                </div>
-              )}
 
-              <div className={styles.content}>
-                <h3>{post.title}</h3>
-                <p className={styles.description}>{post.description}</p>
-
-                {post.discount_amount && (
-                  <div className={styles.discount}>
-                    <span className={styles.amount}>
-                      {post.discount_type === 'percentage'
-                        ? `${post.discount_amount}% off`
-                        : `$${post.discount_amount} off`}
-                    </span>
+        {loading ? (
+          <div className={styles.loading}>Loading specials...</div>
+        ) : posts.length === 0 ? (
+          <div className={styles.empty}>
+            <p>No specials found. Check back soon!</p>
+          </div>
+        ) : (
+          <div className={styles.grid}>
+            {posts.map((post) => (
+              <div
+                key={post.id}
+                className={styles.card}
+                onClick={() => router.push(`/posts/${post.id}`)}
+              >
+                {post.image_url && (
+                  <div className={styles.cardImage}>
+                    <img src={post.image_url} alt={post.title} />
+                    <div className={styles.timer}>
+                      <span className={styles.liveTag}>● LIVE</span>
+                      <span>{timeRemaining(post.end_time)}</span>
+                    </div>
+                    {post.discount_amount && (
+                      <div className={styles.discountTag}>
+                        {post.discount_type === 'percentage'
+                          ? `${post.discount_amount}% OFF`
+                          : `$${post.discount_amount} OFF`}
+                      </div>
+                    )}
                   </div>
                 )}
-
-                <div className={styles.stats}>
-                  <span>{post.view_count} views</span>
-                  <span>{post.click_count} interested</span>
+                <div className={styles.cardContent}>
+                  <h3>{post.title}</h3>
+                  <p className={styles.venue}>{post.venue_name || 'Venue'}</p>
+                  <p className={styles.description}>{post.description}</p>
                 </div>
               </div>
-            </Card>
-          ))}
-        </div>
-      )}
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Sign In CTA */}
+      <section className={styles.signInCta}>
+        <h2>Start discovering specials near you</h2>
+        <Button
+          onClick={() => router.push('/auth/signin')}
+          className={styles.signInButton}
+        >
+          Sign In
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={() => router.push('/auth/signup')}
+          className={styles.signUpButton}
+        >
+          Create Account
+        </Button>
+      </section>
     </div>
   );
 }

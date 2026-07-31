@@ -58,6 +58,9 @@ export const discoveryAPI = {
   getPopularVenues: () =>
     getApiClient().get('/discovery/popular'),
 
+  getPublicPosts: () =>
+    getApiClient().get('/discovery/posts/public'),
+
   getPersonalizedFeed: () =>
     getApiClient().get('/discovery/feed'),
 };

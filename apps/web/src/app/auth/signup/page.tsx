@@ -9,6 +9,12 @@ import { useAuthStore } from '@/stores/authStore';
 import { authAPI } from '@/lib/apiClient';
 import styles from '../auth.module.css';
 
+interface PasswordRequirements {
+  minLength: boolean;
+  hasCapital: boolean;
+  hasSymbol: boolean;
+}
+
 export default function SignUp() {
   const router = useRouter();
   const params = useSearchParams();
@@ -19,6 +25,12 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [localError, setLocalError] = useState('');
+
+  const passwordRequirements: PasswordRequirements = React.useMemo(() => ({
+    minLength: password.length >= 8,
+    hasCapital: /[A-Z]/.test(password),
+    hasSymbol: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password),
+  }), [password]);
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -90,6 +102,29 @@ export default function SignUp() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
+          {password && (
+            <div className={styles.requirements}>
+              <div className={`${styles.requirement} ${passwordRequirements.minLength ? styles.met : ''}`}>
+                <span className={styles.checkbox}>
+                  {passwordRequirements.minLength ? '✓' : '○'}
+                </span>
+                <span>At least 8 characters</span>
+              </div>
+              <div className={`${styles.requirement} ${passwordRequirements.hasCapital ? styles.met : ''}`}>
+                <span className={styles.checkbox}>
+                  {passwordRequirements.hasCapital ? '✓' : '○'}
+                </span>
+                <span>At least one capital letter</span>
+              </div>
+              <div className={`${styles.requirement} ${passwordRequirements.hasSymbol ? styles.met : ''}`}>
+                <span className={styles.checkbox}>
+                  {passwordRequirements.hasSymbol ? '✓' : '○'}
+                </span>
+                <span>At least one symbol (!@#$%^&*)</span>
+              </div>
+            </div>
+          )}
 
           <Input
             type="password"
