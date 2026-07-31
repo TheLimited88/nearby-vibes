@@ -31,8 +31,13 @@ export default function Home() {
   const [viewMode, setViewMode] = useState<'tile' | 'map'>('tile');
 
   useEffect(() => {
+    if (!isAuthenticated()) {
+      router.push('/');
+      return;
+    }
+
     loadFeed();
-  }, []);
+  }, [isAuthenticated, router]);
 
   const loadFeed = async () => {
     try {
