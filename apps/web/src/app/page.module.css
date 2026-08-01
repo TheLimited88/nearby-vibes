@@ -1,144 +1,365 @@
 .container {
   width: 100%;
   min-height: 100vh;
-  background: white;
+  background: #fff;
   display: flex;
   flex-direction: column;
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
 }
 
 /* Hero Section */
-.heroSection {
+.hero {
   position: relative;
   width: 100%;
-  min-height: 320px;
-  background: #f5f5f5;
+  height: 285px;
+  overflow: hidden;
+  flex: none;
 }
 
 .heroImage {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, #ddd 0%, #999 100%);
+  background: linear-gradient(180deg, #ccc 0%, #999 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
-  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
 }
 
-.imagePlaceholder {
-  text-align: center;
+.heroGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.05) 35%,
+    rgba(0, 0, 0, 0.35) 62%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
 }
 
 /* Header */
 .header {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 8px 16px;
+  top: 62px;
+  left: 20px;
+  right: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 6px;
   z-index: 10;
 }
 
-.logoContainer {
+.logo {
   display: flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
+  color: #0A0A0A;
+  font-size: 16px;
+  font-weight: 700;
+  flex: none;
 }
 
-.logoIcon {
-  height: 32px;
-  width: auto;
-  display: block;
-  object-fit: contain;
+.menuBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  font-size: 18px;
+  flex: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
 }
 
-.logoLabel {
+/* Hero Text */
+.heroText {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  right: 20px;
+}
+
+.heading {
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.subheading {
+  font-size: 30px;
+  font-weight: 800;
+  color: #25EFB8;
+  margin: 0;
+  line-height: 1.15;
+}
+
+/* CTA Card */
+.ctaCard {
+  margin: 12px 20px 0;
+  background: #0A0A0A;
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  color: white;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
+  z-index: 2;
+}
+
+.ctaIcon {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.ctaTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 3px 0;
+}
+
+.ctaDesc {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.ctaButton {
+  background: #25EFB8;
+  color: #0A0A0A;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.ctaBullets {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+}
+
+/* Filters */
+.filters {
+  padding: 0 20px 4px;
+  display: flex;
+  gap: 8px;
+}
+
+.filterBtn {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: rgba(10, 10, 10, 0.06);
+  color: #0A0A0A;
+  transition: all 0.2s;
+}
+
+.filterBtn.active {
+  background: #0A0A0A;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Active Offers Header */
+.offersHeader {
+  padding: 12px 20px 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #0A0A0A;
+}
+
+.count {
+  background: rgba(37, 239, 184, 0.15);
+  color: #0A9B71;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 999px;
+  margin-left: auto;
+}
+
+/* Offers List */
+.offersList {
+  display: flex;
+  gap: 12px;
+  padding: 12px 20px 24px;
+  overflow-x: auto;
+  flex-shrink: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.offerCard {
+  flex: none;
+  width: 168px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardImage {
+  position: relative;
+  width: 168px;
+  height: 210px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: #999;
+}
+
+.categoryBadge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #95048B;
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 3px 7px;
+  border-radius: 999px;
+}
+
+.distance {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #0A0A0A;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.liveIndicator {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  color: #fff;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #25EFB8;
+  display: inline-block;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.cardContent {
+  padding: 0 4px;
+}
+
+.venueName {
+  font-size: 13.5px;
   font-weight: 700;
   color: #0A0A0A;
 }
 
-.menuIcon {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.offerTitle {
+  font-size: 12px;
+  color: rgba(10, 10, 10, 0.55);
+  margin-top: 2px;
 }
 
-/* Hero Text Overlay */
-.heroTextOverlay {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  color: white;
-}
-
-.heroHeading {
-  font-size: 28px;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1.1;
-}
-
-.heroSubheading {
-  font-size: 28px;
-  font-weight: 800;
-  margin: 0;
-  line-height: 1.1;
-  color: #25EFB8;
-}
-
-/* Navigation Tabs */
-.navTabs {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 16px 0;
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
-  gap: 0;
-}
-
-.navTab {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 8px;
-  cursor: pointer;
-  text-align: center;
+.address {
   font-size: 11px;
-  font-weight: 600;
-  color: #0A0A0A;
+  color: rgba(10, 10, 10, 0.45);
+  margin-top: 2px;
 }
 
-.tabIcon {
-  font-size: 18px;
-  display: block;
-}
-
-/* Venue CTA */
-.venueCta {
-  margin: 12px 16px;
-  padding: 14px;
-  background: #0A0A0A;
-  border-radius: 16px;
-  position: relative;
-  color: white;
+/* Sign In Section */
+.signInSection {
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(10, 10, 10, 0.06);
+  text-align: center;
+}
+
+.signInSection p {
+  font-size: 14px;
+  color: #0A0A0A;
+  margin: 0;
+}
+
+.authButtons {
+  display: flex;
   gap: 10px;
+  width: 100%;
+}
+
+.signInBtn,
+.createAccountBtn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(10, 10, 10, 0.15);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  background: white;
+  color: #0A0A0A;
 }
 
 .closeBtn {
