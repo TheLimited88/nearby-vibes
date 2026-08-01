@@ -1,0 +1,227 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+.content {
+  flex: 1;
+  padding: 32px 20px;
+}
+
+.venueSection {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.venueImage {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #ddd 0%, #999 100%);
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.venueName {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 8px;
+}
+
+.venueAddress {
+  font-size: 14px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0;
+}
+
+.offerSection {
+  margin-bottom: 40px;
+}
+
+.offerSection h2 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0A0A0A;
+  margin: 0 0 16px;
+}
+
+.offerCard {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  border: 1.5px solid rgba(127, 83, 243, 0.2);
+}
+
+.offerIcon {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.offerText {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+  margin: 0;
+}
+
+.benefitsSection {
+  margin-bottom: 40px;
+}
+
+.benefitsSection h2 {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0A0A0A;
+  margin: 0 0 16px;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit {
+  display: flex;
+  gap: 12px;
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.benefitIcon {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.benefit h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0A0A0A;
+  margin: 0 0 4px;
+}
+
+.benefit p {
+  font-size: 12px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0;
+}
+
+.successCard {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.successIcon {
+  font-size: 80px;
+  color: #0A9B71;
+  margin-bottom: 20px;
+}
+
+.successTitle {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 8px;
+}
+
+.successText {
+  font-size: 14px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0 0 24px;
+}
+
+.successDetails {
+  background: rgba(37, 239, 184, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.successDetails p {
+  font-size: 12px;
+  color: #0A9B71;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.countdown {
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.footer {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ctaBtn {
+  padding: 16px;
+  background: #7F53F3;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.ctaBtn:hover {
+  background: #95048B;
+}
+
+.cancelBtn {
+  padding: 14px;
+  background: transparent;
+  color: rgba(10, 10, 10, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.cancelBtn:hover {
+  color: #0A0A0A;
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 24px 16px;
+  }
+
+  .venueName {
+    font-size: 22px;
+  }
+}
