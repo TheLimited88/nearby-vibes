@@ -9,11 +9,10 @@ export default function Home() {
   const [ageGate, setAgeGate] = useState<'pending' | 'verified' | 'declined'>('pending');
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
   const [venueCtaSlide, setVenueCtaSlide] = useState(0);
   const [specialFilter, setSpecialFilter] = useState('all');
-  const [unit, setUnit] = useState('mi');
-  const [authState, setAuthState] = useState<'signedOut' | 'customer' | 'venue'>('signedOut');
+  const [unit] = useState('mi');
+  const [authState] = useState<'signedOut' | 'customer' | 'venue'>('signedOut');
 
   useEffect(() => {
     const saved = localStorage.getItem('nv_age_gate');
@@ -52,7 +51,6 @@ export default function Home() {
 
   const distHeader = unit === 'mi' ? '<0.75mi' : '<1.2km';
   const isVenue = authState === 'venue';
-  const isNotVenue = authState !== 'venue';
   const isCustomer = authState === 'customer';
   const isSignedOut = authState === 'signedOut';
   const ageVerified = ageGate === 'verified';
@@ -175,7 +173,7 @@ export default function Home() {
                   <a href="#privacy" className={styles.menuItemSmall}>Privacy Policy</a>
                   <a href="#aup" className={styles.menuItemSmall}>Acceptable Use Policy</a>
                   <div className={styles.menuDivider} />
-                  <button onClick={() => setSettingsOpen(true)} className={styles.settingsBtn}>
+                  <button className={styles.settingsBtn}>
                     ⚙️ Settings
                   </button>
                 </div>
