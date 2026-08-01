@@ -6,13 +6,5 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "env": {
     "NODE_ENV": "production"
-  },
-  "projects": {
-    "web": {
-      "name": "nearby-vibes-web",
-      "buildCommand": "pnpm --filter @nearby-vibes/web build",
-      "outputDirectory": "apps/web/.next",
-      "rootDirectory": "apps/web"
-    }
   }
 }
