@@ -6,6 +6,5 @@
   "installCommand": "pnpm install --frozen-lockfile",
   "env": {
     "NODE_ENV": "production"
-  },
-  "root": "apps/web"
+  }
 }
