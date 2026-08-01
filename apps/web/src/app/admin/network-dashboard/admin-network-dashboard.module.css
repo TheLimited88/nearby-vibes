@@ -1,0 +1,301 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.backBtn:hover {
+  background: rgba(10, 10, 10, 0.04);
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 0 auto;
+}
+
+.content {
+  flex: 1;
+  padding: 24px 20px;
+}
+
+.timeRange {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.rangeBtn {
+  padding: 10px 16px;
+  background: rgba(10, 10, 10, 0.06);
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(10, 10, 10, 0.6);
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.rangeBtn:hover {
+  background: rgba(10, 10, 10, 0.1);
+}
+
+.rangeBtn.active {
+  background: #7F53F3;
+  color: white;
+}
+
+.section {
+  margin-bottom: 32px;
+}
+
+.section h2 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 16px;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.metricCard {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.metricIcon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.metricLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(10, 10, 10, 0.6);
+  margin-bottom: 6px;
+}
+
+.metricValue {
+  font-size: 24px;
+  font-weight: 800;
+  color: #7F53F3;
+  margin-bottom: 4px;
+}
+
+.metricChange {
+  font-size: 11px;
+  font-weight: 600;
+  color: #0A9B71;
+}
+
+.chartContainer {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 12px;
+  height: 200px;
+  margin-bottom: 16px;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(180deg, #7F53F3 0%, #95048B 100%);
+  border-radius: 4px;
+  min-height: 20px;
+  max-width: 60px;
+}
+
+.chartLabels {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  font-size: 11px;
+  color: rgba(10, 10, 10, 0.5);
+}
+
+.chartLabels span {
+  flex: 1;
+  text-align: center;
+  max-width: 60px;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: rgba(10, 10, 10, 0.02);
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(10, 10, 10, 0.6);
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: #0A0A0A;
+}
+
+.table tbody tr:hover {
+  background: rgba(10, 10, 10, 0.02);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.locationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.locationCard {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.locationInfo {
+  min-width: 150px;
+}
+
+.locationName {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0A0A0A;
+  margin: 0 0 8px;
+}
+
+.locationStats {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: rgba(10, 10, 10, 0.6);
+}
+
+.locationStats span {
+  font-weight: 600;
+}
+
+.locationBar {
+  flex: 1;
+  height: 24px;
+  background: rgba(10, 10, 10, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.locationBar .bar {
+  height: 100%;
+  background: linear-gradient(90deg, #7F53F3 0%, #95048B 100%);
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .table {
+    font-size: 12px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 12px;
+  }
+
+  .timeRange {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .locationCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .locationBar {
+    width: 100%;
+  }
+}
