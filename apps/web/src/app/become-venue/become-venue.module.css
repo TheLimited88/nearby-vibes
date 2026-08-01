@@ -1,0 +1,183 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  padding: 20px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+.content {
+  flex: 1;
+  padding: 40px 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 12px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+.feature {
+  text-align: center;
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+}
+
+.featureIcon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.feature h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0A0A0A;
+  margin: 0 0 8px;
+}
+
+.feature p {
+  font-size: 13px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.ctaBox {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.ctaBox h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 12px;
+}
+
+.ctaBox p {
+  font-size: 14px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.ctaBtn {
+  width: 100%;
+  padding: 16px;
+  background: #7F53F3;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  margin-bottom: 16px;
+}
+
+.ctaBtn:hover {
+  background: #95048B;
+}
+
+.note {
+  font-size: 13px;
+  color: rgba(10, 10, 10, 0.5);
+  margin: 0 !important;
+}
+
+.note a {
+  color: #7F53F3;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.note a:hover {
+  text-decoration: underline;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px;
+  border-top: 1px solid var(--border);
+  background: white;
+}
+
+.footer a {
+  font-size: 12px;
+  color: rgba(10, 10, 10, 0.6);
+  text-decoration: none;
+  transition: all 200ms ease;
+}
+
+.footer a:hover {
+  color: #0A0A0A;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .features {
+    gap: 16px;
+  }
+
+  .ctaBox {
+    padding: 32px 24px;
+  }
+}
