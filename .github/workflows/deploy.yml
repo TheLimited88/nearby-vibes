@@ -39,8 +39,6 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_API }}:latest
             ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_API }}:${{ github.sha }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_API }}:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_API }}:buildcache,mode=max
 
       - name: Build and push Web image
         uses: docker/build-push-action@v4
@@ -51,8 +49,6 @@ jobs:
           tags: |
             ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_WEB }}:latest
             ${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_WEB }}:${{ github.sha }}
-          cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_WEB }}:buildcache
-          cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.REGISTRY_NAME }}/${{ env.IMAGE_WEB }}:buildcache,mode=max
 
       - name: Deploy to DigitalOcean App Platform
         run: |
