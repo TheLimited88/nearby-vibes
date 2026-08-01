@@ -9,11 +9,10 @@ export default function Home() {
   const [ageGate, setAgeGate] = useState<'pending' | 'verified' | 'declined'>('pending');
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
   const [venueCtaSlide, setVenueCtaSlide] = useState(0);
   const [specialFilter, setSpecialFilter] = useState('all');
-  const [unit, setUnit] = useState('mi');
-  const [authState, setAuthState] = useState<'signedOut' | 'customer' | 'venue'>('signedOut');
+  const [unit] = useState('mi');
+  const [authState] = useState<'signedOut' | 'customer' | 'venue'>('signedOut');
 
   useEffect(() => {
     const saved = localStorage.getItem('nv_age_gate');
@@ -203,7 +202,7 @@ export default function Home() {
                   <a href="#privacy" className={styles.menuItemSmall}>Privacy Policy</a>
                   <a href="#aup" className={styles.menuItemSmall}>Acceptable Use Policy</a>
                   <div className={styles.menuDivider} />
-                  <button onClick={() => setSettingsOpen(true)} className={styles.settingsBtn}>
+                  <button className={styles.settingsBtn}>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <circle cx="8" cy="8" r="2.4" stroke="#0A0A0A" strokeWidth="1.5"/>
                       <path d="M8 1.5V3M8 13V14.5M1.5 8H3M13 8H14.5M3.3 3.3L4.4 4.4M11.6 11.6L12.7 12.7M3.3 12.7L4.4 11.6M11.6 4.4L12.7 3.3" stroke="#0A0A0A" strokeWidth="1.4" strokeLinecap="round"/>
