@@ -1,4 +1,5 @@
 'use client';
+// Build: Live Specials Homepage v1.0
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
