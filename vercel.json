@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm build",
+  "outputDirectory": "apps/web/.next",
+  "framework": "nextjs",
+  "installCommand": "pnpm install --frozen-lockfile",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "projects": {
+    "web": {
+      "name": "nearby-vibes-web",
+      "buildCommand": "pnpm --filter @nearby-vibes/web build",
+      "outputDirectory": "apps/web/.next",
+      "rootDirectory": "apps/web"
+    }
+  }
+}
