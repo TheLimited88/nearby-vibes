@@ -1,0 +1,25 @@
+{
+  "name": "nearby-vibes",
+  "version": "1.0.0",
+  "description": "Nearby Vibes - Two-sided marketplace for time-limited specials",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w apps/web\" \"npm run dev -w apps/api\"",
+    "build": "npm run build -ws",
+    "start": "npm run start -w apps/web",
+    "lint": "eslint . --ext ts,tsx,js,jsx",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "concurrently": "^8.0.0",
+    "eslint": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0"
+  }
+}

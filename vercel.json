@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build -w @nearby-vibes/web",
+  "outputDirectory": "apps/web/.next",
+  "env": {
+    "NEXT_PUBLIC_API_URL": "@api_url"
+  },
+  "regions": ["iad1"],
+  "functions": {
+    "apps/web/pages/api/**": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  }
+}

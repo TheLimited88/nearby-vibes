@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  body {
+    @apply bg-background text-text-primary font-sans antialiased;
+  }
+
+  /* Timer bar animation */
+  @keyframes drain {
+    from {
+      width: 100%;
+    }
+    to {
+      width: 0%;
+    }
+  }
+
+  .timer-bar-fill {
+    @apply h-1.5 bg-accent-success transition-colors;
+  }
+
+  .timer-bar-fill.urgent {
+    @apply bg-accent-bright;
+  }
+
+  /* Gradient button utility */
+  .btn-cta {
+    @apply bg-cta-gradient text-white rounded-md font-semibold transition-all hover:opacity-90;
+  }
+}
+
+/* Smooth scrolling for iOS */
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+select,
+button {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* PWA Viewport */
+meta[name="viewport"] {
+  viewport-fit: cover;
+}
