@@ -153,12 +153,13 @@ export default function Home() {
           <div className={styles.ctaIcon}>🛡️</div>
           <h2 className={styles.ctaTitle}>Own a Venue?</h2>
           <p className={styles.ctaDesc}>Get your venue live in minutes and reach more locals today.</p>
-          <button
-            className={styles.ctaBtn}
-            onClick={() => router.push('/auth/signup?role=venue')}
+          <a
+            href="/auth/signup?role=venue"
+            className={styles.ctaButton}
+            style={{textDecoration: 'none'}}
           >
             Get Started →
-          </button>
+          </a>
           <div className={styles.ctaBenefits}>
             <span>✓ 100% Free</span>
             <span>✓ Post in seconds</span>
@@ -254,18 +255,20 @@ export default function Home() {
       {/* Sign In Section */}
       <div className={styles.signInSection}>
         <h2>Sign in to see all specials near you</h2>
-        <button
+        <a
+          href="/auth/signin"
           className={styles.signInBtn}
-          onClick={() => router.push('/auth/signin')}
+          style={{textDecoration: 'none'}}
         >
           Sign In
-        </button>
-        <button
+        </a>
+        <a
+          href="/auth/signup"
           className={styles.createBtn}
-          onClick={() => router.push('/auth/signup')}
+          style={{textDecoration: 'none'}}
         >
           Create Account
-        </button>
+        </a>
       </div>
     </div>
   );
