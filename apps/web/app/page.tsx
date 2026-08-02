@@ -1,26 +1,27 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 type AuthState = 'signedOut' | 'customer' | 'venue';
 type AgeGate = 'pending' | 'verified' | 'declined';
 type SpecialFilter = 'all' | 'drink' | 'food';
 type DistanceUnit = 'mi' | 'km';
+type TabType = 'live' | 'nearby' | 'notify';
 
 export default function HomePage() {
+  // Updated with top navigation bar
   const [isClient, setIsClient] = useState(false);
   const [authState, setAuthState] = useState<AuthState>('signedOut');
   const [ageGate, setAgeGate] = useState<AgeGate>('pending');
   const [showAgeModal, setShowAgeModal] = useState(false);
   const [showDecline, setShowDecline] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [showVenueCta, setShowVenueCta] = useState(true);
   const [venueCtaSlide, setVenueCtaSlide] = useState(0);
   const [specialFilter, setSpecialFilter] = useState<SpecialFilter>('all');
   const [distUnit, setDistUnit] = useState<DistanceUnit>('mi');
+  const [activeTab, setActiveTab] = useState<TabType>('live');
 
   useEffect(() => {
     setIsClient(true);
@@ -154,77 +155,87 @@ export default function HomePage() {
       {/* Main Content */}
       {!showDecline && (
         <div className="flex-1 overflow-hidden flex flex-col">
-          {/* Hero Section */}
-          <div className="relative h-72 flex-shrink-0">
-            <div className="absolute inset-0 bg-gray-200" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/5 to-black/35" />
-
-            {/* Header */}
-            <div className="absolute top-16 left-5 right-5 flex items-center justify-between gap-1.5 z-20">
-              <a href="#" className="flex items-center gap-1.5 no-underline cursor-pointer">
-                <svg width="32" height="32" viewBox="0 0 32 32" className="w-8 h-8" fill="none">
-                  <circle cx="16" cy="16" r="14" stroke="#0A0A0A" strokeWidth="1.5" />
-                </svg>
-                <div className="text-base font-bold text-text-primary">Nearby Vibes</div>
-              </a>
+          {/* TOP NAVIGATION - Per design mockup */}
+          <div className="sticky top-0 z-40 bg-surface border-b border-border-default">
+            <div className="px-5 py-3 flex items-center justify-between">
+              {/* Logo */}
               <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setMenuOpen(!menuOpen)}
-                  className="w-9 h-9 rounded-[10px] bg-white/90 backdrop-blur flex items-center justify-center cursor-pointer shadow-card hover:shadow-modal transition"
-                >
-                  <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-                    <path d="M1 1H17M1 7H17M1 13H17" stroke="#0A0A0A" strokeWidth="1.8" strokeLinecap="round" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Hero Text */}
-            <div className="absolute bottom-5 left-5 right-5">
-              <div className="text-[30px] font-bold text-white leading-[1.15]">Live Specials</div>
-              <div className="text-[30px] font-bold text-accent-success leading-[1.15]">Near You</div>
-            </div>
-
-            {/* Floating Action Button (Venue) */}
-            {authState === 'venue' && (
-              <button className="absolute bottom-[104px] right-5 w-14 h-14 rounded-full bg-accent-success flex items-center justify-center shadow-lg hover:shadow-xl transition z-15">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 2V18M2 10H18" stroke="#0A0A0A" strokeWidth="2.4" strokeLinecap="round" />
+                <svg width="24" height="24" viewBox="0 0 24 24" className="w-6 h-6" fill="none">
+                  <circle cx="12" cy="12" r="10" stroke="#7F53F3" strokeWidth="1.5" />
                 </svg>
-              </button>
-            )}
+                <span className="font-bold text-sm text-text-primary">Nearby Vibes</span>
+              </div>
 
-            {/* Bottom Navigation */}
-            <div className="absolute bottom-6 left-0 right-0 flex justify-center pointer-events-none">
-              <div className="bg-white/95 backdrop-blur rounded-full p-1 flex gap-0 shadow-lg pointer-events-auto">
-                <div className="px-5.5 py-3 rounded-full bg-accent-success flex items-center justify-center">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <rect x="1" y="1" width="6" height="6" rx="1.3" fill="#0A0A0A" />
-                    <rect x="9" y="1" width="6" height="6" rx="1.3" fill="#0A0A0A" />
-                    <rect x="1" y="9" width="6" height="6" rx="1.3" fill="#0A0A0A" />
-                    <rect x="9" y="9" width="6" height="6" rx="1.3" fill="#0A0A0A" />
+              {/* Three Top Navigation Buttons */}
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => setActiveTab('live')}
+                  className={`flex flex-col items-center gap-1 px-3 py-2 rounded-md transition ${
+                    activeTab === 'live' ? 'text-accent-success' : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                  title="Live specials"
+                >
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 2L18 6V10L10 18L2 10V6L10 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                   </svg>
-                </div>
-                <button className="px-5.5 py-3 rounded-full flex items-center justify-center hover:bg-background/50 transition">
-                  <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
-                    <path
-                      d="M7 15.5S13.5 9.8 13.5 5.7A6.5 6.5 0 001 5.7C1 9.8 7 15.5 7 15.5Z"
-                      stroke="#0A0A0A"
-                      strokeWidth="1.6"
-                      strokeLinejoin="round"
-                    />
-                    <circle cx="7" cy="5.7" r="2.2" fill="#0A0A0A" />
+                  <span className="text-xs font-medium">Live specials</span>
+                </button>
+
+                <button
+                  onClick={() => setActiveTab('nearby')}
+                  className={`flex flex-col items-center gap-1 px-3 py-2 rounded-md transition ${
+                    activeTab === 'nearby' ? 'text-accent-primary' : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                  title="Nearby venues"
+                >
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 2C14.42 2 18 5.58 18 10C18 15 10 19 10 19S2 15 2 10C2 5.58 5.58 2 10 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+                    <circle cx="10" cy="10" r="2" fill="currentColor" />
                   </svg>
+                  <span className="text-xs font-medium">Nearby venues</span>
+                </button>
+
+                <button
+                  onClick={() => setActiveTab('notify')}
+                  className={`flex flex-col items-center gap-1 px-3 py-2 rounded-md transition ${
+                    activeTab === 'notify' ? 'text-accent-primary' : 'text-text-secondary hover:text-text-primary'
+                  }`}
+                  title="Smart notify"
+                >
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                    <path d="M8 18H12M10 2V4M16.5 5.5L15.08 6.92M17 10H15M16.5 14.5L15.08 13.08M4.5 14.5L5.92 13.08M3 10H5M4.5 5.5L5.92 6.92M10 6C7.24 6 5 8.24 5 11C5 13.76 7.24 16 10 16C12.76 16 15 13.76 15 11C15 8.24 12.76 6 10 6Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="text-xs font-medium">Smart notify</span>
                 </button>
               </div>
             </div>
+          </div>
+
+          {/* Hero Section - Image placeholder */}
+          <div className="relative h-48 bg-gray-200 flex-shrink-0 flex flex-col items-center justify-center gap-2">
+            <svg width="48" height="48" viewBox="0 0 48 48" className="text-gray-400" fill="none">
+              <rect x="6" y="6" width="36" height="36" rx="2" stroke="currentColor" strokeWidth="2" />
+              <circle cx="15" cy="15" r="3" fill="currentColor" />
+              <path d="M6 36L18 20L30 32L42 20V42H6V36Z" fill="currentColor" opacity="0.2" />
+            </svg>
+            <span className="text-sm text-gray-500 font-medium">Hero — venue crowd / nightlife</span>
+            <button className="text-xs text-accent-primary underline">or browse files</button>
+
+            {/* Gradient overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent" />
+          </div>
+
+          {/* Headline */}
+          <div className="relative -mt-8 z-10 px-5 pb-4">
+            <h1 className="text-4xl font-bold text-white leading-[1.1]">Live Specials</h1>
+            <h1 className="text-4xl font-bold text-accent-success leading-[1.1]">Near You</h1>
           </div>
 
           {/* Scrollable Content */}
           <div className="flex-1 overflow-y-auto">
             {/* Venue CTA */}
             {showVenueCta && (
-              <div className="mx-5 mt-3 bg-text-primary rounded-[18px] p-3.5 flex flex-col gap-2 relative">
+              <div className="mx-5 mt-3 mb-3 bg-text-primary rounded-[18px] p-3.5 flex flex-col gap-2 relative">
                 <button
                   onClick={() => setShowVenueCta(false)}
                   className="absolute top-3 right-3 w-6 h-6 rounded-full bg-white/12 flex items-center justify-center cursor-pointer z-10"
@@ -408,116 +419,6 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Menu Drawer */}
-      {menuOpen && (
-        <>
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="fixed inset-0 z-[20] bg-black/30"
-            style={{ top: '0', left: '0', right: '0', bottom: '0' }}
-          />
-          <div className="fixed top-0 left-0 bottom-0 w-[250px] bg-surface z-[21] shadow-lg p-[70px_22px_24px] flex flex-col gap-0.5 overflow-y-auto">
-            {/* Profile Item */}
-            <button
-              onClick={() => setProfileOpen(true)}
-              className="flex items-center gap-2.5 p-2 mb-2.5 rounded-[10px] bg-text-primary/5 cursor-pointer"
-            >
-              <div className="w-8.5 h-8.5 rounded-full bg-surface flex items-center justify-center flex-shrink-0 shadow-card">
-                {authState === 'venue' ? (
-                  <svg width="16" height="14" viewBox="0 0 18 16" fill="none">
-                    <path d="M1 5L2.5 1H15.5L17 5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinejoin="round" />
-                    <path d="M1 5V15H17V5" stroke="#0A0A0A" strokeWidth="1.5" strokeLinejoin="round" />
-                    <path d="M1 5C1 6.5 2.2 7.5 3.5 7.5S6 6.5 6 5" stroke="#0A0A0A" strokeWidth="1.5" />
-                    <path d="M6 5C6 6.5 7.2 7.5 8.5 7.5S11 6.5 11 5" stroke="#0A0A0A" strokeWidth="1.5" />
-                    <path d="M11 5C11 6.5 12.2 7.5 13.5 7.5S16 6.5 16 5" stroke="#0A0A0A" strokeWidth="1.5" />
-                  </svg>
-                ) : (
-                  <svg width="14" height="16" viewBox="0 0 16 18" fill="none">
-                    <circle cx="8" cy="5" r="4" stroke="#0A0A0A" strokeWidth="1.6" />
-                    <path d="M1 17c0-4 3-6 7-6s7 2 7 6" stroke="#0A0A0A" strokeWidth="1.6" strokeLinecap="round" />
-                  </svg>
-                )}
-              </div>
-              <div className="flex flex-col">
-                {authState === 'signedOut' ? (
-                  <>
-                    <div className="text-sm font-bold text-text-primary">Sign in / Create account</div>
-                    <div className="text-xs text-text-tertiary">Customer or Venue</div>
-                  </>
-                ) : authState === 'customer' ? (
-                  <>
-                    <div className="text-sm font-bold text-text-primary">My Account</div>
-                    <div className="text-xs text-text-tertiary">Signed in as Customer</div>
-                  </>
-                ) : (
-                  <>
-                    <div className="text-sm font-bold text-text-primary">Venue Account</div>
-                    <div className="text-xs text-text-tertiary">Signed in as Venue</div>
-                  </>
-                )}
-              </div>
-            </button>
-
-            {authState === 'venue' && (
-              <a href="/venue/create-post" className="flex items-center gap-2 p-2.75 mb-2.5 rounded-[10px] bg-accent-success/15 no-underline">
-                <svg width="14" height="14" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 2V18M2 10H18" stroke="#0A9B71" strokeWidth="2.2" strokeLinecap="round" />
-                </svg>
-                <span className="text-xs font-bold text-accent-success_dark">Create Post</span>
-              </a>
-            )}
-
-            <div className="h-0.5 bg-text-primary/8 my-1 mx-2 mb-2.5" />
-
-            <a href="#" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline rounded-2">
-              Home
-            </a>
-            <a href="/venue/signup" className="block px-2 py-3 text-base font-semibold text-accent-success_dark no-underline rounded-2">
-              Become a Venue
-            </a>
-            <a href="#" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline rounded-2">
-              About
-            </a>
-            <a href="#" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline rounded-2">
-              FAQ
-            </a>
-            <a href="#" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline rounded-2">
-              Contact
-            </a>
-
-            <div className="h-0.5 bg-text-primary/8 my-2.5 mx-2" />
-
-            <a href="#" className="block px-2 py-3 text-xs font-medium text-text-secondary no-underline rounded-2">
-              Terms of Service
-            </a>
-            <a href="#" className="block px-2 py-3 text-xs font-medium text-text-secondary no-underline rounded-2">
-              Privacy Policy
-            </a>
-            <a href="#" className="block px-2 py-3 text-xs font-medium text-text-secondary no-underline rounded-2">
-              Acceptable Use Policy
-            </a>
-
-            <div className="h-0.5 bg-text-primary/8 my-2.5 mx-2" />
-
-            <button
-              onClick={() => setSettingsOpen(true)}
-              className="flex items-center gap-2 px-2 py-3 text-base font-semibold text-text-primary cursor-pointer rounded-2"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <circle cx="8" cy="8" r="2.4" stroke="#0A0A0A" strokeWidth="1.5" />
-                <path
-                  d="M8 1.5V3M8 13V14.5M1.5 8H3M13 8H14.5M3.3 3.3L4.4 4.4M11.6 11.6L12.7 12.7M3.3 12.7L4.4 11.6M11.6 4.4L12.7 3.3"
-                  stroke="#0A0A0A"
-                  strokeWidth="1.4"
-                  strokeLinecap="round"
-                />
-              </svg>
-              Settings
-            </button>
-          </div>
-        </>
-      )}
-
       {/* Settings Sheet */}
       {settingsOpen && (
         <>
@@ -599,39 +500,6 @@ export default function HomePage() {
                   </div>
                   <div className="text-base font-bold text-text-primary">{authState === 'venue' ? 'Venue' : 'Customer'} Account</div>
                 </div>
-                <a href="/account" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline">
-                  {authState === 'venue' ? 'Dashboard' : 'My Account'}
-                </a>
-                {authState === 'customer' && (
-                  <>
-                    <a href="#" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline">
-                      Following Venues
-                    </a>
-                    <a href="#" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline">
-                      Notifications
-                    </a>
-                  </>
-                )}
-                {authState === 'venue' && (
-                  <>
-                    <a href="/venue/create-post" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline">
-                      Create Post
-                    </a>
-                    <a href="/venue/analytics" className="block px-2 py-3 text-base font-semibold text-text-primary no-underline">
-                      Analytics
-                    </a>
-                  </>
-                )}
-                <div className="h-0.5 bg-text-primary/8 my-2 mx-2" />
-                <button
-                  onClick={() => {
-                    setAuthState('signedOut');
-                    setProfileOpen(false);
-                  }}
-                  className="block w-full text-left px-2 py-3 text-base font-semibold text-red-600 cursor-pointer"
-                >
-                  Sign out
-                </button>
               </>
             )}
           </div>
