@@ -35,7 +35,6 @@ export default function RootLayout({
         <meta name="theme-color" content="#7F53F3" />
         <link rel="preconnect" href="https://rsms.me/" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-        <script src="https://cdn.tailwindcss.com" defer></script>
       </head>
       <body className="h-full overflow-hidden bg-background">
         <div className="flex flex-col h-full">
