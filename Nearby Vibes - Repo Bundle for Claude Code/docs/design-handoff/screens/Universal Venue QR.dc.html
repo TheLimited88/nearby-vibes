@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <style>body{margin:0;background:#FAFAFA;}</style>
+</helmet>
+<div style="width: 100%; min-height: 100vh; background: #FAFAFA; display: flex; justify-content: center; padding: 40px 20px; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+<div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA;">
+<div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column; align-items: center; padding: 62px 20px 40px; box-sizing: border-box;">
+
+  <div style="width: 100%; display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+    <a href="./Nearby Vibes - Venue Home.dc.html" style="width: 32px; height: 32px; border-radius: 10px; background: #fff; border: 1.5px solid rgba(10,10,10,0.1); display: flex; align-items: center; justify-content: center; text-decoration: none; flex: none;">
+      <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+    <div style="font-size: 20px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Universal Venue QR</div>
+  </div>
+
+  <div style="width: 100%; background: #fff; border: 1.5px solid rgba(10,10,10,0.08); border-radius: 20px; padding: 28px 24px; display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 28px;">
+    <div style="width: 220px; height: 220px; overflow: hidden; background-image: url('uploads/Nearby Vibes sticker and logo  mock up (16).png'); background-size: 367px 367px; background-position: 0 0; background-repeat: no-repeat;" role="img" aria-label="Nearby Vibes Universal QR code"></div>
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span style="font-size: 13px; font-weight: 700; color: #0A0A0A;">nearbyvibes.com</span>
+    </div>
+    <div style="display: flex; gap: 10px; width: 100%;">
+      <div style="flex: 1; background: #0A0A0A; color: #fff; border-radius: 12px; padding: 12px; text-align: center; font-size: 13px; font-weight: 700;">Download PNG</div>
+      <div style="flex: 1; background: rgba(10,10,10,0.06); color: #0A0A0A; border-radius: 12px; padding: 12px; text-align: center; font-size: 13px; font-weight: 700;">Download PDF</div>
+    </div>
+  </div>
+
+  <div style="width: 100%; display: flex; flex-direction: column; gap: 28px;">
+
+    <div>
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #7F53F3; margin-bottom: 8px;">HOW IT WORKS</div>
+      <div style="font-size: 15px; color: #0A0A0A; line-height: 1.6; margin-bottom: 10px;">The Universal Venue QR directs customers to <span style="font-weight: 700;">NearbyVibes.com</span>.</div>
+      <div style="font-size: 15px; color: #0A0A0A; line-height: 1.6;">When scanned, Nearby Vibes combines the customer's GPS location with your venue's geofence to identify where they are and instantly displays your current live special.</div>
+    </div>
+
+    <div>
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #0A0A0A; margin-bottom: 10px;">WHERE TO DISPLAY IT</div>
+      <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; margin-bottom: 12px;">Display your QR at key customer touchpoints, including:</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+        <sc-for list="{{ touchpoints }}" as="tp" hint-placeholder-count="7">
+          <div style="background: #fff; border: 1.5px solid rgba(10,10,10,0.08); border-radius: 12px; padding: 10px 12px; font-size: 13px; font-weight: 600; color: #0A0A0A;">{{ tp }}</div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="background: #0A0A0A; border-radius: 18px; padding: 22px 20px; color: #fff;">
+      <div style="font-size: 15px; font-weight: 800; margin-bottom: 12px;">Turn every visit into a future customer</div>
+      <div style="font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.75); margin-bottom: 12px;">When customers scan your QR code, they can immediately view your live special and are invited to create an account and enable notifications.</div>
+      <div style="font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.75); margin-bottom: 12px;">Customers who create an account are automatically enrolled in a 48-hour trial follow, allowing them to receive alerts whenever you publish new specials during that period.</div>
+      <div style="font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,0.75); margin-bottom: 12px;">If they engage with your venue or its posts during the trial, they automatically become an ongoing follower and continue receiving your future specials. If they don't engage, their trial follow simply expires after 48 hours.</div>
+      <div style="font-size: 13.5px; line-height: 1.6; color: #25EFB8; font-weight: 700;">Every QR scan is an opportunity to turn a walk-in customer into a returning customer.</div>
+    </div>
+
+  </div>
+
+</div>
+</div>
+</x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      touchpoints: ['Front entrance', 'Menus', 'Table talkers', 'Bar tops', 'Counter displays', 'Receipts', 'Promotional signage'],
+    };
+  }
+}
+</script>
+</body>
+</html>

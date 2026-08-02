@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief v1.8</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Venue Claim Search</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 760px; line-height: 1.5;">Search, map-confirm, and two distinct error states — an existing claim vs. a re-claim cooldown (calm, not accusatory, no fraud mechanics surfaced) — plus the two welcome variants after a successful claim.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <!-- CARD 1: Search -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Search</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Find Your Venue</div>
+          </div>
+          <div style="padding: 8px 20px 0; font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5;">Search by name or address to claim your listing.</div>
+
+          <div style="margin: 18px 20px 0; display: flex; align-items: center; gap: 8px; border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.5"/><path d="M11.5 11.5L15 15" stroke="rgba(10,10,10,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span style="font-size: 13.5px; color: #0A0A0A; font-weight: 600;">The Anchor &amp; Oak</span>
+          </div>
+
+          <div style="padding: 18px 20px 8px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">3 RESULTS</div>
+          <div style="padding: 0 20px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="border: 1.5px solid #7F53F3; background: rgba(127,83,243,0.05); border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">The Anchor &amp; Oak</div>
+                <div style="font-size: 11.5px; color: rgba(10,10,10,0.5);">412 Bowery St, New York, NY</div>
+              </div>
+            </div>
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Anchor Bar &amp; Grill</div>
+                <div style="font-size: 11.5px; color: rgba(10,10,10,0.5);">88 W 3rd St, New York, NY</div>
+              </div>
+            </div>
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Oak &amp; Anchor Social</div>
+                <div style="font-size: 11.5px; color: rgba(10,10,10,0.5);">201 Lafayette St, New York, NY</div>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 2: Map confirm -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Map confirm</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Confirm Your Venue</div>
+          </div>
+
+          <div style="margin: 18px 20px 0; height: 220px; border-radius: 16px; background: linear-gradient(135deg, #eef0ee, #e2e5e0); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 40%; left: 50%; width: 22px; height: 22px; border-radius: 50%; background: #7F53F3; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.25); transform: translate(-50%,-50%);"></div>
+            <div style="position: absolute; top: 40%; left: 50%; width: 60px; height: 60px; border-radius: 50%; background: rgba(127,83,243,0.18); transform: translate(-50%,-50%);"></div>
+          </div>
+
+          <div style="margin: 16px 20px 0; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 16px; padding: 16px; display: flex; gap: 12px; align-items: center;">
+            <div style="width: 46px; height: 46px; border-radius: 12px; background: rgba(10,10,10,0.06); flex: none;"></div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">The Anchor &amp; Oak</div>
+              <div style="font-size: 12px; color: rgba(10,10,10,0.5);">412 Bowery St, New York, NY 10012</div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 0; font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5;">Is this your venue? We'll use this location for your geofence, QR landing, and nearby-user discovery radius.</div>
+
+          <div style="padding: 20px 20px 40px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Yes, This Is My Venue</div>
+            <div style="color: rgba(10,10,10,0.5); font-size: 13px; font-weight: 700; text-align: center; padding: 10px;">Search Again</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 3: Already registered error -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Already registered</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Confirm Your Venue</div>
+          </div>
+
+          <div style="padding: 40px 30px 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(10,10,10,0.06); display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="9" width="16" height="11" rx="2" stroke="#0A0A0A" stroke-width="1.6"/><path d="M6.5 9V6A4.5 4.5 0 0115.5 6V9" stroke="#0A0A0A" stroke-width="1.6"/></svg>
+            </div>
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">This venue is already claimed</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.6); line-height: 1.55; max-width: 280px;">Another account currently manages The Anchor &amp; Oak. If you believe this is a mistake, contact support.</div>
+          </div>
+
+          <div style="padding: 30px 20px 40px; display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Search a Different Venue</div>
+            <div style="color: #7F53F3; font-size: 13px; font-weight: 700; text-align: center; padding: 10px;">Contact Support</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 4: Re-claim cooldown error -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Re-claim cooldown (new, v1.7)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Confirm Your Venue</div>
+          </div>
+
+          <div style="padding: 40px 30px 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(127,83,243,0.1); display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#7F53F3" stroke-width="1.6"/><path d="M11 6.5V11L14 13" stroke="#7F53F3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">This venue can't be re-claimed right now</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.6); line-height: 1.55; max-width: 290px;">This venue was recently deactivated and isn't eligible to be re-claimed just yet. Check back later, or contact support if you're the new owner.</div>
+          </div>
+
+          <div style="padding: 30px 20px 40px; display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Search a Different Venue</div>
+            <div style="color: #7F53F3; font-size: 13px; font-weight: 700; text-align: center; padding: 10px;">Contact Support</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 5: No results -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">No results</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Find Your Venue</div>
+          </div>
+
+          <div style="margin: 18px 20px 0; display: flex; align-items: center; gap: 8px; border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px;">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.5"/><path d="M11.5 11.5L15 15" stroke="rgba(10,10,10,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span style="font-size: 13.5px; color: #0A0A0A; font-weight: 600;">Zzyzx Lounge</span>
+          </div>
+
+          <div style="padding: 50px 30px 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px;">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(10,10,10,0.06); display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 16 16" fill="none"><circle cx="7" cy="7" r="5.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.5"/><path d="M11.5 11.5L15 15" stroke="rgba(10,10,10,0.4)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <div style="font-size: 17px; font-weight: 800; color: #0A0A0A;">No matches found</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; max-width: 260px;">Try a different name or address. Venues come from Google Maps — make sure yours is listed there first.</div>
+          </div>
+
+          <div style="padding: 30px 20px 40px; margin-top: auto;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Search Again</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 6: Welcome - trial started -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">6</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Welcome — trial started</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #0A0A0A;">
+        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 0 34px; box-sizing: border-box; text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center;">
+            <svg width="26" height="22" viewBox="0 0 24 20" fill="none"><path d="M2 10L9 17L22 3" stroke="#25EFB8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size: 22px; font-weight: 800; color: #fff; line-height: 1.3;">Welcome — your 14-day free trial has started</div>
+          <div style="font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.5;">Full Premium access to The Anchor &amp; Oak, no card required.</div>
+
+          <div style="width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 16px; text-align: left; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; color: rgba(255,255,255,0.45); text-transform: uppercase;">Included with your trial</div>
+            <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #25EFB8; flex: none;"></div><span style="font-size: 12.5px; color: #fff;">Unlimited posts, Drink &amp; Food specials</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #25EFB8; flex: none;"></div><span style="font-size: 12.5px; color: #fff;">Venue profile</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #25EFB8; flex: none;"></div><span style="font-size: 12.5px; color: #fff;">QR for live posts &amp; venue follower acquisition</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #25EFB8; flex: none;"></div><span style="font-size: 12.5px; color: #fff;">Smart push notifications</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #25EFB8; flex: none;"></div><span style="font-size: 12.5px; color: #fff;">Real-time advanced analytics</span></div>
+            <div style="display: flex; align-items: center; gap: 8px;"><div style="width: 5px; height: 5px; border-radius: 50%; background: #25EFB8; flex: none;"></div><span style="font-size: 12.5px; color: #fff;">Social Media Creator access</span></div>
+          </div>
+
+          <div style="width: 100%; background: #7F53F3; color: #fff; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px; margin-top: 4px;">Continue to Profile Setup</div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 7: Welcome - Free plan -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">7</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Welcome — Free plan (v1.8)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #0A0A0A;">
+        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 0 34px; box-sizing: border-box; text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
+            <svg width="26" height="22" viewBox="0 0 24 20" fill="none"><path d="M2 10L9 17L22 3" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size: 22px; font-weight: 800; color: #fff; line-height: 1.3;">Welcome to Harbor Social</div>
+          <div style="font-size: 13.5px; color: rgba(255,255,255,0.65); line-height: 1.5;">You're on the Free plan — unlimited posts and the Universal Venue QR, no time limit. Upgrade anytime for the full analytics dashboard.</div>
+          <div style="width: 100%; background: #fff; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px; margin-top: 8px;">Continue to Profile Setup</div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+  @keyframes nv-spin { to { transform: rotate(360deg); } }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief v1.8</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Checkout</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 680px; line-height: 1.5;">A short, single-purpose screen before the venue commits to Paddle's payment step — plan + platform fee line items, then success or a simple retry on failure.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <!-- CARD 1: Summary -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Order summary</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <a href="./Nearby Vibes - Subscription.dc.html" style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; text-decoration: none; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Cart</div>
+          </div>
+
+          <div style="padding: 24px 20px 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">ORDER SUMMARY</div>
+          <div style="margin: 10px 20px 0; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="display: flex; flex-direction: column; gap: 2px;">
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Premium — Monthly</div>
+                <div style="font-size: 11.5px; color: rgba(10,10,10,0.5);">Renews automatically each month</div>
+                <div style="font-size: 10.5px; font-weight: 600; color: rgba(10,10,10,0.35); cursor: pointer; margin-top: 3px;">Remove</div>
+              </div>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">$39.00</div>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 13px; color: rgba(10,10,10,0.6);">Platform service fee</div>
+              <div style="font-size: 13px; color: rgba(10,10,10,0.6);">$2.45</div>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Total due today</div>
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">$41.45</div>
+            </div>
+          </div>
+          <div style="margin: 8px 20px 0; font-size: 11px; color: rgba(10,10,10,0.45); line-height: 1.5;">All prices are shown in USD. Applicable taxes will be calculated and added at checkout.</div>
+
+          <div style="padding: 22px 20px 0; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="14" height="10" rx="2" stroke="rgba(10,10,10,0.4)" stroke-width="1.3"/><path d="M4 4V3.2A2.2 2.2 0 016.2 1H9.8A2.2 2.2 0 0112 3.2V4" stroke="rgba(10,10,10,0.4)" stroke-width="1.3"/></svg>
+            <div style="font-size: 11.5px; color: rgba(10,10,10,0.5);">Payments securely processed by <strong style="color: rgba(10,10,10,0.7);">Paddle</strong> · PCI-compliant</div>
+          </div>
+
+          <div style="padding: 22px 20px 40px;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Continue to Payment</div>
+            <div style="font-size: 11px; color: rgba(10,10,10,0.4); text-align: center; line-height: 1.5; margin-top: 10px;">Cancel or downgrade anytime — you'll never lose access to the Free Plan.</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 2: Processing -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Processing</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 0 30px; box-sizing: border-box;">
+          <div style="width: 46px; height: 46px; border-radius: 50%; border: 4px solid rgba(127,83,243,0.15); border-top-color: #7F53F3; animation: nv-spin 0.9s linear infinite;"></div>
+          <div style="font-size: 16px; font-weight: 700; color: #0A0A0A; text-align: center;">Processing your payment…</div>
+          <div style="font-size: 12.5px; color: rgba(10,10,10,0.5); text-align: center; line-height: 1.5;">Don't close this screen — this only takes a few seconds.</div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 3: Success -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Success</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 0 32px; box-sizing: border-box; text-align: center;">
+          <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="20" viewBox="0 0 24 20" fill="none"><path d="M2 10L9 17L22 3" stroke="#0A9B71" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">You're on Premium</div>
+          <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5;">$41.45 charged today. Your next billing date is Aug 23, 2026. A receipt is on its way to your email.</div>
+          <div style="width: 100%; background: #7F53F3; color: #fff; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px; margin-top: 6px;">Go to Dashboard</div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 4: Declined / error -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Declined / error</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Checkout</div>
+          </div>
+
+          <div style="margin: 24px 20px 0; border: 1.5px solid rgba(192,57,43,0.3); background: rgba(192,57,43,0.06); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start;">
+            <div style="width: 34px; height: 34px; border-radius: 50%; background: rgba(192,57,43,0.12); display: flex; align-items: center; justify-content: center;">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 4.5V9" stroke="#C0392B" stroke-width="1.8" stroke-linecap="round"/><circle cx="8" cy="11.5" r="0.9" fill="#C0392B"/></svg>
+            </div>
+            <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Payment declined</div>
+            <div style="font-size: 12.5px; color: rgba(10,10,10,0.6); line-height: 1.5;">Your card issuer declined this charge. No changes were made to your plan or subscription — try again or use a different card.</div>
+          </div>
+
+          <div style="padding: 20px 20px 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">ORDER SUMMARY</div>
+          <div style="margin: 10px 20px 0; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Premium — Monthly</div>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">$39.00</div>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 13px; color: rgba(10,10,10,0.6);">Platform service fee</div>
+              <div style="font-size: 13px; color: rgba(10,10,10,0.6);">$2.45</div>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Total due today</div>
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">$41.45</div>
+            </div>
+          </div>
+
+          <div style="padding: 22px 20px 40px;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Retry Payment</div>
+            <div style="font-size: 12.5px; font-weight: 600; color: #7F53F3; text-align: center; padding: 12px; cursor: pointer;">Use a different card</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

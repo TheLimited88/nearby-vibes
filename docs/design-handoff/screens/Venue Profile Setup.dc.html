@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Venue Profile Setup</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 680px; line-height: 1.5;">Runs right after the owner account is created. Cover photo → Venue type → Venue areas → Preview (publish from the Tile tab), then the profile goes live and feeds the consumer-facing Venue Profile page.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Cover photo</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Venue Profile Setup</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">1 / 4</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">Add your cover photo</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; margin-top: -10px;">This is what customers see first on your Venue Profile.</div>
+
+            <div>
+              <div style="font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 8px;">Cover photo</div>
+              <div style="position: relative; width: 100%; height: 160px; border-radius: 14px; overflow: hidden;">
+                <image-slot id="setup-cover" shape="rect" placeholder="Cover photo — storefront or interior" style="position: absolute; inset: 0;"></image-slot>
+              </div>
+              <div style="font-size: 11px; color: rgba(10,10,10,0.4); margin-top: 6px;">Recommended 1080×1350, well-lit and free of text.</div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Venue type</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Venue Profile Setup</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">2 / 4</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">What do you serve?</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; margin-top: -6px;">This determines what areas to apply to your venue.</div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px;">
+              <div style="display: flex; align-items: center; gap: 12px; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 14px; padding: 14px; background: #fff;">
+                <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(248,20,232,0.1); display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="16" height="20" viewBox="0 0 16 20" fill="none"><path d="M2 1H14L12 8V17C12 18.1 11.1 19 10 19H6C4.9 19 4 18.1 4 17V8L2 1Z" stroke="#F814E8" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 8H12" stroke="#F814E8" stroke-width="1.5"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Drinks</div>
+                  <div style="font-size: 11.5px; color: rgba(10,10,10,0.5); margin-top: 1px;">Areas where guests must be 21+ (US) or 18+ elsewhere.</div>
+                </div>
+                <div style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 14px; padding: 14px; background: #fff;">
+                <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(127,83,243,0.1); display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 1V17M2 1C2 1 2 5 5 5C8 5 8 1 8 1V17" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round"/><path d="M14 1C11 1 11 6 11 6V17" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Food</div>
+                  <div style="font-size: 11.5px; color: rgba(10,10,10,0.5); margin-top: 1px;">Restaurant, cafe, fast food.</div>
+                </div>
+                <div style="width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 12px; border: 1.5px solid #25EFB8; background: rgba(37,239,184,0.08); border-radius: 14px; padding: 14px;">
+                <div style="width: 40px; height: 40px; border-radius: 12px; background: rgba(37,239,184,0.18); display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#0A9B71" stroke-width="1.5"/><path d="M9 5V9L11.5 10.5" stroke="#0A9B71" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Both</div>
+                  <div style="font-size: 11.5px; color: rgba(10,10,10,0.5); margin-top: 1px;">Drinks and food.</div>
+                </div>
+                <div style="width: 20px; height: 20px; border-radius: 50%; background: #25EFB8; display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="11" height="9" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Venue areas</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Venue Profile Setup</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">3 / 4</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.05em; color: #fff; background: #F814E8; align-self: flex-start; padding: 4px 10px; border-radius: 999px;">DRINKS VENUE</div>
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A; margin-top: 2px;">What type of venue are you?</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; margin-bottom: 10px;">Select your primary venue type. Pick 1.</div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Bar</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Rooftop Bar</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Lounge</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Bar + Restaurant</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Winery</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Brewery</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Nightclub</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Café</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Pub</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Distillery</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Liquor Store</div>
+            </div>
+
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A; margin-top: 14px;">Venue Areas <span style="font-weight: 600; color: rgba(10,10,10,0.4); font-size: 14px;">(pick up to 5)</span></div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; margin-bottom: 10px;">Helps customers understand what to expect.</div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Rooftop</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Outdoor Seating</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Beer Garden</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Tasting Area</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Sports Bar</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Dining</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Lounge</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Dance Floor</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Live Music</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Waterfront</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Sidewalk</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Dog Friendly</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Mobility Friendly</div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Venue areas — Food variant</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Venue Profile Setup</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">3 / 4</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.05em; color: #fff; background: #7F53F3; align-self: flex-start; padding: 4px 10px; border-radius: 999px;">FOOD VENUE</div>
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A; margin-top: 2px;">What type of venue are you?</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; margin-bottom: 10px;">Select your primary venue type. Pick 1.</div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Restaurant</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Café</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Casual Dining</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Fine Dining</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Bistro</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Fast Casual</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Restaurant &amp; Bar</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Pub / Tavern</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Gastropub</div>
+            </div>
+
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A; margin-top: 14px;">Venue Areas <span style="font-weight: 600; color: rgba(10,10,10,0.4); font-size: 14px;">(pick up to 5)</span></div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; margin-bottom: 10px;">Helps customers understand what to expect.</div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Dining Area</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Bar Seating</div>
+              <div style="padding: 9px 15px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 700;">Outdoor Seating</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Lounge Area</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Sports Bar</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Lounge</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Rooftop Terrace</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Courtyard</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Waterfront</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Sidewalk</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Dog Friendly</div>
+              <div style="padding: 9px 15px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13px; font-weight: 600;">Mobility Friendly</div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Preview — Full profile tab</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Venue Profile Setup</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">4 / 4</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 8px; display: flex; gap: 6px;">
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12.5px; font-weight: 600;">Full profile</div>
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; color: rgba(10,10,10,0.5); font-size: 12.5px; font-weight: 600;">Tile preview</div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column;">
+            <div style="position: relative; height: 220px; flex: none;">
+              <image-slot id="setup-full-preview-cover" shape="rect" placeholder="Cover photo" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.55) 100%); pointer-events: none;"></div>
+              <div style="position: absolute; top: 14px; right: 14px; width: 34px; height: 34px; border-radius: 10px; background: rgba(255,255,255,0.9); display: flex; align-items: center; justify-content: center;">
+                <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="14" cy="4" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><circle cx="4" cy="9" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><circle cx="14" cy="14" r="2.4" stroke="#0A0A0A" stroke-width="1.5"/><path d="M6.1 7.8L11.9 5.2M6.1 10.2L11.9 12.8" stroke="#0A0A0A" stroke-width="1.5"/></svg>
+              </div>
+              <div style="position: absolute; bottom: 14px; left: 20px; right: 20px;">
+                <div style="font-size: 20px; font-weight: 800; color: #fff;">Aye Aye Bar</div>
+                <div style="font-size: 12.5px; color: rgba(255,255,255,0.8); margin-top: 2px;">Bar · 118 5th Ave, New York, NY</div>
+              </div>
+            </div>
+            <div style="padding: 14px 20px 24px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; gap: 10px;">
+                <div style="flex: 1; background: #0A0A0A; color: #fff; font-size: 12.5px; font-weight: 700; text-align: center; padding: 11px; border-radius: 12px;">+ Follow</div>
+                <div style="flex: 1; background: #25EFB8; color: #0A0A0A; font-size: 12.5px; font-weight: 700; text-align: center; padding: 11px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;"><svg width="13" height="13" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#0A0A0A" stroke-width="1.5"></circle><path d="M12 6L7.8 7.8L6 12L10.2 10.2L12 6Z" fill="#0A0A0A"></path></svg>Navigate</div>
+              </div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-top: 4px; margin-bottom: 8px;">VENUE TYPE</div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  <div style="padding: 5px 10px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 11px; font-weight: 700;">Bar</div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-top: 4px; margin-bottom: 8px;">VENUE AREAS</div>
+                <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                  <div style="padding: 5px 10px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 11px; font-weight: 700;">Rooftop Bar</div>
+                  <div style="padding: 5px 10px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 11px; font-weight: 700;">Lounge</div>
+                  <div style="padding: 5px 10px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 11px; font-weight: 700;">Bar</div>
+                </div>
+              </div>
+              <div style="position: relative; width: 100%; height: 120px; border-radius: 14px; overflow: hidden; flex: none; margin-top: 4px;">
+                <image-slot id="setup-full-preview-map" shape="rect" placeholder="Map tiles — venue location" style="position: absolute; inset: 0;"></image-slot>
+                <div style="position: absolute; top: 50%; left: 50%; width: 16px; height: 16px; border-radius: 50%; background: #7F53F3; border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.25); transform: translate(-50%,-50%);"></div>
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px solid rgba(10,10,10,0.08); margin-top: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 1V13" stroke="rgba(10,10,10,0.4)" stroke-width="1.6" stroke-linecap="round"/><path d="M2 2H11L9 4.5L11 7H2Z" fill="rgba(10,10,10,0.3)"/></svg>
+                  <span style="font-size: 12.5px; font-weight: 600; color: rgba(10,10,10,0.45);">Report</span>
+                </div>
+                <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(10,10,10,0.4);">VENUE IDENTITY</span>
+                <span style="font-size: 13px; font-weight: 800; color: #7F53F3; margin-top: -6px;">NV-48213-A</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Preview — Tile tab</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">Venue Profile Setup</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">4 / 4</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 8px; display: flex; gap: 6px;">
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; color: rgba(10,10,10,0.5); font-size: 12.5px; font-weight: 600;">Full profile</div>
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12.5px; font-weight: 600;">Tile preview</div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 14px 20px 18px; display: flex; flex-direction: column; align-items: center;">
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; text-align: center; margin-bottom: 16px; max-width: 280px;">How your venue looks in search results and nearby lists.</div>
+            <div style="width: 168px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="position: relative; width: 168px; height: 210px; border-radius: 16px; overflow: hidden;">
+                <image-slot id="setup-tile-preview" shape="rect" placeholder="Cover photo" style="position: absolute; inset: 0;"></image-slot>
+                <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.65) 100%); pointer-events: none;"></div>
+                <div style="position: absolute; top: 8px; right: 8px; background: #95048B; color: #fff; font-size: 9.5px; font-weight: 800; padding: 3px 7px; border-radius: 999px;">BAR</div>
+                <div style="position: absolute; bottom: 8px; left: 8px; right: 8px; display: flex; align-items: center; gap: 5px;">
+                  <div style="width: 6px; height: 6px; border-radius: 50%; background: #25EFB8;"></div>
+                  <span style="font-size: 10.5px; font-weight: 700; color: #fff;">OPEN</span>
+                </div>
+              </div>
+              <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Aye Aye Bar</div>
+              <div style="display: flex; gap: 5px; flex-wrap: wrap;">
+                <div style="padding: 4px 9px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 10.5px; font-weight: 700;">Rooftop Bar</div>
+                <div style="padding: 4px 9px; border-radius: 999px; background: rgba(127,83,243,0.1); color: #7F53F3; font-size: 10.5px; font-weight: 700;">Lounge</div>
+              </div>
+              <div style="font-size: 11px; color: rgba(10,10,10,0.45);">118 5th Ave · 0.3 mi</div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Publish Profile</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #25EFB8; color: #0A0A0A; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✓</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Published</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 32px; box-sizing: border-box; gap: 20px;">
+          <div style="width: 76px; height: 76px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center;">
+            <svg width="34" height="28" viewBox="0 0 34 28" fill="none"><path d="M2 14L12 24L32 2" stroke="#0A9B71" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size: 22px; font-weight: 800; color: #0A0A0A; text-align: center;">Your Venue is Live!</div>
+          <div style="font-size: 14px; color: rgba(10,10,10,0.6); text-align: center; line-height: 1.5;">Customers can now find Aye Aye Bar on Nearby Vibes.</div>
+
+          <div style="width: 100%; background: #fff; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span style="color: rgba(10,10,10,0.55);">Venue Identity</span>
+              <span style="font-weight: 700; color: #7F53F3;">NV-48213-A</span>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span style="color: rgba(10,10,10,0.55);">Status</span>
+              <span style="font-weight: 700; color: #0A9B71;">Active</span>
+            </div>
+          </div>
+
+          <div style="width: 100%; display: flex; flex-direction: column; gap: 8px; margin-top: 4px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Create Your First Post</div>
+            <div style="font-size: 13px; font-weight: 600; color: rgba(10,10,10,0.5); text-align: center; padding: 6px;">Go to Dashboard</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Invite a team member?</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 28px; box-sizing: border-box; gap: 20px;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(127,83,243,0.1); display: flex; align-items: center; justify-content: center;">
+            <svg width="26" height="26" viewBox="0 0 18 18" fill="none"><circle cx="7" cy="6" r="3" stroke="#7F53F3" stroke-width="1.5"/><path d="M1.5 15C1.5 11.5 4 9.5 7 9.5C10 9.5 12.5 11.5 12.5 15" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round"/><path d="M14 5V9M12 7H16" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div style="font-size: 20px; font-weight: 800; color: #0A0A0A; text-align: center;">Bring in some help?</div>
+          <div style="font-size: 13.5px; color: rgba(10,10,10,0.6); text-align: center; line-height: 1.55; max-width: 280px;">Invite a Venue Team Member to help run day-to-day posts, or a Social Content Creator to handle your posts and media. You can do this anytime from Team Seat.</div>
+
+          <div style="width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 6px;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Invite a Team Member</div>
+            <div style="font-size: 13px; font-weight: 600; color: rgba(10,10,10,0.5); text-align: center; padding: 6px;">Skip for Now</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

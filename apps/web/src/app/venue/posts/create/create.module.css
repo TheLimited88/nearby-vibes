@@ -1,0 +1,248 @@
+.container {
+  background: var(--bg-canvas);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logoSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcon {
+  width: 34px;
+  height: 34px;
+  background: #0A0A0A;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.logoText {
+  font-size: 18px;
+  font-weight: 800;
+  color: #0A0A0A;
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.backBtn:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.header {
+  background: white;
+  padding: 32px 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+  flex-grow: 0;
+}
+
+.header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+}
+
+.header p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.error {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 16px;
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.textarea {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  resize: vertical;
+  transition: all 200ms ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(127, 83, 243, 0.1);
+}
+
+.textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+.select {
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px rgba(127, 83, 243, 0.1);
+}
+
+.imagePreview {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 16px;
+  max-height: 400px;
+  background: #f0f0f0;
+}
+
+.imagePreview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.timeHint {
+  background: rgba(37, 239, 184, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 3px solid #25efb8;
+}
+
+.timeHint p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.previewSection {
+  display: flex;
+  justify-content: center;
+}
+
+.reviewSection {
+  display: flex;
+  justify-content: center;
+}
+
+.reviewItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+
+.reviewItem:last-of-type {
+  border-bottom: none;
+}
+
+.reviewLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.reviewValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: right;
+  max-width: 50%;
+}
+
+.reviewNote {
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: rgba(10, 155, 113, 0.05);
+  border: 1px solid rgba(10, 155, 113, 0.2);
+  border-radius: 8px;
+  color: #0a9b71;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 24px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewValue {
+    max-width: 100%;
+  }
+}

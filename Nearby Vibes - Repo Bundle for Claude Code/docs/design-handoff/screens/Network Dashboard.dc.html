@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #444; }
+  a:hover { color: #000; }
+</style>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Network Dashboard</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 760px; line-height: 1.5;">One level up from any single venue's dashboard — is the platform growing, are venues getting customers, are users engaged. Compressed to the counts and trends that answer those three questions; Week/Month/Year toggle scopes every chart on the page.</div>
+  </div>
+
+  <x-import component-from-global-scope="ChromeWindow" from="./browser-window.jsx" url="admin.nearbyvibes.internal/network-dashboard" hint-size="1400,900">
+    <div style="width: 100%; height: 100%; background: #FAFAFA; display: flex; font-family: 'Inter', -apple-system, system-ui, sans-serif; overflow: hidden;">
+
+      <div style="width: 190px; flex: none; background: #1A1A1A; display: flex; flex-direction: column; padding: 18px 0;">
+        <div style="padding: 0 18px 16px; font-size: 12.5px; font-weight: 700; color: #fff; letter-spacing: 0.02em;">Nearby Vibes Admin</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Users</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Venues</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Posts</div>
+        <div style="height: 1px; background: rgba(255,255,255,0.1); margin: 10px 18px;"></div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Report Queue</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,0.65);">Onboarding Queue</div>
+        <div style="padding: 10px 18px; font-size: 12.5px; font-weight: 700; background: rgba(255,255,255,0.1); color: #fff; border-radius: 6px;">Network Dashboard</div>
+      </div>
+
+      <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; overflow: hidden;">
+
+        <div style="padding: 16px 22px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #E4E4E4; flex: none;">
+          <div style="font-size: 15px; font-weight: 700; color: #1A1A1A; flex: none;">Network Dashboard</div>
+          <div style="flex: 1;"></div>
+          <div style="display: flex; gap: 4px; background: #F0F0F0; border-radius: 8px; padding: 3px;">
+            <div onClick="{{ setWeek }}" style="{{ weekBtnStyle }}">Week</div>
+            <div onClick="{{ setMonth }}" style="{{ monthBtnStyle }}">Month</div>
+            <div onClick="{{ setYear }}" style="{{ yearBtnStyle }}">Year</div>
+          </div>
+        </div>
+
+        <div style="flex: 1; overflow: auto; padding: 20px 22px 40px; display: flex; flex-direction: column; gap: 26px;">
+
+          <!-- Top-line KPI strip -->
+          <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;">
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px;">
+              <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">{{ d.activeVenues }}</div>
+              <div style="font-size: 10.5px; color: #6B6B6B; margin-top: 2px;">Active Venues</div>
+              <div style="font-size: 10px; color: #0A9B71; font-weight: 700; margin-top: 3px;">↑ {{ d.activeVenuesDelta }} {{ periodLabel }}</div>
+            </div>
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px;">
+              <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">{{ d.totalUsers }}</div>
+              <div style="font-size: 10.5px; color: #6B6B6B; margin-top: 2px;">Total Users</div>
+              <div style="font-size: 10px; color: #0A9B71; font-weight: 700; margin-top: 3px;">↑ {{ d.totalUsersDelta }} {{ periodLabel }}</div>
+            </div>
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px;">
+              <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">{{ d.dauMau }}</div>
+              <div style="font-size: 10.5px; color: #6B6B6B; margin-top: 2px;">DAU / MAU</div>
+              <div style="font-size: 10px; color: #C0392B; font-weight: 700; margin-top: 3px;">↓ {{ d.dauMauDelta }} {{ periodLabel }}</div>
+            </div>
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px;">
+              <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">{{ d.mrr }}</div>
+              <div style="font-size: 10.5px; color: #6B6B6B; margin-top: 2px;">MRR</div>
+              <div style="font-size: 10px; color: #0A9B71; font-weight: 700; margin-top: 3px;">↑ {{ d.mrrDelta }} {{ periodLabel }}</div>
+            </div>
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px;">
+              <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">{{ d.qrScans }}</div>
+              <div style="font-size: 10.5px; color: #6B6B6B; margin-top: 2px;">QR Scans</div>
+              <div style="font-size: 10px; color: #0A9B71; font-weight: 700; margin-top: 3px;">↑ {{ d.qrScansDelta }} {{ periodLabel }}</div>
+            </div>
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px;">
+              <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">{{ d.livePosts }}</div>
+              <div style="font-size: 10.5px; color: #6B6B6B; margin-top: 2px;">Live Posts</div>
+              <div style="font-size: 10px; color: #0A9B71; font-weight: 700; margin-top: 3px;">↑ {{ d.livePostsDelta }} {{ periodLabel }}</div>
+            </div>
+          </div>
+
+          <!-- Platform Growth -->
+          <div>
+            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">PLATFORM GROWTH</div>
+            <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px;">
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #6B6B6B; margin-bottom: 10px;">New Venue Signups</div>
+                <div style="display: flex; align-items: flex-end; gap: 8px; height: 90px;">
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.5);">{{ d.signupsA }}</span><div style="width: 100%; background: rgba(127,83,243,0.3); border-radius: 4px 4px 0 0; height: 28px;"></div><span style="font-size: 9.5px; color: #999;">{{ d.signupsALabel }}</span></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.5);">{{ d.signupsB }}</span><div style="width: 100%; background: rgba(127,83,243,0.55); border-radius: 4px 4px 0 0; height: 55px;"></div><span style="font-size: 9.5px; color: #999;">{{ d.signupsBLabel }}</span></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: #7F53F3;">{{ d.signupsC }}</span><div style="width: 100%; background: #7F53F3; border-radius: 4px 4px 0 0; height: 90px;"></div><span style="font-size: 9.5px; color: #999;">{{ d.signupsCLabel }}</span></div>
+                </div>
+              </div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #6B6B6B; margin-bottom: 10px;">Venue Mix</div>
+                <div style="display: flex; height: 22px; border-radius: 6px; overflow: hidden; margin-bottom: 10px;">
+                  <div style="width: {{ d.paidPct }}%; background: #0A9B71;"></div>
+                  <div style="width: {{ d.trialPct }}%; background: #7F53F3;"></div>
+                  <div style="width: {{ d.freePct }}%; background: rgba(10,10,10,0.15);"></div>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; font-size: 11px; color: #4A4A4A;">
+                  <div style="display: flex; justify-content: space-between;"><span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#0A9B71;margin-right:6px;"></span>Paid</span><strong>{{ d.paidCount }} ({{ d.paidPct }}%)</strong></div>
+                  <div style="display: flex; justify-content: space-between;"><span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:#7F53F3;margin-right:6px;"></span>Trial</span><strong>{{ d.trialCount }} ({{ d.trialPct }}%)</strong></div>
+                  <div style="display: flex; justify-content: space-between;"><span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:rgba(10,10,10,0.15);margin-right:6px;"></span>Free</span><strong>{{ d.freeCount }} ({{ d.freePct }}%)</strong></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px solid #EEE; font-size: 11px;">
+                  <span style="color: #6B6B6B;">Churn ({{ periodLabel }})</span><strong style="color: #C0392B;">{{ d.churn }}</strong>
+                </div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;">
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 17px; font-weight: 800; color: #0A0A0A;">{{ d.mrr }}</div><div style="font-size: 10.5px; color: #6B6B6B;">MRR</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 17px; font-weight: 800; color: #0A0A0A;">{{ d.arr }}</div><div style="font-size: 10.5px; color: #6B6B6B;">ARR</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 17px; font-weight: 800; color: #0A0A0A;">{{ d.periodRevenue }}</div><div style="font-size: 10.5px; color: #6B6B6B;">Revenue ({{ periodLabel }})</div></div>
+            </div>
+          </div>
+
+          <!-- Customer Growth -->
+          <div>
+            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">CUSTOMER GROWTH</div>
+            <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px;">
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #6B6B6B; margin-bottom: 10px;">New Users</div>
+                <div style="display: flex; align-items: flex-end; gap: 6px; height: 90px;">
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">140</span><div style="width: 100%; background: rgba(127,83,243,0.25); border-radius: 3px 3px 0 0; height: 40px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">165</span><div style="width: 100%; background: rgba(127,83,243,0.35); border-radius: 3px 3px 0 0; height: 48px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">158</span><div style="width: 100%; background: rgba(127,83,243,0.3); border-radius: 3px 3px 0 0; height: 45px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">190</span><div style="width: 100%; background: rgba(127,83,243,0.5); border-radius: 3px 3px 0 0; height: 62px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: #7F53F3; font-weight: 700;">238</span><div style="width: 100%; background: #7F53F3; border-radius: 3px 3px 0 0; height: 90px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">201</span><div style="width: 100%; background: rgba(127,83,243,0.55); border-radius: 3px 3px 0 0; height: 66px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">176</span><div style="width: 100%; background: rgba(127,83,243,0.4); border-radius: 3px 3px 0 0; height: 55px;"></div></div>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-top: 6px; font-size: 9.5px; color: #999;">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+              </div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">DAU</span><strong style="color: #0A0A0A;">{{ d.dau }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">MAU</span><strong style="color: #0A0A0A;">{{ d.mau }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Returning Users</span><strong style="color: #0A0A0A;">{{ d.returningUsers }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Soft Followers (48h)</span><strong style="color: #0A0A0A;">{{ d.softFollowers }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Permanent Followers</span><strong style="color: #0A0A0A;">{{ d.permFollowers }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px; padding-top: 8px; border-top: 1px solid #EEE;"><span style="color: #6B6B6B;">Growth Rate ({{ periodLabel }})</span><strong style="color: #0A9B71;">↑ {{ d.growthRate }}</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Venue Performance -->
+          <div>
+            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">VENUE PERFORMANCE</div>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 10px;">
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">{{ d.avgViews }}</div><div style="font-size: 10px; color: #6B6B6B;">Avg. Views</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">{{ d.avgScans }}</div><div style="font-size: 10px; color: #6B6B6B;">Avg. QR Scans</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">{{ d.avgAttendance }}</div><div style="font-size: 10px; color: #6B6B6B;">Avg. Attendance</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">{{ d.avgShares }}</div><div style="font-size: 10px; color: #6B6B6B;">Avg. Shares</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">{{ d.avgPostsPerVenue }}</div><div style="font-size: 10px; color: #6B6B6B;">Avg. Posts / Venue</div></div>
+            </div>
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px;">
+              <div style="font-size: 11.5px; font-weight: 700; color: #6B6B6B; margin-bottom: 10px;">Conversion Funnel</div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 130px; font-size: 11px; color: #4A4A4A; flex: none;">QR Scan Conversion</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: {{ d.funnelQr }}%; height: 100%; background: #7F53F3;"></div></div><strong style="font-size: 11.5px; width: 36px; text-align: right;">{{ d.funnelQr }}%</strong></div>
+                <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 130px; font-size: 11px; color: #4A4A4A; flex: none;">Venue View Rate</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: {{ d.funnelView }}%; height: 100%; background: #0A9B71;"></div></div><strong style="font-size: 11.5px; width: 36px; text-align: right;">{{ d.funnelView }}%</strong></div>
+                <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 130px; font-size: 11px; color: #4A4A4A; flex: none;">Post Engagement Rate</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: {{ d.funnelEngagement }}%; height: 100%; background: #F814E8;"></div></div><strong style="font-size: 11.5px; width: 36px; text-align: right;">{{ d.funnelEngagement }}%</strong></div>
+                <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 130px; font-size: 11px; color: #4A4A4A; flex: none;">Attendance Rate</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: {{ d.funnelAttendance }}%; height: 100%; background: #0A9B71;"></div></div><strong style="font-size: 11.5px; width: 36px; text-align: right;">{{ d.funnelAttendance }}%</strong></div>
+                <div style="display: flex; align-items: center; gap: 10px;"><span style="width: 130px; font-size: 11px; color: #4A4A4A; flex: none;">Repeat Attendance</span><div style="flex: 1; height: 10px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: {{ d.funnelRepeat }}%; height: 100%; background: #7F53F3;"></div></div><strong style="font-size: 11.5px; width: 36px; text-align: right;">{{ d.funnelRepeat }}%</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- High-Growth Venues -->
+          <div>
+            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">TOP 5 HIGH-GROWTH VENUES</div>
+            <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 130px; font-size: 11.5px; font-weight: 600; color: #1A1A1A; flex: none;">Vault 27</span>
+                <div style="flex: 1; height: 12px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: 92%; height: 100%; background: #0A9B71;"></div></div>
+                <strong style="font-size: 11.5px; width: 46px; text-align: right; color: #0A9B71;">↑ 64%</strong>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 130px; font-size: 11.5px; font-weight: 600; color: #1A1A1A; flex: none;">Canal Street Social</span>
+                <div style="flex: 1; height: 12px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: 78%; height: 100%; background: #0A9B71;"></div></div>
+                <strong style="font-size: 11.5px; width: 46px; text-align: right; color: #0A9B71;">↑ 54%</strong>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 130px; font-size: 11.5px; font-weight: 600; color: #1A1A1A; flex: none;">Aye Aye Bar</span>
+                <div style="flex: 1; height: 12px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: 61%; height: 100%; background: #7F53F3;"></div></div>
+                <strong style="font-size: 11.5px; width: 46px; text-align: right; color: #7F53F3;">↑ 42%</strong>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 130px; font-size: 11.5px; font-weight: 600; color: #1A1A1A; flex: none;">Mott St. Kitchen</span>
+                <div style="flex: 1; height: 12px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: 47%; height: 100%; background: #7F53F3;"></div></div>
+                <strong style="font-size: 11.5px; width: 46px; text-align: right; color: #7F53F3;">↑ 33%</strong>
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="width: 130px; font-size: 11.5px; font-weight: 600; color: #1A1A1A; flex: none;">Rivet &amp; Rail</span>
+                <div style="flex: 1; height: 12px; border-radius: 999px; background: #F0F0F0; overflow: hidden;"><div style="width: 34%; height: 100%; background: #7F53F3;"></div></div>
+                <strong style="font-size: 11.5px; width: 46px; text-align: right; color: #7F53F3;">↑ 24%</strong>
+              </div>
+              <div style="font-size: 10.5px; color: #999; padding-top: 4px;">Growth = week-over-week change in attendance + follower gains ({{ periodLabel }}).</div>
+            </div>
+          </div>
+
+          <!-- Push Notification Performance -->
+          <div>
+            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">PUSH NOTIFICATION PERFORMANCE</div>
+            <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px;">
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; justify-content: center; height: 100%; box-sizing: border-box;">
+                <div style="display: flex; gap: 6px; margin-bottom: 8px; font-size: 10px; color: #6B6B6B;">
+                  <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: #7F53F3; display: inline-block;"></span>Sent</span>
+                  <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 8px; height: 8px; border-radius: 2px; background: #0A9B71; display: inline-block;"></span>Opened</span>
+                </div>
+                <div style="display: flex; align-items: flex-end; gap: 10px; height: 90px; width: 100%;">
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.6);">19 / 42</span><div style="position: relative; width: 100%; height: 90px;"><div style="position: absolute; bottom: 0; width: 100%; height: 60px; background: #7F53F3; border-radius: 4px 4px 0 0;"></div><div style="position: absolute; bottom: 0; width: 100%; height: 27px; background: #0A9B71; border-radius: 4px 4px 0 0;"></div></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.6);">27 / 51</span><div style="position: relative; width: 100%; height: 90px;"><div style="position: absolute; bottom: 0; width: 100%; height: 73px; background: #7F53F3; border-radius: 4px 4px 0 0;"></div><div style="position: absolute; bottom: 0; width: 100%; height: 39px; background: #0A9B71; border-radius: 4px 4px 0 0;"></div></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.6);">21 / 38</span><div style="position: relative; width: 100%; height: 90px;"><div style="position: absolute; bottom: 0; width: 100%; height: 54px; background: #7F53F3; border-radius: 4px 4px 0 0;"></div><div style="position: absolute; bottom: 0; width: 100%; height: 30px; background: #0A9B71; border-radius: 4px 4px 0 0;"></div></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.6);">24 / 47</span><div style="position: relative; width: 100%; height: 90px;"><div style="position: absolute; bottom: 0; width: 100%; height: 67px; background: #7F53F3; border-radius: 4px 4px 0 0;"></div><div style="position: absolute; bottom: 0; width: 100%; height: 34px; background: #0A9B71; border-radius: 4px 4px 0 0;"></div></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.6);">38 / 63</span><div style="position: relative; width: 100%; height: 90px;"><div style="position: absolute; bottom: 0; width: 100%; height: 90px; background: #7F53F3; border-radius: 4px 4px 0 0;"></div><div style="position: absolute; bottom: 0; width: 100%; height: 54px; background: #0A9B71; border-radius: 4px 4px 0 0;"></div></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.6);">31 / 58</span><div style="position: relative; width: 100%; height: 90px;"><div style="position: absolute; bottom: 0; width: 100%; height: 83px; background: #7F53F3; border-radius: 4px 4px 0 0;"></div><div style="position: absolute; bottom: 0; width: 100%; height: 44px; background: #0A9B71; border-radius: 4px 4px 0 0;"></div></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px;"><span style="font-size: 9px; font-weight: 700; color: rgba(10,10,10,0.6);">16 / 35</span><div style="position: relative; width: 100%; height: 90px;"><div style="position: absolute; bottom: 0; width: 100%; height: 50px; background: #7F53F3; border-radius: 4px 4px 0 0;"></div><div style="position: absolute; bottom: 0; width: 100%; height: 23px; background: #0A9B71; border-radius: 4px 4px 0 0;"></div></div></div>
+                </div>
+                <div style="display: flex; gap: 10px; margin-top: 6px; font-size: 9.5px; color: #999;">
+                  <span style="flex: 1; text-align: center;">Mon</span><span style="flex: 1; text-align: center;">Tue</span><span style="flex: 1; text-align: center;">Wed</span><span style="flex: 1; text-align: center;">Thu</span><span style="flex: 1; text-align: center;">Fri</span><span style="flex: 1; text-align: center;">Sat</span><span style="flex: 1; text-align: center;">Sun</span>
+                </div>
+              </div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Open Rate</span><strong style="color: #0A0A0A;">{{ d.openRate }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Click-Through Rate</span><strong style="color: #0A0A0A;">{{ d.ctr }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Venue Conversion</span><strong style="color: #0A0A0A;">{{ d.pushVenueConv }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Notifications / User</span><strong style="color: #0A0A0A;">{{ d.notifsPerUser }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px; padding-top: 8px; border-top: 1px solid #EEE;"><span style="color: #6B6B6B;">Opt-Out Rate</span><strong style="color: #C0392B;">{{ d.optOutRate }}</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- QR Analytics -->
+          <div>
+            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">QR ANALYTICS</div>
+            <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 14px;">
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px;">
+                <div style="font-size: 11.5px; font-weight: 700; color: #6B6B6B; margin-bottom: 10px;">QR Scans by Day</div>
+                <div style="display: flex; align-items: flex-end; gap: 6px; height: 90px;">
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">1.1K</span><div style="width: 100%; background: rgba(127,83,243,0.3); border-radius: 3px 3px 0 0; height: 45px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">1.3K</span><div style="width: 100%; background: rgba(127,83,243,0.4); border-radius: 3px 3px 0 0; height: 53px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">1.2K</span><div style="width: 100%; background: rgba(127,83,243,0.35); border-radius: 3px 3px 0 0; height: 49px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">1.5K</span><div style="width: 100%; background: rgba(127,83,243,0.6); border-radius: 3px 3px 0 0; height: 63px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: #7F53F3; font-weight: 700;">1.9K</span><div style="width: 100%; background: #7F53F3; border-radius: 3px 3px 0 0; height: 90px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">1.7K</span><div style="width: 100%; background: rgba(127,83,243,0.5); border-radius: 3px 3px 0 0; height: 72px;"></div></div>
+                  <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px;"><span style="font-size: 8.5px; color: rgba(10,10,10,0.5);">1.4K</span><div style="width: 100%; background: rgba(127,83,243,0.42); border-radius: 3px 3px 0 0; height: 55px;"></div></div>
+                </div>
+                <div style="display: flex; gap: 6px; margin-top: 6px; font-size: 9.5px; color: #999;">
+                  <span style="flex: 1; text-align: center;">Mon</span><span style="flex: 1; text-align: center;">Tue</span><span style="flex: 1; text-align: center;">Wed</span><span style="flex: 1; text-align: center;">Thu</span><span style="flex: 1; text-align: center;">Fri</span><span style="flex: 1; text-align: center;">Sat</span><span style="flex: 1; text-align: center;">Sun</span>
+                </div>
+              </div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Venue QR vs General QR</span><strong style="color: #0A0A0A;">{{ d.venueVsGeneralQr }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Online Scans</span><strong style="color: #0A0A0A;">{{ d.onlineScans }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">In-Venue Scans</span><strong style="color: #0A0A0A;">{{ d.inVenueScans }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Repeat Scans</span><strong style="color: #0A0A0A;">{{ d.repeatScans }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px; padding-top: 8px; border-top: 1px solid #EEE;"><span style="color: #6B6B6B;">Scan → View Conversion</span><strong style="color: #0A9B71;">{{ d.scanViewConv }}</strong></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subscriptions & Content -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div>
+              <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">SUBSCRIPTION MIX</div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px;">
+                <div style="display: flex; flex-direction: column; gap: 7px; font-size: 11.5px; color: #4A4A4A; margin-bottom: 12px;">
+                  <div style="display: flex; justify-content: space-between;"><span>Free</span><strong>{{ d.freeCount }}</strong></div>
+                  <div style="display: flex; justify-content: space-between;"><span>Trial</span><strong>{{ d.trialCount }}</strong></div>
+                  <div style="display: flex; justify-content: space-between;"><span>Basic</span><strong>{{ d.basicCount }}</strong></div>
+                  <div style="display: flex; justify-content: space-between;"><span>Premium</span><strong>{{ d.premiumCount }}</strong></div>
+                  <div style="display: flex; justify-content: space-between;"><span>Enterprise</span><strong>{{ d.enterpriseCount }}</strong></div>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding-top: 10px; border-top: 1px solid #EEE; font-size: 10.5px; text-align: center;">
+                  <div><div style="font-weight: 800; color: #0A9B71;">{{ d.upgrades }}</div><div style="color: #6B6B6B;">Upgrades</div></div>
+                  <div><div style="font-weight: 800; color: #C0392B;">{{ d.downgrades }}</div><div style="color: #6B6B6B;">Downgrades</div></div>
+                  <div><div style="font-weight: 800; color: #C0392B;">{{ d.failedPayments }}</div><div style="color: #6B6B6B;">Failed Pmts</div></div>
+                  <div><div style="font-weight: 800; color: #C0392B;">{{ d.cancellations }}</div><div style="color: #6B6B6B;">Cancellations</div></div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">CONTENT</div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px;">
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center; margin-bottom: 10px;">
+                  <div><div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">2,340</div><div style="font-size: 10px; color: #6B6B6B;">Total Posts</div></div>
+                  <div><div style="font-size: 15px; font-weight: 800; color: #0A9B71;">614</div><div style="font-size: 10px; color: #6B6B6B;">Live</div></div>
+                  <div><div style="font-size: 15px; font-weight: 800; color: #7F53F3;">88</div><div style="font-size: 10px; color: #6B6B6B;">Scheduled</div></div>
+                  <div><div style="font-size: 15px; font-weight: 800; color: rgba(10,10,10,0.4);">1,638</div><div style="font-size: 10px; color: #6B6B6B;">Expired/Archived</div></div>
+                </div>
+                <div style="font-size: 11px; color: #6B6B6B; padding-top: 8px; border-top: 1px solid #EEE;">Avg. post duration: <strong style="color: #0A0A0A;">{{ d.avgPostDuration }}</strong> · Most viewed: <strong style="color: #0A0A0A;">"2 for 1 Margaritas"</strong> ({{ d.mostViewedCount }}) · Most shared: <strong style="color: #0A0A0A;">"$5 Draft Night"</strong> ({{ d.mostSharedCount }})</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Venue Rankings -->
+          <div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;">
+              <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A;">TOP 10 VENUES</div>
+              <div style="display: flex; gap: 4px;">
+                <div onClick="{{ setRankAttendance }}" style="{{ rankAttendanceStyle }}">Attendance</div>
+                <div onClick="{{ setRankRevenue }}" style="{{ rankRevenueStyle }}">Revenue</div>
+                <div onClick="{{ setRankEngagement }}" style="{{ rankEngagementStyle }}">Engagement</div>
+              </div>
+            </div>
+            <table style="width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; overflow: hidden;">
+              <thead>
+                <tr style="background: #F0F0F0; text-align: left;">
+                  <th style="padding: 8px 14px; font-weight: 700; color: #6B6B6B; font-size: 10.5px;">#</th>
+                  <th style="padding: 8px 14px; font-weight: 700; color: #6B6B6B; font-size: 10.5px;">VENUE</th>
+                  <th style="padding: 8px 14px; font-weight: 700; color: #6B6B6B; font-size: 10.5px;">CITY</th>
+                  <th style="padding: 8px 14px; font-weight: 700; color: #6B6B6B; font-size: 10.5px; text-align: right;">{{ rankMetricLabel }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-top: 1px solid #EEE;"><td style="padding: 8px 14px; color: #999;">1</td><td style="padding: 8px 14px; font-weight: 600; color: #1A1A1A;">Vault 27</td><td style="padding: 8px 14px; color: #6B6B6B;">New York</td><td style="padding: 8px 14px; text-align: right; font-weight: 700;">{{ rankRow1 }}</td></tr>
+                <tr style="border-top: 1px solid #EEE;"><td style="padding: 8px 14px; color: #999;">2</td><td style="padding: 8px 14px; font-weight: 600; color: #1A1A1A;">Aye Aye Bar</td><td style="padding: 8px 14px; color: #6B6B6B;">New York</td><td style="padding: 8px 14px; text-align: right; font-weight: 700;">{{ rankRow2 }}</td></tr>
+                <tr style="border-top: 1px solid #EEE;"><td style="padding: 8px 14px; color: #999;">3</td><td style="padding: 8px 14px; font-weight: 600; color: #1A1A1A;">Rivet &amp; Rail</td><td style="padding: 8px 14px; color: #6B6B6B;">New York</td><td style="padding: 8px 14px; text-align: right; font-weight: 700;">{{ rankRow3 }}</td></tr>
+                <tr style="border-top: 1px solid #EEE;"><td style="padding: 8px 14px; color: #999;">4</td><td style="padding: 8px 14px; font-weight: 600; color: #1A1A1A;">Canal Street Social</td><td style="padding: 8px 14px; color: #6B6B6B;">New York</td><td style="padding: 8px 14px; text-align: right; font-weight: 700;">{{ rankRow4 }}</td></tr>
+                <tr style="border-top: 1px solid #EEE;"><td style="padding: 8px 14px; color: #999;">5</td><td style="padding: 8px 14px; font-weight: 600; color: #1A1A1A;">Bowery &amp; Nine</td><td style="padding: 8px 14px; color: #6B6B6B;">New York</td><td style="padding: 8px 14px; text-align: right; font-weight: 700;">{{ rankRow5 }}</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Geographic Insights -->
+          <div>
+            <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.04em; color: #1A1A1A; margin-bottom: 10px;">GEOGRAPHIC INSIGHTS</div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px;">
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">2</div><div style="font-size: 10px; color: #6B6B6B;">Cities Live</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">312</div><div style="font-size: 10px; color: #6B6B6B;">Venues in Ecosystem</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">248 / 64</div><div style="font-size: 10px; color: #6B6B6B;">Bar/Liquor vs Food</div></div>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 10px; padding: 12px; text-align: center;"><div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">78%</div><div style="font-size: 10px; color: #6B6B6B;">Venues Actively Posting</div></div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; overflow: hidden;">
+                <thead><tr style="background: #F0F0F0; text-align: left;"><th style="padding: 8px 14px; font-weight: 700; color: #6B6B6B; font-size: 10.5px;">CITY</th><th style="padding: 8px 14px; font-weight: 700; color: #6B6B6B; font-size: 10.5px; text-align: right;">USERS</th><th style="padding: 8px 14px; font-weight: 700; color: #6B6B6B; font-size: 10.5px; text-align: right;">VENUES</th></tr></thead>
+                <tbody>
+                  <tr style="border-top: 1px solid #EEE;"><td style="padding: 8px 14px; font-weight: 600; color: #1A1A1A;">New York, NY</td><td style="padding: 8px 14px; text-align: right;">14,220</td><td style="padding: 8px 14px; text-align: right;">248</td></tr>
+                  <tr style="border-top: 1px solid #EEE;"><td style="padding: 8px 14px; font-weight: 600; color: #1A1A1A;">Sydney, AU</td><td style="padding: 8px 14px; text-align: right;">4,720</td><td style="padding: 8px 14px; text-align: right;">64</td></tr>
+                </tbody>
+              </table>
+              <div style="background: #fff; border: 1px solid #E4E4E4; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px; justify-content: center;">
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">Website Visitors ({{ periodLabel }})</span><strong style="color: #0A0A0A;">{{ d.websiteVisitors }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px;"><span style="color: #6B6B6B;">PWA Installs ({{ periodLabel }})</span><strong style="color: #0A0A0A;">{{ d.pwaInstalls }}</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 11.5px; padding-top: 8px; border-top: 1px solid #EEE;"><span style="color: #6B6B6B;">Top Performing City</span><strong style="color: #0A0A0A;">New York, NY</strong></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { period: 'week', rank: 'attendance' };
+  renderVals() {
+    const activeBtn = { padding: '6px 14px', fontSize: '11.5px', fontWeight: 700, borderRadius: '6px', cursor: 'pointer', background: '#1A1A1A', color: '#fff' };
+    const inactiveBtn = { padding: '6px 14px', fontSize: '11.5px', fontWeight: 600, borderRadius: '6px', cursor: 'pointer', color: '#6B6B6B' };
+    const activeRank = { padding: '5px 10px', fontSize: '10.5px', fontWeight: 700, borderRadius: '999px', cursor: 'pointer', background: '#7F53F3', color: '#fff' };
+    const inactiveRank = { padding: '5px 10px', fontSize: '10.5px', fontWeight: 600, borderRadius: '999px', cursor: 'pointer', color: '#6B6B6B', background: '#F0F0F0' };
+    const periodLabels = { week: 'WTD', month: 'MTD', year: 'YTD' };
+    const rankData = {
+      attendance: { label: 'ATTENDANCE', rows: ['412', '388', '351', '299', '270'] },
+      revenue: { label: 'REVENUE', rows: ['$4.1K', '$3.6K', '$3.2K', '$2.9K', '$2.4K'] },
+      engagement: { label: 'ENGAGEMENT', rows: ['61%', '57%', '54%', '49%', '46%'] }
+    };
+    const r = rankData[this.state.rank];
+    const periodData = {
+      week: {
+        activeVenues: '312', activeVenuesDelta: '6.2%', totalUsers: '18,940', totalUsersDelta: '9.1%',
+        dauMau: '41%', dauMauDelta: '1.4%', mrr: '$48.2K', mrrDelta: '4.8%', qrScans: '9,480', qrScansDelta: '12%',
+        livePosts: '614', livePostsDelta: '3.0%',
+        signupsA: '4', signupsALabel: 'Today', signupsB: '21', signupsBLabel: '7 Days', signupsC: '78', signupsCLabel: '30 Days',
+        paidCount: '137', paidPct: '44', trialCount: '97', trialPct: '31', freeCount: '78', freePct: '25', churn: '2.1%',
+        arr: '$578K', periodRevenue: '$44.6K',
+        dau: '2,140', mau: '7,860', returningUsers: '58%', softFollowers: '1,204', permFollowers: '6,412', growthRate: '9.1%',
+        avgViews: '612', avgScans: '340', avgAttendance: '198', avgShares: '42', avgPostsPerVenue: '3.2',
+        funnelQr: '58', funnelView: '71', funnelEngagement: '33', funnelAttendance: '18', funnelRepeat: '24',
+        openRate: '58%', ctr: '22%', pushVenueConv: '14%', notifsPerUser: '4.6', optOutRate: '3.2%',
+        venueVsGeneralQr: '82% / 18%', onlineScans: '3,210', inVenueScans: '6,270', repeatScans: '28%', scanViewConv: '58%',
+        basicCount: '84', premiumCount: '44', enterpriseCount: '9', upgrades: '14', downgrades: '5', failedPayments: '3', cancellations: '4',
+        avgPostDuration: '2.4 days', mostViewedCount: '612', mostSharedCount: '42',
+        websiteVisitors: '22,410', pwaInstalls: '1,860',
+        pushSent: '18.4K', pushDelivered: '17.9K', pushOpened: '10.7K', pushClicked: '4.1K'
+      },
+      month: {
+        activeVenues: '298', activeVenuesDelta: '8.4%', totalUsers: '18,110', totalUsersDelta: '11.6%',
+        dauMau: '39%', dauMauDelta: '0.8%', mrr: '$46.9K', mrrDelta: '5.9%', qrScans: '38,760', qrScansDelta: '15%',
+        livePosts: '2,470', livePostsDelta: '4.2%',
+        signupsA: '21', signupsALabel: 'Week 1', signupsB: '58', signupsBLabel: 'Week 2-3', signupsC: '84', signupsCLabel: 'Week 4',
+        paidCount: '129', paidPct: '43', trialCount: '104', trialPct: '35', freeCount: '65', freePct: '22', churn: '3.4%',
+        arr: '$563K', periodRevenue: '$188K',
+        dau: '2,010', mau: '7,410', returningUsers: '55%', softFollowers: '4,880', permFollowers: '5,940', growthRate: '11.6%',
+        avgViews: '2,340', avgScans: '1,290', avgAttendance: '742', avgShares: '166', avgPostsPerVenue: '12.6',
+        funnelQr: '55', funnelView: '68', funnelEngagement: '31', funnelAttendance: '17', funnelRepeat: '26',
+        openRate: '56%', ctr: '21%', pushVenueConv: '13%', notifsPerUser: '18.4', optOutRate: '3.6%',
+        venueVsGeneralQr: '80% / 20%', onlineScans: '12,640', inVenueScans: '26,120', repeatScans: '31%', scanViewConv: '55%',
+        basicCount: '79', premiumCount: '41', enterpriseCount: '9', upgrades: '52', downgrades: '19', failedPayments: '11', cancellations: '16',
+        avgPostDuration: '2.6 days', mostViewedCount: '2,340', mostSharedCount: '166',
+        websiteVisitors: '91,800', pwaInstalls: '7,240',
+        pushSent: '78.6K', pushDelivered: '76.4K', pushOpened: '42.8K', pushClicked: '16.9K'
+      },
+      year: {
+        activeVenues: '312', activeVenuesDelta: '64%', totalUsers: '18,940', totalUsersDelta: '212%',
+        dauMau: '41%', dauMauDelta: '2.2%', mrr: '$48.2K', mrrDelta: '68%', qrScans: '412,900', qrScansDelta: '180%',
+        livePosts: '2,340', livePostsDelta: '96%',
+        signupsA: '78', signupsALabel: 'Q1', signupsB: '146', signupsBLabel: 'Q2-Q3', signupsC: '88', signupsCLabel: 'Q4',
+        paidCount: '137', paidPct: '44', trialCount: '97', trialPct: '31', freeCount: '78', freePct: '25', churn: '9.8%',
+        arr: '$578K', periodRevenue: '$536K',
+        dau: '2,140', mau: '7,860', returningUsers: '64%', softFollowers: '58,400', permFollowers: '61,200', growthRate: '212%',
+        avgViews: '27,140', avgScans: '15,480', avgAttendance: '8,910', avgShares: '1,980', avgPostsPerVenue: '148',
+        funnelQr: '52', funnelView: '65', funnelEngagement: '29', funnelAttendance: '16', funnelRepeat: '29',
+        openRate: '54%', ctr: '19%', pushVenueConv: '12%', notifsPerUser: '212', optOutRate: '4.1%',
+        venueVsGeneralQr: '77% / 23%', onlineScans: '148K', inVenueScans: '265K', repeatScans: '34%', scanViewConv: '52%',
+        basicCount: '84', premiumCount: '44', enterpriseCount: '9', upgrades: '312', downgrades: '104', failedPayments: '68', cancellations: '96',
+        avgPostDuration: '2.5 days', mostViewedCount: '27,140', mostSharedCount: '1,980',
+        websiteVisitors: '1.1M', pwaInstalls: '84,600',
+        pushSent: '892K', pushDelivered: '868K', pushOpened: '482K', pushClicked: '169K'
+      }
+    };
+    const d = periodData[this.state.period];
+    return {
+      d,
+      weekBtnStyle: this.state.period === 'week' ? activeBtn : inactiveBtn,
+      monthBtnStyle: this.state.period === 'month' ? activeBtn : inactiveBtn,
+      yearBtnStyle: this.state.period === 'year' ? activeBtn : inactiveBtn,
+      setWeek: () => this.setState({ period: 'week' }),
+      setMonth: () => this.setState({ period: 'month' }),
+      setYear: () => this.setState({ period: 'year' }),
+      periodLabel: periodLabels[this.state.period],
+      rankAttendanceStyle: this.state.rank === 'attendance' ? activeRank : inactiveRank,
+      rankRevenueStyle: this.state.rank === 'revenue' ? activeRank : inactiveRank,
+      rankEngagementStyle: this.state.rank === 'engagement' ? activeRank : inactiveRank,
+      setRankAttendance: () => this.setState({ rank: 'attendance' }),
+      setRankRevenue: () => this.setState({ rank: 'revenue' }),
+      setRankEngagement: () => this.setState({ rank: 'engagement' }),
+      rankMetricLabel: r.label,
+      rankRow1: r.rows[0], rankRow2: r.rows[1], rankRow3: r.rows[2], rankRow4: r.rows[3], rankRow5: r.rows[4]
+    };
+  }
+}
+</script>
+</body>
+</html>

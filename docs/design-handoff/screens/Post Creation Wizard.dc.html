@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Post Creation Wizard</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 680px; line-height: 1.5;">Venue / Social Manager surface — calmer and more utilitarian than the consumer side. Drink flow: Type → Core fields → Schedule/Publish → Compliance (drink only) → Preview → Media → Published. Food specials skip Compliance (5 steps). Preview supports Tile and Full-post tabs.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Type</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">1 / 6</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 20px; gap: 16px;">
+            <div style="font-size: 20px; font-weight: 800; color: #0A0A0A;">What kind of special?</div>
+            <a href="#special-definition" style="display: block; text-decoration: none; text-align: left; margin-top: -8px;">
+              <span style="font-size: 12.5px; font-weight: 600; color: #7F53F3;">What is a Special?</span>
+            </a>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <div style="border: 2px solid #F814E8; background: rgba(248,20,232,0.06); border-radius: 16px; padding: 18px; display: flex; align-items: center; gap: 14px;">
+                <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(248,20,232,0.14); display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="20" height="24" viewBox="0 0 20 24" fill="none"><path d="M1 1H19L11 13V21H15V23H5V21H9V13L1 1Z" stroke="#F814E8" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 700; color: #0A0A0A;">Drink Special</div>
+                </div>
+                <div style="width: 22px; height: 22px; border-radius: 50%; background: #F814E8; display: flex; align-items: center; justify-content: center;">
+                  <svg width="12" height="10" viewBox="0 0 12 10" fill="none"><path d="M1 5L4.5 8.5L11 1" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+              </div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.12); border-radius: 16px; padding: 18px; display: flex; align-items: center; gap: 14px;">
+                <div style="width: 42px; height: 42px; border-radius: 12px; background: rgba(127,83,243,0.1); display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="20" height="22" viewBox="0 0 20 22" fill="none"><path d="M2 1V9C2 11.2 3.8 13 6 13V21M6 1V13M10 1V21M14 1C14 1 18 3 18 9C18 12 16 13 14 13V21" stroke="#7F53F3" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 15px; font-weight: 700; color: #0A0A0A;">Food Special</div>
+                </div>
+              </div>
+            </div>
+            <a href="#content-policy" style="display: block; text-decoration: none; text-align: center; margin-top: 2px;">
+              <span style="font-size: 11.5px; font-weight: 500; color: rgba(10,10,10,0.4);">Keep it real — see our Content Guidelines</span>
+            </a>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #7F53F3; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✦</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Content Guidelines sheet</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA;">
+          <div style="position: absolute; inset: 0; opacity: 0.4; filter: blur(1px); padding: 62px 20px 0;">
+            <div style="font-size: 20px; font-weight: 800; color: #0A0A0A;">What kind of special?</div>
+          </div>
+          <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.5);"></div>
+
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 130px; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 30px rgba(0,0,0,0.18); padding: 18px 20px 26px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto;">
+            <div style="width: 36px; height: 4px; border-radius: 999px; background: rgba(0,0,0,0.15); margin: 0 auto;"></div>
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A; text-align: center;">Content Guidelines</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.65); line-height: 1.5;">Nearby Vibes showcases genuine venues and real offers. Keep posts accurate, honest, and compliant with food safety, liquor licensing, and advertising laws in your area.</div>
+
+            <div style="font-size: 12px; font-weight: 700; color: #0A0A0A; margin-top: 4px;">Do</div>
+            <div style="font-size: 12.5px; color: rgba(10,10,10,0.65); line-height: 1.55;">Post real, available offers with accurate pricing — drinks, food, events, and your venue atmosphere.</div>
+
+            <div style="font-size: 12px; font-weight: 700; color: #0A0A0A; margin-top: 2px;">Don't</div>
+            <div style="font-size: 12.5px; color: rgba(10,10,10,0.65); line-height: 1.55;">Misrepresent food or pricing, encourage excessive drinking, or post offensive, irrelevant, or spam content.</div>
+
+            <div style="font-size: 11.5px; color: rgba(10,10,10,0.45); line-height: 1.5; margin-top: 2px;">You're responsible for the accuracy of your posts and honouring promotions as advertised. Violations may result in content removal or account suspension.</div>
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px; margin-top: 4px;">Got It</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #7F53F3; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✦</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">"What is a Special?" definition sheet</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA;">
+          <div style="position: absolute; inset: 0; opacity: 0.4; filter: blur(1px); padding: 62px 20px 0;">
+            <div style="font-size: 20px; font-weight: 800; color: #0A0A0A;">What kind of special?</div>
+          </div>
+          <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.5);"></div>
+
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 220px; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 30px rgba(0,0,0,0.18); padding: 18px 20px 26px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto;">
+            <div style="width: 36px; height: 4px; border-radius: 999px; background: rgba(0,0,0,0.15); margin: 0 auto;"></div>
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A; text-align: center;">What is a Special?</div>
+            <div style="font-size: 13.5px; color: rgba(10,10,10,0.7); line-height: 1.55;">A Special is a limited-time offer designed to bring customers through the door. Whether it's a discounted drink, meal, event or exclusive deal, specials create a reason to visit now. On Nearby Vibes, specials help venues attract more foot traffic, increase sales, and turn first-time visitors into returning customers.</div>
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px; margin-top: 4px;">Got It</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #7F53F3; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✦</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Tips (drink specials)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA;">
+          <div style="position: absolute; inset: 0; opacity: 0.4; filter: blur(1px); padding: 62px 20px 0;">
+            <div style="font-size: 20px; font-weight: 800; color: #0A0A0A;">What kind of special?</div>
+          </div>
+          <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.5);"></div>
+
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 90px; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 30px rgba(0,0,0,0.18); padding: 18px 20px 26px; display: flex; flex-direction: column; gap: 14px; overflow-y: auto;">
+            <div style="width: 36px; height: 4px; border-radius: 999px; background: rgba(0,0,0,0.15); margin: 0 auto;"></div>
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A; text-align: center;">Tips to Boost Results</div>
+
+            <div style="display: flex; gap: 10px;">
+              <svg width="14" height="16" viewBox="0 0 12 14" fill="none" style="flex: none; margin-top: 2px;"><path d="M7 1L1 8H5L4 13L10 6H6L7 1Z" fill="#25EFB8"/></svg>
+              <div>
+                <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">When traffic starts to slow</div>
+                <div style="font-size: 12px; color: rgba(10,10,10,0.6); line-height: 1.45; margin-top: 2px;">Keep your bar busy by posting a special as soon as you notice a dip in arrivals.</div>
+              </div>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+
+            <div style="display: flex; gap: 10px;">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex: none; margin-top: 3px;"><path d="M1 11L5.5 6.5L8.5 9.5L13 3" stroke="#F814E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9.5 3H13V6.5" stroke="#F814E8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div>
+                <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">When sales drop below target</div>
+                <div style="font-size: 12px; color: rgba(10,10,10,0.6); line-height: 1.45; margin-top: 2px;">Incentivize spending with targeted specials on high-margin drinks when you're behind on your daily goal.</div>
+              </div>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+
+            <div>
+              <div style="display: flex; gap: 10px; align-items: center;">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex: none;"><circle cx="7" cy="7" r="6" stroke="#7F53F3" stroke-width="1.6"/><path d="M7 3.5V7L9.5 8.5" stroke="#7F53F3" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Just before peak decision times</div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 8px;">
+                <div style="display: flex; justify-content: space-between; background: rgba(10,10,10,0.04); border-radius: 10px; padding: 9px 12px;">
+                  <span style="font-size: 12px; font-weight: 700; color: #7F53F3;">4:30–5:30 PM</span>
+                  <span style="font-size: 12px; color: rgba(10,10,10,0.55);">After-work drinks</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; background: rgba(10,10,10,0.04); border-radius: 10px; padding: 9px 12px;">
+                  <span style="font-size: 12px; font-weight: 700; color: #7F53F3;">7:00–8:00 PM</span>
+                  <span style="font-size: 12px; color: rgba(10,10,10,0.55);">Dinner / pre-night-out</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; background: rgba(10,10,10,0.04); border-radius: 10px; padding: 9px 12px;">
+                  <span style="font-size: 12px; font-weight: 700; color: #7F53F3;">10:30–11:30 PM</span>
+                  <span style="font-size: 12px; color: rgba(10,10,10,0.55);">Late-night drinks</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: rgba(127,83,243,0.08); border-left: 3px solid #7F53F3; border-radius: 10px; padding: 12px 14px;">
+              <span style="font-size: 12.5px; font-weight: 700; color: #7F53F3;">Pro tip: </span>
+              <span style="font-size: 12.5px; color: rgba(10,10,10,0.7); line-height: 1.45;">Urgency drives action. Use limited-time offers with a countdown to encourage immediate visits.</span>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 2px;">
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(10,10,10,0.55);">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(10,10,10,0.3);"></div>
+                Keep address accurate
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: rgba(10,10,10,0.55);">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: rgba(10,10,10,0.3);"></div>
+                Display QR code clearly
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 8px; margin-top: 2px;">
+              <div style="width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid rgba(10,10,10,0.25); flex: none;"></div>
+              <span style="font-size: 12px; color: rgba(10,10,10,0.6);">Don't show this again</span>
+            </div>
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px;">Got It</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Core fields</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">2 / 6</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+              <div style="display: flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); font-size: 12px; font-weight: 600; color: #0A0A0A;">
+                <svg width="15" height="11" viewBox="0 0 15 11" fill="none"><path d="M1 5.5S3.5 1 7.5 1 14 5.5 14 5.5 11.5 10 7.5 10 1 5.5 1 5.5Z" stroke="#0A0A0A" stroke-width="1.4" stroke-linejoin="round"/><circle cx="7.5" cy="5.5" r="2" fill="#0A0A0A"/></svg>
+                Preview
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 4px 20px 18px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; align-items: center; gap: 6px; align-self: flex-start; padding: 8px 13px; border-radius: 999px; background: rgba(127,83,243,0.1);">
+              <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M6 1L11 3V7C11 10 8.5 12.5 6 13C3.5 12.5 1 10 1 7V3L6 1Z" stroke="#7F53F3" stroke-width="1.5" stroke-linejoin="round"/></svg>
+              <span style="font-size: 12px; font-weight: 700; color: #7F53F3;">Responsible advertising &amp; best practices</span>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Title</span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">54/60</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff;">Late Night Happy Hour: $2 Off Every Draft &amp; Well Pour</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Hook</span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">101/120</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff; line-height: 1.4;">Kitchen's open till close — half-price appetizers when you show this in-app, no reservation needed.</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Description</span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">238/500</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13px; color: #0A0A0A; background: #fff; line-height: 1.5; min-height: 84px;">Dine-in only, one redemption per table, while supplies last. Valid every Wednesday from open until close. Not combinable with other offers or happy hour pricing. Must be 21+ with valid ID.</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;"><span style="font-size: 12.5px; font-weight: 600; color: #0A0A0A;">Specials tag</span><span style="font-size: 11px; color: rgba(10,10,10,0.4);">Select up to 3</span></div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <div style="padding: 7px 13px; border-radius: 999px; background: #95048B; color: #fff; font-size: 12px; font-weight: 700;">Beer</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Wine</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Cocktail</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Spirits</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Mocktail</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Cider</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Craft Beer</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Beer Flight / Tasting</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Wine Flight / Tasting</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Frozen Cocktail</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Seasonal Special</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Sparkling &amp; Champagne</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Specialty</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;">Price / discount</div>
+              <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                <div style="flex: 1; text-align: center; padding: 9px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700;">$ Off</div>
+                <div style="flex: 1; text-align: center; padding: 9px; border-radius: 10px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">% Off</div>
+                <div style="flex: 1; text-align: center; padding: 9px; border-radius: 10px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Set Price</div>
+              </div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff;">$2 off every draft &amp; well pour</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Conditions <span style="font-weight: 500; color: rgba(10,10,10,0.4);">(optional)</span></span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">42/100</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff;">Limit one per table. Dine-in only.</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Food available with this special <span style="font-weight: 500; color: rgba(10,10,10,0.4);">(optional)</span></span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">78/100</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff;">Kitchen stays open — pretzel bites, loaded fries, and wings available to order alongside drinks.</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Other <span style="font-weight: 500; color: rgba(10,10,10,0.4);">(optional)</span></span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">0/100</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: rgba(10,10,10,0.4); background: #fff;">Anything else guests should know…</div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                <span style="font-size: 12.5px; font-weight: 600; color: #0A0A0A;">Pricing disclosure</span>
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M3 6V4A3 3 0 019 4V6" stroke="rgba(10,10,10,0.4)" stroke-width="1.4" stroke-linecap="round"/><rect x="1.5" y="6" width="9" height="6.5" rx="1.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4"/></svg>
+              </div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 12px; padding: 12px 14px; font-size: 12.5px; color: rgba(10,10,10,0.55); background: rgba(10,10,10,0.03); line-height: 1.5;">Taxes, gratuities, service charges, surcharges, and other applicable fees may be additional and charged at the venue's register.</div>
+              <div style="font-size: 11px; color: rgba(10,10,10,0.4); margin-top: 4px;">Fixed text, added automatically to every post</div>
+            </div>
+          </div>
+
+          <div style="padding: 12px 20px 32px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+            <div style="font-size: 13px; font-weight: 600; color: rgba(10,10,10,0.5); text-align: center; padding: 6px;">Save as Draft</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #7F53F3; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✦</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Responsible advertising (drink)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA;">
+          <div style="position: absolute; inset: 0; opacity: 0.4; filter: blur(1px); padding: 62px 20px 0;">
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">Core fields</div>
+          </div>
+          <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.5);"></div>
+
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; top: 60px; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 30px rgba(0,0,0,0.18); padding: 18px 20px 26px; display: flex; flex-direction: column; gap: 12px; overflow-y: auto;">
+            <div style="width: 36px; height: 4px; border-radius: 999px; background: rgba(0,0,0,0.15); margin: 0 auto;"></div>
+            <div style="font-size: 17px; font-weight: 800; color: #0A0A0A; text-align: center;">Responsible &amp; Best Practices</div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.5); text-align: center; margin-top: -6px;">For drink special posts · informational, not legal advice</div>
+
+            <div style="background: rgba(37,239,184,0.08); border-radius: 10px; padding: 10px 12px; font-size: 12px; color: rgba(10,10,10,0.7); line-height: 1.4; margin-top: 4px;">
+              <strong style="color: #0A9B71;">Simple rule:</strong> if it feels responsible, welcoming, and adult-focused — you're on the right track.
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7F53F3; flex: none; margin-top: 6px;"></div>
+                <div><span style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">Keep it 21+.</span> <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">Content and imagery must clearly target legal-age adults only — no youth-focused themes or visuals.</span></div>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7F53F3; flex: none; margin-top: 6px;"></div>
+                <div><span style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">Right people, right look.</span> <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">Anyone shown drinking should appear 21+, ideally 25+.</span></div>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7F53F3; flex: none; margin-top: 6px;"></div>
+                <div><span style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">No irresponsible drinking.</span> <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">No "all you can drink," intoxication, or drinking games.</span></div>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7F53F3; flex: none; margin-top: 6px;"></div>
+                <div><span style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">No risky pairings.</span> <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">Never suggest drinking before/while driving, swimming, or sports.</span></div>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7F53F3; flex: none; margin-top: 6px;"></div>
+                <div><span style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">Don't oversell potency.</span> <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">Share ABV factually — don't hook on "gets you drunk fast."</span></div>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7F53F3; flex: none; margin-top: 6px;"></div>
+                <div><span style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">No "free alcohol."</span> <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">No free drinks, giveaways, or sampling — focus on value, not free alcohol.</span></div>
+              </div>
+              <div style="display: flex; gap: 10px;">
+                <div style="width: 6px; height: 6px; border-radius: 50%; background: #7F53F3; flex: none; margin-top: 6px;"></div>
+                <div><span style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">Keep it respectful.</span> <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">No offensive, sexualized, or discriminatory content.</span></div>
+              </div>
+            </div>
+
+            <div style="background: rgba(127,83,243,0.08); border-left: 3px solid #7F53F3; border-radius: 10px; padding: 12px 14px; margin-top: 4px;">
+              <span style="font-size: 12.5px; font-weight: 700; color: #7F53F3;">Promote the vibe: </span>
+              <span style="font-size: 12.5px; color: rgba(10,10,10,0.7); line-height: 1.45;">great atmosphere, quality drinks, social experiences, clear time-based offers. Think "come enjoy this," not "come overdo it."</span>
+            </div>
+
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px; margin-top: 4px;">Got It</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Schedule / Publish</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">3 / 6</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">When should this go live?</div>
+            <div style="display: flex; gap: 10px;">
+              <div style="flex: 1; text-align: center; padding: 13px; border-radius: 12px; background: #0A0A0A; color: #fff; font-size: 13.5px; font-weight: 700;">Publish now</div>
+              <div style="flex: 1; text-align: center; padding: 13px; border-radius: 12px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13.5px; font-weight: 600;">Schedule</div>
+            </div>
+            <div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 6px;">STARTS</div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff; display: flex; justify-content: space-between; align-items: center;">
+                <span>Today, 5:00 PM</span>
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="2.5" width="15" height="13" rx="2.5" stroke="#25EFB8" stroke-width="1.6"/><path d="M1 6.5H16M5 1V4M12 1V4" stroke="#25EFB8" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 6px;">ENDS</div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff; display: flex; justify-content: space-between; align-items: center;">
+                <span>Today, 9:00 PM</span>
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="2.5" width="15" height="13" rx="2.5" stroke="#25EFB8" stroke-width="1.6"/><path d="M1 6.5H16M5 1V4M12 1V4" stroke="#25EFB8" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 6px;">DAILY ACTIVE WINDOW</div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="flex: 1; text-align: center; border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px; font-size: 13.5px; font-weight: 600; color: #0A0A0A; background: #fff;">5:00 PM</div>
+                <span style="font-size: 12px; color: rgba(10,10,10,0.4); font-weight: 600;">to</span>
+                <div style="flex: 1; text-align: center; border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px; font-size: 13.5px; font-weight: 600; color: #0A0A0A; background: #fff;">9:00 PM</div>
+              </div>
+              <div style="font-size: 11.5px; color: rgba(10,10,10,0.45); line-height: 1.4; margin-top: 8px;">For multi-day posts, the special will only show as live during this window each day. Maximum post duration is 7 days.</div>
+            </div>
+            <div style="background: rgba(37,239,184,0.08); border-radius: 12px; padding: 12px 14px; font-size: 12.5px; color: rgba(10,10,10,0.65); line-height: 1.45; display: flex; gap: 8px;">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: #25EFB8; flex: none; margin-top: 5px;"></div>
+              Nearby users who have allowed notifications will be alerted the moment this goes live — the countdown starts immediately.
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Compliance (drink)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">4 / 6</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">Drink special disclaimer</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5;">This disclaimer is required for all alcohol specials and cannot be edited.</div>
+            <div style="background: #fff; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 16px; font-size: 13px; color: rgba(10,10,10,0.75); line-height: 1.6;">
+              Please drink responsibly. This offer is available to guests 21+ (US), or 18+ in your location, with valid ID. Nearby Vibes and this venue do not condone excessive consumption. Prices and availability subject to change without notice. See <a href="#tos" style="color: #7F53F3; font-weight: 600;">Terms of Service</a>.
+            </div>
+            <div style="background: rgba(127,83,243,0.06); border-radius: 12px; padding: 12px 14px; font-size: 12px; color: rgba(10,10,10,0.65); line-height: 1.55;">
+              NY Alcoholism assistance hotline: 877-8-HOPENY or text HOPENY 46769 or check health resources in your jurisdiction.
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Preview</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">5 / 6</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 8px; display: flex; gap: 6px;">
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; color: rgba(10,10,10,0.5); font-size: 12.5px; font-weight: 600;">Full post</div>
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12.5px; font-weight: 600;">Tile preview</div>
+          </div>
+
+
+          <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 8px 20px 20px;">
+            <div style="position: relative; width: 168px; height: 210px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+              <image-slot id="wiz-preview-tile" shape="rect" placeholder="Hero image" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.65) 100%); pointer-events: none;"></div>
+              <div style="position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.9); font-size: 10.5px; font-weight: 700; color: #0A0A0A; padding: 3px 8px; border-radius: 999px;">0.4 mi</div>
+              <div style="position: absolute; top: 8px; right: 8px; background: #95048B; color: #fff; font-size: 9.5px; font-weight: 800; padding: 3px 7px; border-radius: 999px;">DRINK</div>
+              <div style="position: absolute; top: 30px; right: 8px; background: rgba(255,255,255,0.9); color: #0A0A0A; font-size: 9px; font-weight: 700; padding: 3px 7px; border-radius: 999px;">Beer</div>
+              <div style="position: absolute; bottom: 8px; left: 8px; right: 8px;">
+                <div style="font-size: 11px; font-weight: 700; color: #fff; line-height: 1.3;">$2 Off Draft &amp; Well Pour</div>
+                <div style="font-size: 9.5px; color: rgba(255,255,255,0.8); margin-top: 2px;">The Anchor &amp; Oak</div>
+                <div style="height: 3px; border-radius: 999px; background: rgba(255,255,255,0.3); overflow: hidden; margin-top: 6px;">
+                  <div style="width: 15%; height: 100%; background: #F814E8; border-radius: 999px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Publish Special</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">6</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Media</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">6 / 6</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <div style="font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;">Post Photo or Video <span style="color: #95048B; font-weight: 500;">· required, ≤15s if video</span></div>
+              <image-slot id="wiz-hero" shape="rounded" radius="14" placeholder="1080×1920px · 9:16 vertical (Instagram Story/Reels sizing)" style="width: 100%; height: 280px;"></image-slot>
+              <div style="font-size: 11.5px; color: rgba(10,10,10,0.45); line-height: 1.4; margin-top: 6px;">Shot vertical, full-bleed 9:16 like a Story or Reel — resize before upload if your source is square or landscape.</div>
+            </div>
+            <div>
+              <div style="font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;">Tile Image <span style="font-weight: 500; color: rgba(10,10,10,0.4);">· shown on the home page &amp; nearby-offer tiles</span></div>
+              <image-slot id="wiz-tile-crop" shape="rounded" radius="14" placeholder="168×210px · 4:5 tile format" style="width: 168px; height: 210px;"></image-slot>
+              <div style="display: flex; align-items: center; gap: 6px; margin-top: 8px;">
+                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" style="flex: none;"><path d="M6.5 1V12M1 6.5H12" stroke="rgba(10,10,10,0.45)" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <div style="font-size: 11.5px; color: rgba(10,10,10,0.55); line-height: 1.45;">If your photo doesn't match this shape, drag to reposition it within the frame.</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Preview — Full post tab</div>
+      </div>
+      <div style="max-width: 260px; font-size: 11.5px; color: rgba(10,10,10,0.5); text-align: center; line-height: 1.5; margin-top: -6px;">Report → Admin gets a real-time dashboard alert + email, tagged with the Post ID &amp; Venue ID for traceability. 3+ reports auto-hide the post pending review.</div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">5 / 6</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 8px; display: flex; gap: 6px;">
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12.5px; font-weight: 600;">Full post</div>
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; color: rgba(10,10,10,0.5); font-size: 12.5px; font-weight: 600;">Tile preview</div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column;">
+            <div style="position: relative; height: 520px; flex: none;">
+              <image-slot id="wiz-preview-full-hero" shape="rect" placeholder="Hero image / video — 9:16 crop" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%); pointer-events: none;"></div>
+              <div style="position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M8 1L1.5 7.5L8 14" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div style="position: absolute; top: 16px; right: 16px; display: flex; gap: 8px;">
+                <div style="background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="17" viewBox="0 0 15 17" fill="none"><path d="M7.5 1V11" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"/><path d="M4 4L7.5 1L11 4" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 8V15C1 15.55 1.45 16 2 16H13C13.55 16 14 15.55 14 15V8" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="16" viewBox="0 0 15 16" fill="none"><path d="M7.5 1V15M0.5 8H14.5" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+              <div style="position: absolute; bottom: 40px; left: 20px; background: #95048B; color: #fff; font-size: 13px; font-weight: 800; padding: 6px 12px; border-radius: 8px;">DRINK SPECIAL</div>
+              <div style="position: absolute; bottom: 40px; right: 20px; background: rgba(255,255,255,0.92); font-size: 12px; font-weight: 700; color: #0A0A0A; padding: 6px 12px; border-radius: 999px;">0.3 mi</div>
+              <div style="position: absolute; bottom: 76px; left: 20px; right: 20px; display: flex; align-items: center; gap: 6px;">
+                <div style="width: 7px; height: 7px; border-radius: 50%; background: #25EFB8;"></div>
+                <span style="font-size: 12px; font-weight: 700; color: #fff;">LIVE</span>
+                <span style="font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.85); margin-left: auto;">14 min left</span>
+              </div>
+              <div style="position: absolute; bottom: 70px; left: 20px; right: 20px; height: 4px; border-radius: 999px; background: rgba(255,255,255,0.3); overflow: hidden;">
+                <div style="width: 15%; height: 100%; background: #F814E8; border-radius: 999px;"></div>
+              </div>
+            </div>
+            <div style="flex: 1; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 24px rgba(0,0,0,0.15); margin-top: -22px; position: relative; z-index: 2; padding: 10px 20px 24px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; margin-bottom: 2px;">
+                <svg width="16" height="9" viewBox="0 0 16 9" fill="none"><path d="M1 8L8 1L15 8" stroke="rgba(10,10,10,0.35)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div style="font-size: 17px; font-weight: 800; color: #0A0A0A; line-height: 1.25;">Late Night Happy Hour: $2 Off Every Draft &amp; Well Pour</div>
+              <a href="#venue-profile" style="display: flex; align-items: center; gap: 10px; text-decoration: none; background: rgba(127,83,243,0.06); border: 1px solid rgba(127,83,243,0.18); border-radius: 12px; padding: 10px 12px;">
+                <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(127,83,243,0.15); display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="16" height="18" viewBox="0 0 18 16" fill="none"><path d="M1 5L2.5 1H15.5L17 5" stroke="#7F53F3" stroke-width="1.5" stroke-linejoin="round"/><path d="M1 5V15H17V5" stroke="#7F53F3" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">The Anchor &amp; Oak</div>
+                  <div style="font-size: 11.5px; color: rgba(10,10,10,0.55);">214 Harbor St · Hours, photos &amp; more</div>
+                </div>
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style="flex: none;"><circle cx="7.5" cy="7.5" r="7.5" fill="#7F53F3"/><path d="M6 4L10 7.5L6 11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <div style="display: flex; gap: 8px; padding: 2px 0 4px;">
+                <a href="#special-info" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: rgba(248,20,232,0.08); border-radius: 12px; padding: 8px 6px;">
+                  <div style="width: 26px; height: 26px; border-radius: 50%; background: #F814E8; display: flex; align-items: center; justify-content: center;">
+                    <svg width="11" height="13" viewBox="0 0 14 16" fill="none"><path d="M7 1L13.5 4.2V8.9C13.5 12.7 10.8 15.9 7 16.9C3.2 15.9 0.5 12.7 0.5 8.9V4.2L7 1Z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  </div>
+                  <span style="font-size: 10px; font-weight: 700; color: #0A0A0A;">Special Info</span>
+                </a>
+                <a href="#navigation" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: rgba(127,83,243,0.08); border-radius: 12px; padding: 8px 6px;">
+                  <div style="width: 26px; height: 26px; border-radius: 50%; background: #7F53F3; display: flex; align-items: center; justify-content: center;">
+                    <svg width="12" height="14" viewBox="0 0 14 16" fill="none"><path d="M7 1C4.5 1 2.5 3 2.5 5.5C2.5 9 7 15 7 15C7 15 11.5 9 11.5 5.5C11.5 3 9.5 1 7 1Z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><circle cx="7" cy="5.5" r="1.8" fill="#fff"/></svg>
+                  </div>
+                  <span style="font-size: 10px; font-weight: 700; color: #0A0A0A;">Map</span>
+                </a>
+                <a href="#navigation" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: rgba(37,239,184,0.1); border-radius: 12px; padding: 8px 6px;">
+                  <div style="width: 26px; height: 26px; border-radius: 50%; background: #25EFB8; display: flex; align-items: center; justify-content: center;">
+                    <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M9 1L16.5 4.5V9C16.5 13 13 16.5 9 17C5 16.5 1.5 13 1.5 9V4.5L9 1Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 5.5L11.5 10L9 12.5L6.5 10L9 5.5Z" fill="#0A0A0A"/></svg>
+                  </div>
+                  <span style="font-size: 10px; font-weight: 700; color: #0A0A0A;">Navigate</span>
+                </a>
+              </div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;" id="special-info">DRINK · BEER</div>
+              <div style="font-size: 13px; font-weight: 700; color: #0A0A0A; line-height: 1.4;">Kitchen's open till close — half-price appetizers when you show this in-app, no reservation needed.</div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">DESCRIPTION</div>
+              <div style="font-size: 12.5px; color: rgba(10,10,10,0.6); line-height: 1.5; margin-top: 4px;">Dine-in only, one redemption per table, while supplies last. Valid every Wednesday from open until close. Not combinable with other offers or happy hour pricing. Must be 21+ with valid ID.</div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">ACTIVE WINDOW</div>
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(37,239,184,0.08); border-radius: 10px; padding: 10px 12px; margin-top: 4px;">
+                <span style="font-size: 12.5px; font-weight: 600; color: #0A0A0A;">Today · 5:00 – 9:00 PM</span>
+                <span style="font-size: 11.5px; font-weight: 700; color: #95048B;">14 min left</span>
+              </div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">CONDITIONS</div>
+              <div style="font-size: 12.5px; color: rgba(10,10,10,0.6); line-height: 1.5; margin-top: 4px;">Limit one per table. Dine-in only.</div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">FOOD AVAILABILITY</div>
+              <div style="font-size: 12.5px; color: rgba(10,10,10,0.6); line-height: 1.5; margin-top: 4px;">Kitchen stays open — pretzel bites, loaded fries, and wings available to order alongside drinks.</div>
+              <div style="position: relative; width: 100%; height: 120px; border-radius: 12px; overflow: hidden; flex: none; margin-top: 8px;" id="navigation">
+                <image-slot id="wiz-preview-map" shape="rect" placeholder="Map tiles — venue &amp; guest location" style="position: absolute; inset: 0;"></image-slot>
+                <div style="position: absolute; top: 34px; left: 130px; width: 16px; height: 16px; border-radius: 50%; background: #7F53F3; border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.25);"></div>
+                <div style="position: absolute; top: 70px; left: 60px; width: 12px; height: 12px; border-radius: 50%; background: #25EFB8; border: 2.5px solid #fff; box-shadow: 0 0 0 4px rgba(37,239,184,0.25);"></div>
+                <div style="position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.92); font-size: 10.5px; font-weight: 700; color: #0A0A0A; padding: 3px 8px; border-radius: 999px;">0.3 mi away</div>
+                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(255,255,255,0.92); border-radius: 8px; padding: 5px 8px; display: flex; flex-direction: column; gap: 3px;">
+                  <div style="display: flex; align-items: center; gap: 5px;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #7F53F3;"></div><span style="font-size: 9.5px; font-weight: 600; color: #0A0A0A;">Venue</span></div>
+                  <div style="display: flex; align-items: center; gap: 5px;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #25EFB8;"></div><span style="font-size: 9.5px; font-weight: 600; color: #0A0A0A;">You</span></div>
+                </div>
+                <div style="position: absolute; bottom: 8px; left: 8px; width: 40px; height: 40px; border-radius: 50%; background: #25EFB8; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0,0,0,0.2);">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1L16.5 4.5V9C16.5 13 13 16.5 9 17C5 16.5 1.5 13 1.5 9V4.5L9 1Z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 5.5L11.5 10L9 12.5L6.5 10L9 5.5Z" fill="#0A0A0A"/></svg>
+                </div>
+              </div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">PRICING</div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 12px; padding: 12px 14px; font-size: 11.5px; color: rgba(10,10,10,0.55); background: rgba(10,10,10,0.03); line-height: 1.5; margin-top: 4px;">Taxes, gratuities, service charges, surcharges, and other applicable fees may be additional and charged at the venue's register.</div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">RESPONSIBLE SERVICE</div>
+              <div style="background: #fff; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 12px; padding: 12px 14px; font-size: 11.5px; color: rgba(10,10,10,0.6); line-height: 1.5; margin-top: 4px;">Please drink responsibly. This offer is available to guests 21+ (US), or 18+ in your location, with valid ID. Nearby Vibes and this venue do not condone excessive consumption. Prices and availability subject to change without notice.</div>
+              <div style="font-size: 10.5px; color: rgba(10,10,10,0.45); line-height: 1.5; margin-top: 6px;">NY Alcoholism assistance hotline: 877-8-HOPENY or text HOPENY 46769 or check health resources in your jurisdiction. See <a href="#tos" style="color: #7F53F3; font-weight: 600;">Terms of Service</a> for more.</div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px solid rgba(10,10,10,0.08); margin-top: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 1V13" stroke="rgba(10,10,10,0.4)" stroke-width="1.6" stroke-linecap="round"/><path d="M2 2H11L9 4.5L11 7H2Z" fill="rgba(10,10,10,0.3)"/></svg>
+                  <span style="font-size: 12.5px; font-weight: 600; color: rgba(10,10,10,0.45);">Report</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; width: 100%; padding-top: 10px; border-top: 1px solid rgba(10,10,10,0.06);">
+                  <div>
+                    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(10,10,10,0.4);">VENUE IDENTITY</div>
+                    <div style="font-size: 13px; font-weight: 800; color: #7F53F3; margin-top: 2px;">NV-48213-A</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(10,10,10,0.4);">POST IDENTITY</div>
+                    <div style="font-size: 13px; font-weight: 800; color: #7F53F3; margin-top: 2px;">NV-D839201</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #25EFB8; color: #0A0A0A; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✓</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Published</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 32px; box-sizing: border-box; gap: 20px;">
+          <div style="width: 76px; height: 76px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center;">
+            <svg width="34" height="28" viewBox="0 0 34 28" fill="none"><path d="M2 14L12 24L32 2" stroke="#0A9B71" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size: 22px; font-weight: 800; color: #0A0A0A; text-align: center;">You're Live!</div>
+          <div style="font-size: 14px; color: rgba(10,10,10,0.6); text-align: center; line-height: 1.5;">Your special is now visible to nearby guests.</div>
+
+          <div style="width: 100%; background: #fff; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span style="color: rgba(10,10,10,0.55);">Live window</span>
+              <span style="font-weight: 700; color: #0A0A0A;">5:00 – 9:00 PM</span>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span style="color: rgba(10,10,10,0.55);">Post ID</span>
+              <span style="font-weight: 700; color: #7F53F3;">NV-D839201</span>
+            </div>
+          </div>
+
+          <div style="width: 100%; display: flex; flex-direction: column; gap: 8px; margin-top: 4px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">View Live Post</div>
+            <div style="font-size: 13px; font-weight: 600; color: rgba(10,10,10,0.5); text-align: center; padding: 6px;">Back to Dashboard</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #7F53F3; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Food special — Core fields (compliance skipped)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">2 / 5</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 10px;">
+              <div style="display: flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); font-size: 12px; font-weight: 600; color: #0A0A0A;">
+                <svg width="15" height="11" viewBox="0 0 15 11" fill="none"><path d="M1 5.5S3.5 1 7.5 1 14 5.5 14 5.5 11.5 10 7.5 10 1 5.5 1 5.5Z" stroke="#0A0A0A" stroke-width="1.4" stroke-linejoin="round"/><circle cx="7.5" cy="5.5" r="2" fill="#0A0A0A"/></svg>
+                Preview
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; padding: 14px 20px 18px; display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Title</span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">38/60</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff;">Half-Price Apps Every Weeknight</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Hook</span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">78/120</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff; line-height: 1.4;">Half off every appetizer, every weeknight — no reservation needed, just show this in-app.</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Description</span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">96/500</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13px; color: #0A0A0A; background: #fff; line-height: 1.5; min-height: 60px;">Every weeknight, dine-in only. Kitchen open till close.</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;"><span style="font-size: 12.5px; font-weight: 600; color: #0A0A0A;">Specials tag</span><span style="font-size: 11px; color: rgba(10,10,10,0.4);">Select up to 3</span></div>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                <div style="padding: 7px 13px; border-radius: 999px; background: #7F53F3; color: #fff; font-size: 12px; font-weight: 700;">Appetizer</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Entree</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Main meal</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Snack</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Dessert</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Fast Food</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Kids Meal</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Chef Special</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Vegetarian</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Vegan</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Gluten Free</div>
+                <div style="padding: 7px 13px; border-radius: 999px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Spicy</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;">Price / discount</div>
+              <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                <div style="flex: 1; text-align: center; padding: 9px; border-radius: 10px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">$ Off</div>
+                <div style="flex: 1; text-align: center; padding: 9px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700;">% Off</div>
+                <div style="flex: 1; text-align: center; padding: 9px; border-radius: 10px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 12px; font-weight: 600;">Set Price</div>
+              </div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff;">50% off all appetizers</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Conditions <span style="font-weight: 500; color: rgba(10,10,10,0.4);">(optional)</span></span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">38/100</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff;">Limit two orders per table. Dine-in only.</div>
+            </div>
+            <div>
+              <div style="display: flex; justify-content: space-between; font-size: 12.5px; font-weight: 600; color: #0A0A0A; margin-bottom: 6px;"><span>Other <span style="font-weight: 500; color: rgba(10,10,10,0.4);">(optional)</span></span><span style="color: rgba(10,10,10,0.4); font-weight: 500;">0/100</span></div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: rgba(10,10,10,0.4); background: #fff;">Anything else guests should know…</div>
+            </div>
+            <div>
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 6px;">
+                <span style="font-size: 12.5px; font-weight: 600; color: #0A0A0A;">Pricing disclosure</span>
+                <svg width="12" height="14" viewBox="0 0 12 14" fill="none"><path d="M3 6V4A3 3 0 019 4V6" stroke="rgba(10,10,10,0.4)" stroke-width="1.4" stroke-linecap="round"/><rect x="1.5" y="6" width="9" height="6.5" rx="1.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4"/></svg>
+              </div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 12px; padding: 12px 14px; font-size: 12.5px; color: rgba(10,10,10,0.55); background: rgba(10,10,10,0.03); line-height: 1.5;">Taxes, gratuities, service charges, surcharges, and other applicable fees may be additional and charged at the venue's register.</div>
+              <div style="font-size: 11px; color: rgba(10,10,10,0.4); margin-top: 4px;">Fixed text, added automatically to every post</div>
+            </div>
+          </div>
+
+          <div style="padding: 12px 20px 32px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+            <div style="font-size: 13px; font-weight: 600; color: rgba(10,10,10,0.5); text-align: center; padding: 6px;">Save as Draft</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #7F53F3; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Food special — Schedule / Publish</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">3 / 5</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: rgba(10,10,10,0.1); flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="flex: 1; padding: 18px 20px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">When should this go live?</div>
+            <div style="display: flex; gap: 10px;">
+              <div style="flex: 1; text-align: center; padding: 13px; border-radius: 12px; background: #0A0A0A; color: #fff; font-size: 13.5px; font-weight: 700;">Publish now</div>
+              <div style="flex: 1; text-align: center; padding: 13px; border-radius: 12px; border: 1.5px solid rgba(10,10,10,0.15); color: #0A0A0A; font-size: 13.5px; font-weight: 600;">Schedule</div>
+            </div>
+            <div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 6px;">STARTS</div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff; display: flex; justify-content: space-between; align-items: center;">
+                <span>Today, 5:00 PM</span>
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="2.5" width="15" height="13" rx="2.5" stroke="#25EFB8" stroke-width="1.6"/><path d="M1 6.5H16M5 1V4M12 1V4" stroke="#25EFB8" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 6px;">ENDS</div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: #0A0A0A; background: #fff; display: flex; justify-content: space-between; align-items: center;">
+                <span>Today, 9:00 PM</span>
+                <svg width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="1" y="2.5" width="15" height="13" rx="2.5" stroke="#25EFB8" stroke-width="1.6"/><path d="M1 6.5H16M5 1V4M12 1V4" stroke="#25EFB8" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); margin-bottom: 6px;">DAILY ACTIVE WINDOW</div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <div style="flex: 1; text-align: center; border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px; font-size: 13.5px; font-weight: 600; color: #0A0A0A; background: #fff;">5:00 PM</div>
+                <span style="font-size: 12px; color: rgba(10,10,10,0.4); font-weight: 600;">to</span>
+                <div style="flex: 1; text-align: center; border: 1.5px solid rgba(10,10,10,0.15); border-radius: 12px; padding: 12px; font-size: 13.5px; font-weight: 600; color: #0A0A0A; background: #fff;">9:00 PM</div>
+              </div>
+              <div style="font-size: 11.5px; color: rgba(10,10,10,0.45); line-height: 1.4; margin-top: 8px;">For multi-day posts, the special will only show as live during this window each day. Maximum post duration is 7 days.</div>
+            </div>
+            <div style="background: rgba(37,239,184,0.08); border-radius: 12px; padding: 12px 14px; font-size: 12.5px; color: rgba(10,10,10,0.65); line-height: 1.45; display: flex; gap: 8px;">
+              <div style="width: 6px; height: 6px; border-radius: 50%; background: #25EFB8; flex: none; margin-top: 5px;"></div>
+              Nearby users who have allowed notifications will be alerted the moment this goes live — the countdown starts immediately.
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Food special — Preview</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">5 / 5</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 8px; display: flex; gap: 6px;">
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; color: rgba(10,10,10,0.5); font-size: 12.5px; font-weight: 600;">Full post</div>
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12.5px; font-weight: 600;">Tile preview</div>
+          </div>
+
+          <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 8px 20px 20px;">
+            <div style="position: relative; width: 168px; height: 210px; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);">
+              <image-slot id="wiz-preview-tile-food" shape="rect" placeholder="Hero image" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.65) 100%); pointer-events: none;"></div>
+              <div style="position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.9); font-size: 10.5px; font-weight: 700; color: #0A0A0A; padding: 3px 8px; border-radius: 999px;">0.4 mi</div>
+              <div style="position: absolute; top: 8px; right: 8px; background: #7F53F3; color: #fff; font-size: 9.5px; font-weight: 800; padding: 3px 7px; border-radius: 999px;">FOOD</div>
+              <div style="position: absolute; top: 30px; right: 8px; background: rgba(255,255,255,0.9); color: #0A0A0A; font-size: 9px; font-weight: 700; padding: 3px 7px; border-radius: 999px;">Appetizer</div>
+              <div style="position: absolute; bottom: 8px; left: 8px; right: 8px;">
+                <div style="font-size: 11px; font-weight: 700; color: #fff; line-height: 1.3;">50% Off Appetizers</div>
+                <div style="font-size: 9.5px; color: rgba(255,255,255,0.8); margin-top: 2px;">The Anchor &amp; Oak</div>
+                <div style="height: 3px; border-radius: 999px; background: rgba(255,255,255,0.3); overflow: hidden; margin-top: 6px;">
+                  <div style="width: 15%; height: 100%; background: #7F53F3; border-radius: 999px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Continue</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Food special — Preview — Full post tab</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column;">
+          <div style="padding: 62px 20px 0;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <svg width="10" height="16" viewBox="0 0 10 16" fill="none"><path d="M9 1L1 8L9 15" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div style="font-size: 14px; font-weight: 700; color: #0A0A0A;">New Post</div>
+              <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.4);">5 / 5</div>
+            </div>
+            <div style="display: flex; gap: 4px; margin-top: 16px;">
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+              <div style="height: 3px; border-radius: 999px; background: #0A0A0A; flex: 1;"></div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 8px; display: flex; gap: 6px;">
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; background: #0A0A0A; color: #fff; font-size: 12.5px; font-weight: 600;">Full post</div>
+            <div style="flex: 1; text-align: center; padding: 8px; border-radius: 10px; color: rgba(10,10,10,0.5); font-size: 12.5px; font-weight: 600;">Tile preview</div>
+          </div>
+
+          <div style="flex: 1; overflow-y: auto; display: flex; flex-direction: column;">
+            <div style="position: relative; height: 520px; flex: none;">
+              <image-slot id="wiz-preview-full-hero-food" shape="rect" placeholder="Hero image / video — 9:16 crop" style="position: absolute; inset: 0;"></image-slot>
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%); pointer-events: none;"></div>
+              <div style="position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                <svg width="9" height="15" viewBox="0 0 9 15" fill="none"><path d="M8 1L1.5 7.5L8 14" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div style="position: absolute; top: 16px; right: 16px; display: flex; gap: 8px;">
+                <div style="background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="17" viewBox="0 0 15 17" fill="none"><path d="M7.5 1V11" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round"/><path d="M4 4L7.5 1L11 4" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 8V15C1 15.55 1.45 16 2 16H13C13.55 16 14 15.55 14 15V8" stroke="#0A0A0A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="background: rgba(255,255,255,0.9); backdrop-filter: blur(8px); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="15" height="16" viewBox="0 0 15 16" fill="none"><path d="M7.5 1V15M0.5 8H14.5" stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+              <div style="position: absolute; bottom: 40px; left: 20px; background: #7F53F3; color: #fff; font-size: 13px; font-weight: 800; padding: 6px 12px; border-radius: 8px;">FOOD SPECIAL</div>
+              <div style="position: absolute; bottom: 40px; right: 20px; background: rgba(255,255,255,0.92); font-size: 12px; font-weight: 700; color: #0A0A0A; padding: 6px 12px; border-radius: 999px;">0.4 mi</div>
+              <div style="position: absolute; bottom: 76px; left: 20px; right: 20px; display: flex; align-items: center; gap: 6px;">
+                <div style="width: 7px; height: 7px; border-radius: 50%; background: #25EFB8;"></div>
+                <span style="font-size: 12px; font-weight: 700; color: #fff;">LIVE</span>
+                <span style="font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.85); margin-left: auto;">3 hrs left</span>
+              </div>
+              <div style="position: absolute; bottom: 70px; left: 20px; right: 20px; height: 4px; border-radius: 999px; background: rgba(255,255,255,0.3); overflow: hidden;">
+                <div style="width: 15%; height: 100%; background: #7F53F3; border-radius: 999px;"></div>
+              </div>
+            </div>
+            <div style="flex: 1; background: #fff; border-radius: 24px 24px 0 0; box-shadow: 0 -8px 24px rgba(0,0,0,0.15); margin-top: -22px; position: relative; z-index: 2; padding: 10px 20px 24px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 2px; margin-bottom: 2px;">
+                <svg width="16" height="9" viewBox="0 0 16 9" fill="none"><path d="M1 8L8 1L15 8" stroke="rgba(10,10,10,0.35)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div style="font-size: 17px; font-weight: 800; color: #0A0A0A; line-height: 1.25;">Half-Price Apps Every Weeknight</div>
+              <a href="#venue-profile" style="display: flex; align-items: center; gap: 10px; text-decoration: none; background: rgba(127,83,243,0.06); border: 1px solid rgba(127,83,243,0.18); border-radius: 12px; padding: 10px 12px;">
+                <div style="width: 34px; height: 34px; border-radius: 8px; background: rgba(127,83,243,0.15); display: flex; align-items: center; justify-content: center; flex: none;">
+                  <svg width="16" height="18" viewBox="0 0 18 16" fill="none"><path d="M1 5L2.5 1H15.5L17 5" stroke="#7F53F3" stroke-width="1.5" stroke-linejoin="round"/><path d="M1 5V15H17V5" stroke="#7F53F3" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                </div>
+                <div style="flex: 1; min-width: 0;">
+                  <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">The Anchor &amp; Oak</div>
+                  <div style="font-size: 11.5px; color: rgba(10,10,10,0.55);">214 Harbor St · Hours, photos &amp; more</div>
+                </div>
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" style="flex: none;"><circle cx="7.5" cy="7.5" r="7.5" fill="#7F53F3"/><path d="M6 4L10 7.5L6 11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <div style="display: flex; gap: 8px; padding: 2px 0 4px;">
+                <a href="#special-info" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: rgba(127,83,243,0.08); border-radius: 12px; padding: 8px 6px;">
+                  <div style="width: 26px; height: 26px; border-radius: 50%; background: #7F53F3; display: flex; align-items: center; justify-content: center;">
+                    <svg width="11" height="13" viewBox="0 0 14 16" fill="none"><path d="M7 1L13.5 4.2V8.9C13.5 12.7 10.8 15.9 7 16.9C3.2 15.9 0.5 12.7 0.5 8.9V4.2L7 1Z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+                  </div>
+                  <span style="font-size: 10px; font-weight: 700; color: #0A0A0A;">Special Info</span>
+                </a>
+                <a href="#navigation" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: rgba(127,83,243,0.08); border-radius: 12px; padding: 8px 6px;">
+                  <div style="width: 26px; height: 26px; border-radius: 50%; background: #7F53F3; display: flex; align-items: center; justify-content: center;">
+                    <svg width="12" height="14" viewBox="0 0 14 16" fill="none"><path d="M7 1C4.5 1 2.5 3 2.5 5.5C2.5 9 7 15 7 15C7 15 11.5 9 11.5 5.5C11.5 3 9.5 1 7 1Z" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/><circle cx="7" cy="5.5" r="1.8" fill="#fff"/></svg>
+                  </div>
+                  <span style="font-size: 10px; font-weight: 700; color: #0A0A0A;">Map</span>
+                </a>
+                <a href="#navigation" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none; background: rgba(37,239,184,0.1); border-radius: 12px; padding: 8px 6px;">
+                  <div style="width: 26px; height: 26px; border-radius: 50%; background: #25EFB8; display: flex; align-items: center; justify-content: center;">
+                    <svg width="13" height="13" viewBox="0 0 18 18" fill="none"><path d="M9 1L16.5 4.5V9C16.5 13 13 16.5 9 17C5 16.5 1.5 13 1.5 9V4.5L9 1Z" stroke="#0A0A0A" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 5.5L11.5 10L9 12.5L6.5 10L9 5.5Z" fill="#0A0A0A"/></svg>
+                  </div>
+                  <span style="font-size: 10px; font-weight: 700; color: #0A0A0A;">Navigate</span>
+                </a>
+              </div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;" id="special-info">FOOD · APPETIZER</div>
+              <div style="font-size: 13px; font-weight: 700; color: #0A0A0A; line-height: 1.4;">Half off every appetizer, every weeknight — no reservation needed, just show this in-app.</div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">DESCRIPTION</div>
+              <div style="font-size: 12.5px; color: rgba(10,10,10,0.6); line-height: 1.5; margin-top: 4px;">Every weeknight, dine-in only. Kitchen open till close.</div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">ACTIVE WINDOW</div>
+              <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(37,239,184,0.08); border-radius: 10px; padding: 10px 12px; margin-top: 4px;">
+                <span style="font-size: 12.5px; font-weight: 600; color: #0A0A0A;">Today · 5:00 – 9:00 PM</span>
+                <span style="font-size: 11.5px; font-weight: 700; color: #7F53F3;">3 hrs left</span>
+              </div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">CONDITIONS</div>
+              <div style="font-size: 12.5px; color: rgba(10,10,10,0.6); line-height: 1.5; margin-top: 4px;">Limit two orders per table. Dine-in only.</div>
+              <div style="position: relative; width: 100%; height: 120px; border-radius: 12px; overflow: hidden; flex: none; margin-top: 8px;" id="navigation">
+                <image-slot id="wiz-preview-map-food" shape="rect" placeholder="Map tiles — venue &amp; guest location" style="position: absolute; inset: 0;"></image-slot>
+                <div style="position: absolute; top: 34px; left: 130px; width: 16px; height: 16px; border-radius: 50%; background: #7F53F3; border: 2.5px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.25);"></div>
+                <div style="position: absolute; top: 70px; left: 60px; width: 12px; height: 12px; border-radius: 50%; background: #25EFB8; border: 2.5px solid #fff; box-shadow: 0 0 0 4px rgba(37,239,184,0.25);"></div>
+                <div style="position: absolute; top: 8px; left: 8px; background: rgba(255,255,255,0.92); font-size: 10.5px; font-weight: 700; color: #0A0A0A; padding: 3px 8px; border-radius: 999px;">0.4 mi away</div>
+                <div style="position: absolute; bottom: 8px; right: 8px; background: rgba(255,255,255,0.92); border-radius: 8px; padding: 5px 8px; display: flex; flex-direction: column; gap: 3px;">
+                  <div style="display: flex; align-items: center; gap: 5px;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #7F53F3;"></div><span style="font-size: 9.5px; font-weight: 600; color: #0A0A0A;">Venue</span></div>
+                  <div style="display: flex; align-items: center; gap: 5px;"><div style="width: 7px; height: 7px; border-radius: 50%; background: #25EFB8;"></div><span style="font-size: 9.5px; font-weight: 600; color: #0A0A0A;">You</span></div>
+                </div>
+                <div style="position: absolute; bottom: 8px; left: 8px; width: 40px; height: 40px; border-radius: 50%; background: #25EFB8; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0,0,0,0.2);">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1L16.5 4.5V9C16.5 13 13 16.5 9 17C5 16.5 1.5 13 1.5 9V4.5L9 1Z" stroke="#0A0A0A" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 5.5L11.5 10L9 12.5L6.5 10L9 5.5Z" fill="#0A0A0A"/></svg>
+                </div>
+              </div>
+              <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.4); margin-top: 8px;">PRICING</div>
+              <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 12px; padding: 12px 14px; font-size: 11.5px; color: rgba(10,10,10,0.55); background: rgba(10,10,10,0.03); line-height: 1.5; margin-top: 4px;">Taxes, gratuities, service charges, surcharges, and other applicable fees may be additional and charged at the venue's register.</div>
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px solid rgba(10,10,10,0.08); margin-top: 4px;">
+                <div style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 1V13" stroke="rgba(10,10,10,0.4)" stroke-width="1.6" stroke-linecap="round"/><path d="M2 2H11L9 4.5L11 7H2Z" fill="rgba(10,10,10,0.3)"/></svg>
+                  <span style="font-size: 12.5px; font-weight: 600; color: rgba(10,10,10,0.45);">Report</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; width: 100%; padding-top: 10px; border-top: 1px solid rgba(10,10,10,0.06);">
+                  <div>
+                    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(10,10,10,0.4);">VENUE IDENTITY</div>
+                    <div style="font-size: 13px; font-weight: 800; color: #7F53F3; margin-top: 2px;">NV-48213-A</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: rgba(10,10,10,0.4);">POST IDENTITY</div>
+                    <div style="font-size: 13px; font-weight: 800; color: #7F53F3; margin-top: 2px;">NV-F221058</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 16px 20px 32px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 15px; font-weight: 700; text-align: center; padding: 15px; border-radius: 14px;">Publish Special</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #25EFB8; color: #0A0A0A; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">✓</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Food special — Published</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #FAFAFA; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 32px; box-sizing: border-box; gap: 20px;">
+          <div style="width: 76px; height: 76px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center;">
+            <svg width="34" height="28" viewBox="0 0 34 28" fill="none"><path d="M2 14L12 24L32 2" stroke="#0A9B71" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size: 22px; font-weight: 800; color: #0A0A0A; text-align: center;">You're Live!</div>
+          <div style="font-size: 14px; color: rgba(10,10,10,0.6); text-align: center; line-height: 1.5;">Your special is now visible to nearby guests.</div>
+
+          <div style="width: 100%; background: #fff; border: 1.5px solid rgba(10,10,10,0.1); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span style="color: rgba(10,10,10,0.55);">Live window</span>
+              <span style="font-weight: 700; color: #0A0A0A;">5:00 – 9:00 PM</span>
+            </div>
+            <div style="height: 1px; background: rgba(10,10,10,0.08);"></div>
+            <div style="display: flex; justify-content: space-between; font-size: 13px;">
+              <span style="color: rgba(10,10,10,0.55);">Post ID</span>
+              <span style="font-weight: 700; color: #7F53F3;">NV-F221058</span>
+            </div>
+          </div>
+
+          <div style="width: 100%; display: flex; flex-direction: column; gap: 8px; margin-top: 4px;">
+            <div style="background: #25EFB8; color: #0A0A0A; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">View Live Post</div>
+            <div style="font-size: 13px; font-weight: 600; color: rgba(10,10,10,0.5); text-align: center; padding: 6px;">Back to Dashboard</div>
+          </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief v1.8</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Static Pages</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 720px; line-height: 1.5;">About, For Users, For Businesses, Contact, Terms, Privacy, and AUP — reached from the global footer. Legal page copy is placeholder text pending review by counsel.</div>
+  </div>
+
+  <x-import component-from-global-scope="ChromeWindow" from="./browser-window.jsx" url="{{ pageUrl }}" hint-size="1160,820">
+    <div style="width: 100%; height: 100%; background: #fff; display: flex; flex-direction: column; overflow: hidden; font-family: 'Inter', -apple-system, system-ui, sans-serif;">
+
+      <div style="padding: 18px 32px; display: flex; align-items: center; gap: 22px; border-bottom: 1px solid rgba(10,10,10,0.08); flex-wrap: wrap;">
+        <div style="font-size: 15px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Nearby Vibes</div>
+        <div style="flex: 1;"></div>
+        <div onClick="{{ showAbout }}" style="font-size: 12.5px; font-weight: 600; cursor: pointer; {{ tabAboutStyle }}">About</div>
+        <div onClick="{{ showUsers }}" style="font-size: 12.5px; font-weight: 600; cursor: pointer; {{ tabUsersStyle }}">For Users</div>
+        <div onClick="{{ showBiz }}" style="font-size: 12.5px; font-weight: 600; cursor: pointer; {{ tabBizStyle }}">For Businesses</div>
+        <div onClick="{{ showContact }}" style="font-size: 12.5px; font-weight: 600; cursor: pointer; {{ tabContactStyle }}">Contact</div>
+        <div onClick="{{ showTerms }}" style="font-size: 12.5px; font-weight: 600; cursor: pointer; {{ tabTermsStyle }}">Terms</div>
+        <div onClick="{{ showPrivacy }}" style="font-size: 12.5px; font-weight: 600; cursor: pointer; {{ tabPrivacyStyle }}">Privacy</div>
+        <div onClick="{{ showAup }}" style="font-size: 12.5px; font-weight: 600; cursor: pointer; {{ tabAupStyle }}">AUP</div>
+      </div>
+
+      <div style="flex: 1; overflow: auto; padding: 40px 60px 60px;">
+
+        <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ true }}">
+          <div style="max-width: 640px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-size: 28px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">About Us</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">Nearby Vibes is a New York City–based startup, built to connect great venues with people who are nearby and ready to explore.</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">We believe local hospitality thrives on spontaneity — last-minute plans, surprise specials, and neighborhood energy. Our mission is to make those moments easier to discover.</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">We're currently in MVP mode and working closely with our founding bars to shape the platform. As a small team, we value feedback, long-term relationships, and looking after the venues that support us early. Hit us up at hello@nearbyvibes.com.</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">This is just the beginning — and we're building it together, starting in New York.</div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isUsers }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width: 640px; display: flex; flex-direction: column; gap: 22px;">
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="font-size: 28px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">For Users</div>
+              <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">Nearby Vibes is a real-time platform that shows you last-minute drink specials happening around you — right now.</div>
+              <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">No endless scrolling. No outdated posts. Just live, location-based deals from nearby venues that you can act on immediately.</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 16px;">
+              <div style="font-size: 18px; font-weight: 800; color: #0A0A0A;">3 Hot Tips for Nearby Vibes</div>
+
+              <div style="display: flex; gap: 12px;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(127,83,243,0.12); color: #7F53F3; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none;">1</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div style="font-size: 14.5px; font-weight: 700; color: #0A0A0A;">Turn on Location Sharing to see what's happening near you in real time</div>
+                  <div style="font-size: 13.5px; color: rgba(10,10,10,0.65); line-height: 1.6;">To make this work properly, you'll need to share your location. That's it. We don't track you. We don't store your movements. We don't sell your data. Your location is only used in the moment — so we can show you the specials that are actually near you. Relevant, not creepy.</div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(127,83,243,0.12); color: #7F53F3; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none;">2</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div style="font-size: 14.5px; font-weight: 700; color: #0A0A0A;">Enable Notifications so you never miss nearby specials or updates</div>
+                  <div style="font-size: 13.5px; color: rgba(10,10,10,0.65); line-height: 1.6;">Stay in the loop, and discover what's happening within walking distance. When a great special drops near you, you'll know. We hate spammy push notifications too — ours are smart, limited, and only sent when something good is happening near you. If it's not relevant, you won't hear about it. Simple.</div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 12px;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: rgba(127,83,243,0.12); color: #7F53F3; font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex: none;">3</div>
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                  <div style="font-size: 14.5px; font-weight: 700; color: #0A0A0A;">Add Nearby Vibes to your home screen — it runs like a fast, app-like experience</div>
+                  <div style="font-size: 13.5px; color: rgba(10,10,10,0.65); line-height: 1.6;">Nearby Vibes is built to deliver a fast, app-like experience directly from your browser — install it to your mobile home screen and use it just like an app, without needing to download.</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">How to Video</div>
+              <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000;">
+                <iframe src="https://www.youtube.com/embed/7LA6v6vdb8o" title="Nearby Vibes — How to Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%;"></iframe>
+              </div>
+              <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000;">
+                <iframe src="https://www.youtube.com/embed/wO0A0XcWy88" title="Nearby Vibes — How to Video 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%;"></iframe>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isBiz }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width: 640px; display: flex; flex-direction: column; gap: 20px;">
+            <div style="font-size: 28px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">For Businesses</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">Nearby Vibes helps liquor licensed venues fill quiet periods by broadcasting time-sensitive specials directly to people who are nearby and ready to go out.</div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="font-size: 15px; font-weight: 700; color: #0A0A0A;">Value to you and Easy Setup</div>
+              <div style="position: relative; width: 100%; padding-top: 56.25%; border-radius: 12px; overflow: hidden; background: #000;">
+                <iframe src="https://www.youtube.com/embed/16y1AkoZkmQ" title="Nearby Vibes — Value and Easy Setup" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; inset: 0; width: 100%; height: 100%;"></iframe>
+              </div>
+            </div>
+
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">Instead of posting into crowded social feeds, your offer reaches users based on real location and smart notification rules — designed to drive foot traffic without spamming.</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">We are currently in MVP stage, working closely with our founding venues to refine the product. Early partners receive priority support, strong visibility, and direct collaboration as we build and scale across New York City.</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">The full version is on the way — with more tools, more visibility, and smarter targeting — all at a price that works in your favor.</div>
+
+            <div style="border: 1.5px solid rgba(127,83,243,0.25); background: rgba(127,83,243,0.05); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Become a Nearby Vibes 'Founding 50' Venue</div>
+              <div style="font-size: 12.5px; color: rgba(10,10,10,0.65); line-height: 1.5;">Join the first wave of venues helping shape Nearby Vibes during the MVP launch phase. As a 'Founding 50' venue, you'll receive:</div>
+              <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: rgba(10,10,10,0.7); line-height: 1.5;">
+                <div>✓ Access to free and selected premium platform features during the MVP phase</div>
+                <div>✓ A complimentary QR venue sticker pack for your entrance, tables, or signage</div>
+                <div>✓ Exclusive 'Founding 50' profile badging</div>
+                <div>✓ Early access to upcoming features, tools, and platform updates</div>
+                <div>✓ Special founding venue discounts on future feature releases and subscription plans</div>
+              </div>
+            </div>
+
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">If you're a venue looking to move inventory, increase midweek traffic, or promote flash offers — Nearby Vibes is built for you.</div>
+            <div onClick="{{ showContact }}" style="font-size: 13.5px; color: #7F53F3; font-weight: 700; cursor: pointer;">Connect with us via the Contact form</div>
+            <a href="./Nearby Vibes - Venue Claim Search.dc.html" style="font-size: 13.5px; font-weight: 700;">Claim your venue →</a>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width: 460px; display: flex; flex-direction: column; gap: 18px;">
+            <div style="font-size: 28px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Contact</div>
+            <div style="font-size: 14.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">Questions, feedback, or press inquiries — we'd like to hear from you.</div>
+
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.6);">Name</label>
+              <input type="text" placeholder="Your name" style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 10px; padding: 11px 13px; font-size: 13.5px; font-family: inherit; box-sizing: border-box;"></input>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.6);">Email</label>
+              <input type="text" placeholder="you@email.com" style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 10px; padding: 11px 13px; font-size: 13.5px; font-family: inherit; box-sizing: border-box;"></input>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.6);">Topic</label>
+              <select style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 10px; padding: 11px 13px; font-size: 13.5px; font-family: inherit; background: #fff; color: #0A0A0A;">
+                <option>General</option>
+                <option>Venue Support</option>
+                <option>Press</option>
+              </select>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 6px;">
+              <label style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.6);">Message</label>
+              <textarea placeholder="How can we help?" rows="4" style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 10px; padding: 11px 13px; font-size: 13.5px; font-family: inherit; box-sizing: border-box; resize: vertical;"></textarea>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 10px; padding: 12px 14px; background: rgba(10,10,10,0.02);">
+              <div style="width: 18px; height: 18px; border: 1.5px solid rgba(10,10,10,0.3); border-radius: 4px; flex: none;"></div>
+              <span style="font-size: 12.5px; color: rgba(10,10,10,0.65);">Verify you are human</span>
+              <div style="flex: 1;"></div>
+              <span style="font-size: 9px; color: rgba(10,10,10,0.35); font-weight: 700; letter-spacing: 0.04em;">CLOUDFLARE</span>
+            </div>
+
+            <div style="background: #7F53F3; color: #fff; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px;">Send Message</div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isTerms }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width: 640px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-size: 28px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Terms of Service</div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.4);">Effective August 1, 2026</div>
+            <a href="./Nearby Vibes - Terms of Service.dc.html" style="font-size: 13.5px; font-weight: 700;">Read the full Terms of Service →</a>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isPrivacy }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width: 640px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-size: 28px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Privacy Policy</div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.4);">Placeholder — will be finalized prior to launch.</div>
+            <a href="./Nearby Vibes - Privacy Policy.dc.html" style="font-size: 13.5px; font-weight: 700;">Read the full Privacy Policy →</a>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ isAup }}" hint-placeholder-val="{{ false }}">
+          <div style="max-width: 680px; display: flex; flex-direction: column; gap: 16px;">
+            <div style="font-size: 28px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Acceptable Use Policy</div>
+            <div style="background: rgba(127,83,243,0.06); border: 1px solid rgba(127,83,243,0.2); border-radius: 10px; padding: 12px 14px; font-size: 12px; color: rgba(10,10,10,0.6); line-height: 1.5;">Placeholder legal copy — pending review by counsel before publish.</div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.4);">Last updated July 23, 2026</div>
+            <div style="font-size: 13.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">You agree not to:</div>
+            <div style="font-size: 13.5px; color: rgba(10,10,10,0.7); line-height: 1.8;">
+              • Post specials, images, or descriptions that are false, misleading, or for a venue you don't own or manage.<br/>
+              • Attempt to circumvent the drink-content age gate.<br/>
+              • Repeatedly claim and abandon a venue listing to farm free trial periods.<br/>
+              • Scrape, reverse-engineer, or interfere with the normal operation of the app.<br/>
+              • Post content that is unlawful, discriminatory, or harassing toward another user or venue.
+            </div>
+            <div style="font-size: 13.5px; color: rgba(10,10,10,0.7); line-height: 1.7;">Violations may result in content removal, post suspension, or account termination at our discretion.</div>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+  </x-import>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 'about' };
+  renderVals() {
+    const p = this.state.page;
+    const active = { color: '#0A0A0A', fontWeight: 700 };
+    const inactive = { color: 'rgba(10,10,10,0.55)' };
+    const urls = {
+      about: 'nearbyvibes.com/about', users: 'nearbyvibes.com/for-users', biz: 'nearbyvibes.com/for-businesses',
+      contact: 'nearbyvibes.com/contact', terms: 'nearbyvibes.com/terms', privacy: 'nearbyvibes.com/privacy', aup: 'nearbyvibes.com/aup'
+    };
+    return {
+      showAbout: () => this.setState({ page: 'about' }),
+      showUsers: () => this.setState({ page: 'users' }),
+      showBiz: () => this.setState({ page: 'biz' }),
+      showContact: () => this.setState({ page: 'contact' }),
+      showTerms: () => this.setState({ page: 'terms' }),
+      showPrivacy: () => this.setState({ page: 'privacy' }),
+      showAup: () => this.setState({ page: 'aup' }),
+      isAbout: p === 'about', isUsers: p === 'users', isBiz: p === 'biz', isContact: p === 'contact',
+      isTerms: p === 'terms', isPrivacy: p === 'privacy', isAup: p === 'aup',
+      tabAboutStyle: p === 'about' ? active : inactive,
+      tabUsersStyle: p === 'users' ? active : inactive,
+      tabBizStyle: p === 'biz' ? active : inactive,
+      tabContactStyle: p === 'contact' ? active : inactive,
+      tabTermsStyle: p === 'terms' ? active : inactive,
+      tabPrivacyStyle: p === 'privacy' ? active : inactive,
+      tabAupStyle: p === 'aup' ? active : inactive,
+      pageUrl: urls[p]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief v1.8</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">QR Landing</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 720px; line-height: 1.5;">No venue context until the geofence resolves one. Five states based on GPS distance from the scanned venue.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <!-- CARD 1: Location off -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Location-off prompt</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; padding: 0 34px; box-sizing: border-box; text-align: center;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(127,83,243,0.1); display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 5.2 5 9.2C5 14 12 22 12 22C12 22 19 14 19 9.2C19 5.2 16 2 12 2Z" stroke="#7F53F3" stroke-width="1.6"/><circle cx="12" cy="9.2" r="2.6" stroke="#7F53F3" stroke-width="1.6"/></svg>
+          </div>
+          <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Turn on location</div>
+          <div style="font-size: 13.5px; color: rgba(10,10,10,0.55); line-height: 1.5;">We need your location to show you what's live at this venue right now.</div>
+          <div style="width: 100%; background: #7F53F3; color: #fff; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px; margin-top: 6px;">Enable Location</div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 2: Exact match — live special -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Exact match — live special</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="margin: 62px 20px 0; background: rgba(37,239,184,0.1); border: 1px solid rgba(37,239,184,0.3); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 8px;">
+            <div style="width: 6px; height: 6px; border-radius: 50%; background: #0A9B71; flex: none;"></div>
+            <div style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">You're at The Anchor &amp; Oak</div>
+          </div>
+
+          <div style="margin: 16px 20px 0; border-radius: 18px; overflow: hidden; position: relative; height: 220px; background: rgba(10,10,10,0.06);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.65) 100%);"></div>
+            <div style="position: absolute; top: 10px; right: 10px; background: #95048B; color: #fff; font-size: 10px; font-weight: 800; padding: 4px 9px; border-radius: 999px;">DRINK</div>
+            <div style="position: absolute; bottom: 14px; left: 14px; right: 14px;">
+              <div style="font-size: 18px; font-weight: 800; color: #fff;">2 for 1 Margaritas</div>
+              <div style="font-size: 12px; color: rgba(255,255,255,0.8); margin-top: 2px;">Ends in 2h 14m</div>
+            </div>
+          </div>
+
+          <div style="padding: 18px 20px 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">ALSO LIVE HERE</div>
+          <div style="padding: 8px 20px 0; display: flex; flex-direction: column; gap: 8px;">
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 12px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="width: 38px; height: 38px; border-radius: 8px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13px; font-weight: 700; color: #0A0A0A;">Half-Off Wings</div><div style="font-size: 11px; color: rgba(10,10,10,0.5);">Ends in 45m</div></div>
+            </div>
+          </div>
+
+          <div style="padding: 22px 20px 40px; margin-top: auto;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px;">Follow The Anchor &amp; Oak</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 3: Exact match — no live special -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Exact match — no live special</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="margin: 62px 20px 0; background: rgba(37,239,184,0.1); border: 1px solid rgba(37,239,184,0.3); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 8px;">
+            <div style="width: 6px; height: 6px; border-radius: 50%; background: #0A9B71; flex: none;"></div>
+            <div style="font-size: 12.5px; font-weight: 700; color: #0A0A0A;">You're at Harbor Social</div>
+          </div>
+
+          <div style="margin: 40px 20px 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;">
+            <div style="width: 52px; height: 52px; border-radius: 50%; background: rgba(10,10,10,0.06); display: flex; align-items: center; justify-content: center;">
+              <svg width="22" height="22" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4"/><path d="M5.5 8H10.5" stroke="rgba(10,10,10,0.4)" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </div>
+            <div style="font-size: 16px; font-weight: 800; color: #0A0A0A;">No live specials right now</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); line-height: 1.5; max-width: 260px;">Follow Harbor Social to get notified the next time something's live.</div>
+          </div>
+
+          <div style="padding: 22px 20px 40px; margin-top: auto;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14px; font-weight: 700; text-align: center; padding: 13px; border-radius: 12px;">Follow Harbor Social</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 4: Nearby fallback (30-100m) -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Nearby fallback (30–100m)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0;">
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">You're near Nearby Vibes</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); margin-top: 4px; line-height: 1.5;">Find specials near you.</div>
+          </div>
+
+          <div style="padding: 20px 20px 0; display: flex; flex-direction: column; gap: 10px;">
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">The Anchor &amp; Oak</div><div style="font-size: 11px; color: rgba(10,10,10,0.5);">0.04 mi · 2 for 1 Margaritas</div></div>
+            </div>
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Vault 27</div><div style="font-size: 11px; color: rgba(10,10,10,0.5);">0.05 mi · Half-Off Wings</div></div>
+            </div>
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Rivet &amp; Rail</div><div style="font-size: 11px; color: rgba(10,10,10,0.5);">0.06 mi · No live specials</div></div>
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 5: Multi-venue disambiguation -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Multi-venue disambiguation</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0;">
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Which venue are you at?</div>
+            <div style="font-size: 13px; color: rgba(10,10,10,0.55); margin-top: 4px; line-height: 1.5;">A few venues overlap this location — pick yours.</div>
+          </div>
+
+          <div style="padding: 20px 20px 0; display: flex; flex-direction: column; gap: 10px;">
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Bowery &amp; Nine</div><div style="font-size: 11px; color: rgba(10,10,10,0.5);">2nd Floor</div></div>
+            </div>
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Vault 27</div><div style="font-size: 11px; color: rgba(10,10,10,0.5);">Basement</div></div>
+            </div>
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 14px; padding: 12px; display: flex; align-items: center; gap: 10px;">
+              <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(10,10,10,0.06); flex: none;"></div>
+              <div style="flex: 1; min-width: 0;"><div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Canal Street Social</div><div style="font-size: 11px; color: rgba(10,10,10,0.5);">Street Level</div></div>
+            </div>
+          </div>
+
+          <div style="padding: 18px 20px 40px; margin-top: auto;">
+            <div style="font-size: 12px; color: rgba(10,10,10,0.45); text-align: center; line-height: 1.5;">Not seeing your venue? <span style="color: #7F53F3; font-weight: 700;">Browse all nearby</span></div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief v1.8</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Subscription / Pricing</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 720px; line-height: 1.5;">Reached from the global footer at any time, and surfaced at trial milestones or the Free-plan dashboard prompt. A conversion surface for a work tool — clarity and trust over hype.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <!-- CARD 1: New venue, no trial/plan chosen yet -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">New venue — no plan chosen yet</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Subscription</div>
+          </div>
+
+          <div style="margin: 20px 20px 0; background: #0A0A0A; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: rgba(255,255,255,0.55); text-transform: uppercase;">Get started</div>
+            <div style="font-size: 20px; font-weight: 800; color: #fff; line-height: 1.3;">Choose how you'd like to start</div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5;">Try every Premium feature free for 14 days, or start on the Free plan — you can always upgrade later.</div>
+          </div>
+
+          <div style="padding: 20px 20px 0; display: flex; flex-direction: column; gap: 14px;">
+
+            <div style="border: 2px solid #7F53F3; border-radius: 18px; padding: 18px; position: relative;">
+              <div style="position: absolute; top: -11px; left: 16px; background: #7F53F3; color: #fff; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 999px;">RECOMMENDED</div>
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Start 14-day free trial</div>
+                <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">$0</div>
+              </div>
+              <div style="font-size: 12px; color: rgba(10,10,10,0.5); margin-top: 2px;">Full Premium access, no card required. Then $39/mo — cancel anytime before it ends.</div>
+              <div style="height: 1px; background: rgba(10,10,10,0.08); margin: 12px 0;"></div>
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; color: rgba(10,10,10,0.65);">
+                <div>Unlimited posts</div>
+                <div>Drink specials</div>
+                <div>Food specials</div>
+                <div>Venue profile</div>
+              </div>
+              <sc-if value="{{ trialFeaturesOpen }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed rgba(10,10,10,0.12); display: flex; flex-direction: column; gap: 8px;">
+                  <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); text-transform: uppercase;">Customer Acquisition &amp; Growth</div>
+                  <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; color: rgba(10,10,10,0.65);">
+                    <div>QR for live posts &amp; venue follower acquisition</div>
+                    <div>Smart push notifications</div>
+                    <div>Real-time advanced analytics</div>
+                    <div>Follower acquisition</div>
+                    <div>Follower growth</div>
+                    <div>Social Media Creator access</div>
+                  </div>
+                </div>
+              </sc-if>
+              <div onClick="{{ toggleTrialFeatures }}" style="margin-top: 10px; font-size: 12px; font-weight: 700; color: #7F53F3; cursor: pointer;">{{ trialFeaturesToggleLabel }}</div>
+              <div style="margin-top: 14px; background: #7F53F3; color: #fff; font-size: 13.5px; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px;">Start Free Trial</div>
+            </div>
+
+            <div style="border: 1.5px solid rgba(10,10,10,0.1); border-radius: 18px; padding: 18px;">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Continue on Free</div>
+                <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">$0</div>
+              </div>
+              <div style="font-size: 12px; color: rgba(10,10,10,0.5); margin-top: 2px;">Unlimited posts and the Universal Venue QR, no time limit.</div>
+              <div style="height: 1px; background: rgba(10,10,10,0.08); margin: 12px 0;"></div>
+              <div style="display: flex; flex-direction: column; gap: 8px; font-size: 12.5px; color: rgba(10,10,10,0.65);">
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span>Unlimited Drink or Food posts</span>
+                  <span title="The free plan includes access to one post type only." style="width: 13px; height: 13px; border-radius: 50%; border: 1.3px solid rgba(10,10,10,0.4); color: rgba(10,10,10,0.55); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help; flex: none;">i</span>
+                </div>
+                <div>Venue profile</div>
+                <div style="display: flex; align-items: center; gap: 5px;">
+                  <span>Universal Venue QR</span>
+                  <span title="Customers simply scan your QR code and Nearby Vibes uses your venue's geofence to instantly display your live specials. Bring your promotions to life." style="width: 13px; height: 13px; border-radius: 50%; border: 1.3px solid rgba(10,10,10,0.4); color: rgba(10,10,10,0.55); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help; flex: none;">i</span>
+                </div>
+              </div>
+              <div style="margin-top: 14px; background: rgba(10,10,10,0.06); color: #0A0A0A; font-size: 13.5px; font-weight: 700; text-align: center; padding: 12px; border-radius: 12px;">Continue on Free</div>
+            </div>
+
+          </div>
+
+          <div style="padding: 18px 20px 40px;">
+            <div style="font-size: 11px; color: rgba(10,10,10,0.4); text-align: center; line-height: 1.5;">You can switch plans anytime from Subscription in your account menu.</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 2: Trial active + Founding Venue eligible -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Trial active + Founding Venue eligible</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <a href="./Nearby Vibes - Venue Home.dc.html" style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; text-decoration: none; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Subscription</div>
+          </div>
+
+          <div style="margin: 20px 20px 0; background: #0A0A0A; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: rgba(255,255,255,0.55); text-transform: uppercase;">Your trial</div>
+            <div style="font-size: 24px; font-weight: 800; color: #fff;">9 days left in your trial</div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5;">You have full Premium access — analytics dashboard, QR scan analytics, follower growth, and more. No card on file yet.</div>
+            <div style="height: 6px; border-radius: 999px; background: rgba(255,255,255,0.15); overflow: hidden; margin-top: 6px;"><div style="width: 36%; height: 100%; background: #25EFB8; border-radius: 999px;"></div></div>
+          </div>
+
+          <div style="margin: 16px 20px 0; border: 1.5px solid rgba(127,83,243,0.25); background: rgba(127,83,243,0.05); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Become a Nearby Vibes 'Founding 50' Venue</div>
+            <div style="font-size: 12.5px; color: rgba(10,10,10,0.65); line-height: 1.5;">Join the first wave of venues helping shape Nearby Vibes during the MVP launch phase. As a 'Founding 50' venue, you'll receive:</div>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: rgba(10,10,10,0.7); line-height: 1.5;">
+              <div>• Access to free and selected premium platform features during the MVP phase</div>
+              <div>• A complimentary QR venue sticker pack for your entrance, tables, or signage</div>
+              <div>• Exclusive 'Founding 50' profile badging</div>
+              <div>• Early access to upcoming features, tools, and platform updates</div>
+              <div>• Special founding venue discounts on future feature releases and subscription plans</div>
+            </div>
+            <div style="font-size: 11px; color: rgba(10,10,10,0.5); line-height: 1.5;">Post a minimum of three times per week during the MVP phase and you may also be eligible for 50% off a 12-month paid subscription after the pilot period (subject to Terms of Service).</div>
+          </div>
+
+          <div style="padding: 18px 20px 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">CHOOSE BILLING</div>
+          <div style="margin: 10px 20px 0; display: flex; background: rgba(10,10,10,0.06); border-radius: 12px; padding: 4px; gap: 4px;">
+            <div onClick="{{ setMonthly }}" style="{{ monthlyTabStyle }}">Monthly</div>
+            <div onClick="{{ setAnnual }}" style="{{ annualTabStyle }}">Annual <span style="font-weight: 700;">· 2 mth free</span></div>
+          </div>
+
+          <div style="margin: 14px 20px 0; border: 2px solid #7F53F3; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 4px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Premium</div>
+              <div style="font-size: 20px; font-weight: 800; color: #0A0A0A;">{{ planPrice }}</div>
+            </div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.5);">{{ planPeriodNote }}</div>
+          </div>
+
+          <div style="padding: 18px 20px 0;">
+            <sc-if value="{{ promoOpen }}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.5);">Promo code</div>
+                <input type="text" placeholder="Enter code" style="border: 1.5px solid rgba(10,10,10,0.15); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; font-family: inherit; box-sizing: border-box;"></input>
+              </div>
+            </sc-if>
+            <sc-if value="{{ promoClosed }}" hint-placeholder-val="{{ true }}">
+              <div onClick="{{ togglePromo }}" style="font-size: 12.5px; font-weight: 600; color: #7F53F3; cursor: pointer;">Have a code?</div>
+            </sc-if>
+          </div>
+
+          <div style="padding: 22px 20px 6px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">PREMIUM INCLUDES</div>
+          <div style="padding: 4px 20px 12px; display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Unlimited posts</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Drink specials</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Food specials</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Venue profile</span></div>
+          </div>
+          <div style="padding: 8px 20px 6px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.05em; color: rgba(10,10,10,0.45); text-transform: uppercase;">Customer Acquisition &amp; Growth</div>
+          <div style="padding: 4px 20px 20px; display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">QR for live posts &amp; venue follower acquisition</span><span title="See how customers discover and engage with your specials while building a growing audience of returning customers. Every QR scan can begin a 48-hour trial follow, giving you the opportunity to reconnect through live specials and push notifications." style="width: 13px; height: 13px; border-radius: 50%; border: 1.3px solid rgba(10,10,10,0.4); color: rgba(10,10,10,0.55); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help; flex: none; margin-left: 5px;">i</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Smart push notifications</span><span title="Smart notifications designed to keep customers engaged—not overwhelmed." style="width: 13px; height: 13px; border-radius: 50%; border: 1.3px solid rgba(10,10,10,0.4); color: rgba(10,10,10,0.55); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help; flex: none; margin-left: 5px;">i</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Real-time advanced analytics</span><span title="See what attracts customers, measure engagement, and optimize your promotions to drive more visits." style="width: 13px; height: 13px; border-radius: 50%; border: 1.3px solid rgba(10,10,10,0.4); color: rgba(10,10,10,0.55); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help; flex: none; margin-left: 5px;">i</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(127,83,243,0.12); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#7F53F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Social Media Creator access</span><span title="Running a venue is demanding. We offer a complimentary creator seat so your media team can create great content while you focus on your business." style="width: 13px; height: 13px; border-radius: 50%; border: 1.3px solid rgba(10,10,10,0.4); color: rgba(10,10,10,0.55); font-size: 9px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; cursor: help; flex: none; margin-left: 5px;">i</span></div>
+          </div>
+
+          <div style="padding: 0 20px 40px;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Continue to Checkout</div>
+            <div style="font-size: 11px; color: rgba(10,10,10,0.4); text-align: center; line-height: 1.5; margin-top: 10px;">Your trial continues either way — this locks in the Founding Venue rate before it's gone.</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 3: Founding Venue cap reached -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Founding Venue cap reached</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Subscription</div>
+          </div>
+
+          <div style="margin: 20px 20px 0; background: #0A0A0A; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: rgba(255,255,255,0.55); text-transform: uppercase;">Your trial</div>
+            <div style="font-size: 24px; font-weight: 800; color: #fff;">5 days left in your trial</div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5;">You have full Premium access. No card on file yet.</div>
+            <div style="height: 6px; border-radius: 999px; background: rgba(255,255,255,0.15); overflow: hidden; margin-top: 6px;"><div style="width: 64%; height: 100%; background: #25EFB8; border-radius: 999px;"></div></div>
+          </div>
+
+          <div style="padding: 22px 20px 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">CHOOSE BILLING</div>
+          <div style="margin: 10px 20px 0; display: flex; background: rgba(10,10,10,0.06); border-radius: 12px; padding: 4px; gap: 4px;">
+            <div style="flex: 1; text-align: center; padding: 9px; border-radius: 9px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); font-size: 13px; font-weight: 700; color: #0A0A0A; cursor: pointer;">Monthly</div>
+            <div style="flex: 1; text-align: center; padding: 9px; border-radius: 9px; font-size: 13px; font-weight: 700; color: rgba(10,10,10,0.5); cursor: pointer;">Annual <span style="font-weight: 700;">· 2 mth free</span></div>
+          </div>
+
+          <div style="margin: 14px 20px 0; border: 2px solid #7F53F3; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 4px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Premium</div>
+              <div style="font-size: 20px; font-weight: 800; color: #0A0A0A;">$39<span style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.5);">/mo</span></div>
+            </div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.5);">Billed monthly</div>
+          </div>
+
+          <div style="padding: 18px 20px 0;">
+            <div style="font-size: 12.5px; font-weight: 600; color: #7F53F3; cursor: pointer;">Have a code?</div>
+          </div>
+
+          <div style="padding: 20px 20px 40px;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Continue to Checkout</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 4: Free plan (lapsed, already used trial) -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">4</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Free plan (lapsed)</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Subscription</div>
+          </div>
+
+          <div style="margin: 20px 20px 0; background: #0A0A0A; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 20px; font-weight: 800; color: #fff;">You're on the Free plan</div>
+              <div style="background: rgba(255,255,255,0.12); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">Active</div>
+            </div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5;">Unlimited posts and the Universal Venue QR, always. Upgrade for the full analytics dashboard and more.</div>
+          </div>
+
+          <div style="padding: 22px 20px 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">CHOOSE BILLING</div>
+          <div style="margin: 10px 20px 0; display: flex; background: rgba(10,10,10,0.06); border-radius: 12px; padding: 4px; gap: 4px;">
+            <div style="flex: 1; text-align: center; padding: 9px; border-radius: 9px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); font-size: 13px; font-weight: 700; color: #0A0A0A; cursor: pointer;">Monthly</div>
+            <div style="flex: 1; text-align: center; padding: 9px; border-radius: 9px; font-size: 13px; font-weight: 700; color: rgba(10,10,10,0.5); cursor: pointer;">Annual <span style="font-weight: 700;">· 2 mth free</span></div>
+          </div>
+
+          <div style="margin: 14px 20px 0; border: 2px solid #7F53F3; border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 4px;">
+            <div style="display: flex; align-items: baseline; justify-content: space-between;">
+              <div style="font-size: 15px; font-weight: 800; color: #0A0A0A;">Premium</div>
+              <div style="font-size: 20px; font-weight: 800; color: #0A0A0A;">$39<span style="font-size: 12px; font-weight: 600; color: rgba(10,10,10,0.5);">/mo</span></div>
+            </div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.5);">Billed monthly</div>
+          </div>
+
+          <div style="padding: 18px 20px 0;">
+            <div style="font-size: 12.5px; font-weight: 600; color: #7F53F3; cursor: pointer;">Have a code?</div>
+          </div>
+
+          <div style="padding: 20px 20px 40px;">
+            <div style="background: #7F53F3; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 12px;">Upgrade to Premium</div>
+            <div style="font-size: 11px; color: rgba(10,10,10,0.4); text-align: center; line-height: 1.5; margin-top: 10px;">You've already used this venue's trial — no Founding Venue pricing applies.</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <!-- CARD 5: Premium active -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">5</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Premium active</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Subscription</div>
+          </div>
+
+          <div style="margin: 20px 20px 0; background: #0A0A0A; border-radius: 18px; padding: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 17px; font-weight: 800; color: #fff;">Premium</div>
+              <div style="background: rgba(37,239,184,0.15); color: #25EFB8; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px;">Active</div>
+            </div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.5;">Billed monthly · renews Aug 14, 2026</div>
+            <div style="font-size: 22px; font-weight: 800; color: #fff; margin-top: 4px;">$39<span style="font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5);"> / month</span></div>
+          </div>
+
+          <div style="padding: 16px 20px 0; display: flex; gap: 10px;">
+            <div style="flex: 1; text-align: center; padding: 11px; border-radius: 10px; background: rgba(10,10,10,0.05); font-size: 12.5px; font-weight: 700; color: #0A0A0A;">Switch to Annual</div>
+            <div style="flex: 1; text-align: center; padding: 11px; border-radius: 10px; background: rgba(10,10,10,0.05); font-size: 12.5px; font-weight: 700; color: #0A0A0A;">Manage billing</div>
+          </div>
+
+          <div style="padding: 22px 20px 6px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">INCLUDED IN YOUR PLAN</div>
+          <div style="padding: 4px 20px 20px; display: flex; flex-direction: column; gap: 9px;">
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#0A9B71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Full analytics dashboard</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#0A9B71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">QR scan analytics</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#0A9B71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Team seat (1 invite)</span></div>
+            <div style="display: flex; align-items: center; gap: 10px;"><div style="width: 18px; height: 18px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center; flex: none;"><svg width="9" height="8" viewBox="0 0 8 7" fill="none"><path d="M1 3.5L3 5.5L7 1" stroke="#0A9B71" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span style="font-size: 13px; color: #0A0A0A; font-weight: 600;">Priority support</span></div>
+          </div>
+
+          <div style="padding: 0 20px 40px;">
+            <div style="font-size: 12px; color: rgba(10,10,10,0.45); text-align: center; line-height: 1.5;">Downgrade to Free anytime — you'll keep your posts, QR and follower history.</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { billing: 'monthly', promoOpen: false, trialFeaturesOpen: false };
+  renderVals() {
+    const isMonthly = this.state.billing === 'monthly';
+    const tabActive = { flex: 1, textAlign: 'center', padding: '9px', borderRadius: '9px', background: '#fff', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', fontSize: '13px', fontWeight: 700, color: '#0A0A0A', cursor: 'pointer' };
+    const tabInactive = { flex: 1, textAlign: 'center', padding: '9px', borderRadius: '9px', fontSize: '13px', fontWeight: 700, color: 'rgba(10,10,10,0.5)', cursor: 'pointer' };
+    return {
+      setMonthly: () => this.setState({ billing: 'monthly' }),
+      setAnnual: () => this.setState({ billing: 'annual' }),
+      togglePromo: () => this.setState(s => ({ promoOpen: !s.promoOpen })),
+      promoOpen: this.state.promoOpen,
+      promoClosed: !this.state.promoOpen,
+      toggleTrialFeatures: () => this.setState(s => ({ trialFeaturesOpen: !s.trialFeaturesOpen })),
+      trialFeaturesOpen: this.state.trialFeaturesOpen,
+      trialFeaturesToggleLabel: this.state.trialFeaturesOpen ? 'Show less' : 'See all features',
+      monthlyTabStyle: isMonthly ? tabActive : tabInactive,
+      annualTabStyle: !isMonthly ? tabActive : tabInactive,
+      planPrice: isMonthly ? '$39/mo' : '$390/yr',
+      planPeriodNote: isMonthly ? 'Billed monthly' : 'Billed annually · 2 months free'
+    };
+  }
+}
+</script>
+</body>
+</html>

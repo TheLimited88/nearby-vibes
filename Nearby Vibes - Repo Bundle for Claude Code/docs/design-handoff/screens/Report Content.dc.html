@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: oklch(98% 0.003 90); font-family: 'Inter', -apple-system, system-ui, sans-serif; }
+  a { color: #7F53F3; }
+  a:hover { color: #95048B; }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="padding: 56px 64px 80px; display: flex; flex-direction: column; gap: 36px; min-height: 100vh; box-sizing: border-box;">
+
+  <div style="display: flex; flex-direction: column; gap: 10px;">
+    <div style="font-size: 13px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #7F53F3;">Nearby Vibes — Design Brief</div>
+    <div style="font-size: 34px; font-weight: 800; color: #0A0A0A; letter-spacing: -0.01em;">Report Content</div>
+    <div style="font-size: 16px; color: rgba(10,10,10,0.6); max-width: 680px; line-height: 1.5;">Reached from the "Report" link on a Venue Profile, or from a post's overflow menu. Reports route to the Admin panel queue (spec pending) for review.</div>
+  </div>
+
+  <div style="display: flex; gap: 56px; overflow-x: auto; padding: 8px 8px 24px; align-items: flex-start;">
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">1</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Choose a reason</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <a href="./Nearby Vibes - Venue Profile.dc.html" style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; text-decoration: none; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Report</div>
+          </div>
+
+          <div style="padding: 18px 20px 4px; display: flex; align-items: center; gap: 10px;">
+            <image-slot id="report-target" shape="rounded" radius="10" placeholder="Logo" style="width: 38px; height: 38px; flex: none;"></image-slot>
+            <div>
+              <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Aye Aye Bar</div>
+              <div style="font-size: 11.5px; color: rgba(10,10,10,0.5);">Reporting this venue</div>
+            </div>
+          </div>
+
+          <div style="padding: 18px 20px 6px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">WHAT'S THE ISSUE?</div>
+          <div style="padding: 4px 20px; display: flex; flex-direction: column; gap: 8px;">
+
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #7F53F3; background: rgba(127,83,243,0.05); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Inappropriate or offensive content</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; background: #7F53F3; display: flex; align-items: center; justify-content: center; flex: none;">
+                <div style="width: 7px; height: 7px; border-radius: 50%; background: #fff;"></div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">False or misleading special</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Underage / alcohol policy violation</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Impersonation or fraud</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Copyright or legal complaint</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Something else</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+
+          </div>
+
+          <div style="padding: 18px 20px 6px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">ADDITIONAL DETAILS (OPTIONAL)</div>
+          <div style="padding: 4px 20px 20px;">
+            <div style="border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px; font-size: 13.5px; color: rgba(10,10,10,0.35); min-height: 70px;">Add any context that will help our team review this report...</div>
+            <div style="font-size: 11px; color: rgba(10,10,10,0.35); text-align: right; margin-top: 6px;">0 / 200</div>
+          </div>
+
+          <div style="padding: 4px 20px 32px; margin-top: auto;">
+            <div style="background: #0A0A0A; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Submit Report</div>
+            <div style="font-size: 10.5px; color: rgba(10,10,10,0.4); text-align: center; margin-top: 10px; line-height: 1.4;">Reports are reviewed by the Nearby Vibes team and are not shared with the reported venue.</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">2</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Report a post</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column;">
+
+          <div style="padding: 62px 20px 0; display: flex; align-items: center; gap: 12px;">
+            <div style="width: 34px; height: 34px; border-radius: 10px; background: rgba(10,10,10,0.05); display: flex; align-items: center; justify-content: center; flex: none;">
+              <svg width="9" height="14" viewBox="0 0 9 14" fill="none"><path d="M8 1L1.5 7L8 13" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </div>
+            <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Report</div>
+          </div>
+
+          <div style="padding: 18px 20px 4px;">
+            <div style="display: flex; gap: 10px; border: 1.5px solid rgba(10,10,10,0.08); border-radius: 14px; padding: 10px;">
+              <image-slot id="report-post" shape="rounded" radius="10" placeholder="Post photo" style="width: 52px; height: 52px; flex: none;"></image-slot>
+              <div>
+                <div style="font-size: 13.5px; font-weight: 700; color: #0A0A0A;">Aye Aye Bar</div>
+                <div style="font-size: 12px; color: rgba(10,10,10,0.55);">2 for 1 Margaritas</div>
+                <div style="font-size: 11px; color: rgba(10,10,10,0.4); margin-top: 2px;">Reporting this post</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding: 18px 20px 6px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: rgba(10,10,10,0.45);">WHAT'S THE ISSUE?</div>
+          <div style="padding: 4px 20px; display: flex; flex-direction: column; gap: 8px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Inappropriate or offensive content</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid #7F53F3; background: rgba(127,83,243,0.05); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">False or misleading special</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; background: #7F53F3; display: flex; align-items: center; justify-content: center; flex: none;">
+                <div style="width: 7px; height: 7px; border-radius: 50%; background: #fff;"></div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Underage / alcohol policy violation</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Spam or scam</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; border: 1.5px solid rgba(10,10,10,0.12); border-radius: 12px; padding: 13px 14px;">
+              <span style="font-size: 13.5px; font-weight: 600; color: #0A0A0A;">Something else</span>
+              <div style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(10,10,10,0.2); flex: none;"></div>
+            </div>
+          </div>
+
+          <div style="padding: 4px 20px 32px; margin-top: auto;">
+            <div style="background: #0A0A0A; color: #fff; font-size: 14.5px; font-weight: 700; text-align: center; padding: 14px; border-radius: 14px;">Submit Report</div>
+          </div>
+
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 18px; flex: none;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 22px; height: 22px; border-radius: 50%; background: #0A0A0A; color: #fff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</div>
+        <div style="font-size: 15px; font-weight: 600; color: #0A0A0A;">Submitted</div>
+      </div>
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402,874">
+        <div style="position: relative; width: 100%; height: 100%; overflow: hidden; background: #fff;">
+        <div style="width: 100%; height: 100%; overflow: auto; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; box-sizing: border-box; gap: 16px; text-align: center;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(37,239,184,0.15); display: flex; align-items: center; justify-content: center;">
+            <svg width="26" height="20" viewBox="0 0 26 20" fill="none"><path d="M2 10L9.5 17.5L24 2" stroke="#0A9B71" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div style="font-size: 19px; font-weight: 800; color: #0A0A0A;">Report submitted</div>
+          <div style="font-size: 13.5px; color: rgba(10,10,10,0.6); line-height: 1.55; max-width: 280px;">Thanks for helping keep Nearby Vibes safe. Our team reviews every report and will take action if it violates our policies.</div>
+          <a href="./Nearby Vibes - Home Tile View.dc.html" style="margin-top: 8px; background: #0A0A0A; color: #fff; font-size: 14px; font-weight: 700; text-align: center; padding: 13px 22px; border-radius: 12px; text-decoration: none;">Back to Home</a>
+        </div>
+        </div>
+      </x-import>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+</body>
+</html>

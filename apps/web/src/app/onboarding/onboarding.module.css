@@ -1,0 +1,113 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 400px;
+}
+
+.icon {
+  font-size: 80px;
+  margin-bottom: 32px;
+  display: block;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 16px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0 0 40px;
+  line-height: 1.5;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.2);
+  transition: all 200ms ease;
+}
+
+.dot.active {
+  background: #7F53F3;
+  width: 24px;
+  border-radius: 999px;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.nextBtn {
+  padding: 16px;
+  background: #7F53F3;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.nextBtn:hover {
+  background: #95048B;
+}
+
+.skipBtn {
+  padding: 12px;
+  background: transparent;
+  color: rgba(10, 10, 10, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.skipBtn:hover {
+  color: #0A0A0A;
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .icon {
+    font-size: 60px;
+  }
+}

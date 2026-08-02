@@ -1,0 +1,31 @@
+.card {
+  border-radius: 12px;
+  transition: all 200ms ease;
+}
+
+.default {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+}
+
+.elevated {
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.outlined {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+}
+
+.pad-sm {
+  padding: 12px;
+}
+
+.pad-md {
+  padding: 16px;
+}
+
+.pad-lg {
+  padding: 20px;
+}

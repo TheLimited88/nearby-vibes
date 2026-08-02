@@ -1,0 +1,134 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  position: relative;
+  transition: all 200ms ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.card.popular {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(127, 83, 243, 0.1);
+  transform: scale(1.02);
+}
+
+.badge {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: linear-gradient(135deg, #95048b, #7f53f3);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 8px 0;
+  color: var(--text-primary);
+}
+
+.description {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+
+.pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.period {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.features {
+  list-style: none;
+  margin: 0 0 24px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.included {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.excluded {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.icon {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.included .icon {
+  background: rgba(10, 155, 113, 0.1);
+  color: #0a9b71;
+}
+
+.excluded .icon {
+  background: rgba(107, 114, 128, 0.1);
+  color: #9ca3af;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 20px;
+  }
+
+  .card.popular {
+    transform: scale(1);
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+}

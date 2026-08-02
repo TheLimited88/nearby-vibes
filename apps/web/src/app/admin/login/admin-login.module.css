@@ -1,0 +1,168 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 32px;
+  text-align: center;
+}
+
+.form {
+  width: 100%;
+}
+
+.stepTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0A0A0A;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.error {
+  padding: 12px;
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0A0A0A;
+}
+
+.input,
+.totpInput {
+  padding: 12px 14px;
+  border: 1.5px solid rgba(10, 10, 10, 0.15);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #0A0A0A;
+  transition: all 200ms ease;
+}
+
+.input:focus,
+.totpInput:focus {
+  outline: none;
+  border-color: #7F53F3;
+  box-shadow: 0 0 0 3px rgba(127, 83, 243, 0.1);
+}
+
+.input::placeholder,
+.totpInput::placeholder {
+  color: rgba(10, 10, 10, 0.4);
+}
+
+.totpInput {
+  font-size: 28px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 8px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  background: #7F53F3;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  margin-top: 24px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #95048B;
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.backBtn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  color: rgba(10, 10, 10, 0.5);
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: all 200ms ease;
+}
+
+.backBtn:hover {
+  color: #0A0A0A;
+}
+
+.footer {
+  font-size: 11px;
+  color: rgba(10, 10, 10, 0.4);
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .submitBtn {
+    margin-top: 20px;
+  }
+}

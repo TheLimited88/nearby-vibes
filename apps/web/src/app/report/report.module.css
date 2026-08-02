@@ -1,0 +1,190 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.backBtn:hover {
+  background: rgba(10, 10, 10, 0.04);
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.content {
+  flex: 1;
+  padding: 32px 20px;
+  background: white;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0 0 32px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+}
+
+.reasonGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+
+.reasonBtn {
+  padding: 12px;
+  background: rgba(10, 10, 10, 0.06);
+  border: 1.5px solid transparent;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #0A0A0A;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.reasonBtn:hover {
+  background: rgba(10, 10, 10, 0.1);
+}
+
+.reasonBtn.selected {
+  background: #7F53F3;
+  color: white;
+  border-color: #7F53F3;
+}
+
+.textarea {
+  padding: 12px;
+  border: 1.5px solid rgba(10, 10, 10, 0.15);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  color: #0A0A0A;
+  resize: vertical;
+  transition: all 200ms ease;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #7F53F3;
+  box-shadow: 0 0 0 3px rgba(127, 83, 243, 0.1);
+}
+
+.textarea::placeholder {
+  color: rgba(10, 10, 10, 0.4);
+}
+
+.submitBtn {
+  padding: 14px;
+  background: #7F53F3;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  margin-top: 12px;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #95048B;
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.successMessage {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.successIcon {
+  font-size: 60px;
+  color: #0A9B71;
+  margin-bottom: 20px;
+}
+
+.successMessage h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0 0 8px;
+}
+
+.successMessage p {
+  font-size: 14px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 24px 16px;
+  }
+
+  .reasonGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

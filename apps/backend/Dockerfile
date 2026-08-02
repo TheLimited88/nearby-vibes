@@ -1,0 +1,46 @@
+# Single-stage build for Nearby Vibes API
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Copy root package files and workspace config
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+# Copy all workspace package.json files
+COPY apps/backend/package.json ./apps/backend/
+COPY packages/types/package.json ./packages/types/
+
+# Install pnpm and all dependencies
+RUN npm install -g pnpm && pnpm install --frozen-lockfile
+
+# Copy source code for all workspaces
+COPY apps/backend ./apps/backend
+COPY packages/types ./packages/types
+COPY tsconfig.json ./
+
+# Build backend
+WORKDIR /app/apps/backend
+RUN pnpm build
+
+# Return to app root for runtime
+WORKDIR /app
+
+# Create non-root user
+RUN addgroup -g 1001 -S nodejs && adduser -S nodejs -u 1001
+USER nodejs
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3001/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
+
+# Expose port
+EXPOSE 3001
+
+# Use dumb-init to handle signals properly
+ENTRYPOINT ["dumb-init", "--"]
+
+# Start application
+CMD ["node", "apps/backend/dist/main.js"]

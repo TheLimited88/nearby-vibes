@@ -1,0 +1,159 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-canvas);
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A0A0A;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 200ms ease;
+}
+
+.backBtn:hover {
+  background: rgba(10, 10, 10, 0.04);
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.titleSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 20px 16px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0A0A0A;
+  margin: 0;
+}
+
+.badge {
+  background: #25EFB8;
+  color: #0A0A0A;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.notificationsList {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 20px 20px;
+}
+
+.notificationCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 200ms ease;
+  position: relative;
+}
+
+.notificationCard:hover {
+  background: rgba(10, 10, 10, 0.02);
+}
+
+.notificationCard.unread {
+  background: rgba(127, 83, 243, 0.05);
+}
+
+.notificationIcon {
+  font-size: 20px;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notificationContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.notificationTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0A0A0A;
+  margin: 0 0 2px;
+}
+
+.notificationMessage {
+  font-size: 12px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0 0 4px;
+}
+
+.timestamp {
+  font-size: 10px;
+  color: rgba(10, 10, 10, 0.4);
+  margin: 0;
+}
+
+.unreadDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #7F53F3;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.empty p {
+  font-size: 14px;
+  color: rgba(10, 10, 10, 0.6);
+  margin: 0;
+}
+
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+  }
+}
